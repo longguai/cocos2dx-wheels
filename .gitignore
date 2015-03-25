@@ -174,11 +174,11 @@ $RECYCLE.BIN/
 .DS_Store
 
 .cocos-project.json
+/cocos2d/
 /proj.android/.classpath
 /proj.android/.cproject
 /proj.android/.project
 /proj.android/.settings
-/proj.android/.settings/
-/proj.linux/
-/proj.win8.1-universal/
-/proj.wp8-xaml/
+/proj.linux
+/proj.win8.1-universal
+/proj.wp8-xaml
