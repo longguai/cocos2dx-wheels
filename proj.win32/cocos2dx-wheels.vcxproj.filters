@@ -21,9 +21,6 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\wheels\CWScrollBar.cpp">
       <Filter>wheels</Filter>
     </ClCompile>
@@ -31,6 +28,12 @@
       <Filter>wheels</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\wheels\CWTableView.cpp">
+      <Filter>wheels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TestCaseScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\cocos2dx-wheels.cpp">
       <Filter>wheels</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,9 +44,6 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\wheels\CWScrollBar.h">
       <Filter>wheels</Filter>
     </ClInclude>
@@ -51,6 +51,12 @@
       <Filter>wheels</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\wheels\CWRichTextEx.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TestCaseScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h">
       <Filter>wheels</Filter>
     </ClInclude>
   </ItemGroup>
