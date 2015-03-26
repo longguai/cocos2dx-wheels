@@ -22,11 +22,11 @@
 		46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		4A9E6EC11AC3A9E50028F9D9 /* CWRichTextEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */; };
 		4A9E6EC21AC3A9E50028F9D9 /* CWScrollBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */; };
 		4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */; };
+		4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6ECB1AC3BFB90028F9D9 /* TestCaseScene.cpp */; };
+		4A9E6ED51AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -115,14 +115,16 @@
 		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRichTextEx.cpp; sourceTree = "<group>"; };
 		4A9E6EBC1AC3A9E50028F9D9 /* CWRichTextEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRichTextEx.h; sourceTree = "<group>"; };
 		4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWScrollBar.cpp; sourceTree = "<group>"; };
 		4A9E6EBE1AC3A9E50028F9D9 /* CWScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWScrollBar.h; sourceTree = "<group>"; };
 		4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWTableView.cpp; sourceTree = "<group>"; };
 		4A9E6EC01AC3A9E50028F9D9 /* CWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableView.h; sourceTree = "<group>"; };
+		4A9E6ECB1AC3BFB90028F9D9 /* TestCaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCaseScene.cpp; sourceTree = "<group>"; };
+		4A9E6ECC1AC3BFB90028F9D9 /* TestCaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseScene.h; sourceTree = "<group>"; };
+		4A9E6ECE1AC3BFE90028F9D9 /* cocos2dx-wheels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cocos2dx-wheels.h"; sourceTree = "<group>"; };
+		4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "cocos2dx-wheels.cpp"; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -295,8 +297,8 @@
 				4A9E6EBA1AC3A9E50028F9D9 /* wheels */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				4A9E6ECB1AC3BFB90028F9D9 /* TestCaseScene.cpp */,
+				4A9E6ECC1AC3BFB90028F9D9 /* TestCaseScene.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -307,10 +309,12 @@
 			children = (
 				4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */,
 				4A9E6EBC1AC3A9E50028F9D9 /* CWRichTextEx.h */,
+				4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */,
 				4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */,
 				4A9E6EBE1AC3A9E50028F9D9 /* CWScrollBar.h */,
 				4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */,
 				4A9E6EC01AC3A9E50028F9D9 /* CWTableView.h */,
+				4A9E6ECE1AC3BFE90028F9D9 /* cocos2dx-wheels.h */,
 			);
 			path = wheels;
 			sourceTree = "<group>";
@@ -510,9 +514,10 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				4A9E6EC11AC3A9E50028F9D9 /* CWRichTextEx.cpp in Sources */,
-				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				4A9E6ED51AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp in Sources */,
 				4A9E6EC21AC3A9E50028F9D9 /* CWScrollBar.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */,
 				4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -525,7 +530,6 @@
 			files = (
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

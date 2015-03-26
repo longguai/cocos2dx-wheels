@@ -1,4 +1,5 @@
 ﻿#include "CWScrollBar.h"
+#include "2d/CCActionInterval.h"
 
 USING_NS_CC;
 
@@ -35,6 +36,16 @@ namespace cw {
 
         this->addChild(_thumbLayer);
         return true;
+    }
+
+    void ScrollBar::setColor(const Color3B &color) {
+        Node::setColor(color);
+        _thumbLayer->setColor(color);
+    }
+
+    void ScrollBar::setOpacity(GLubyte opacity) {
+        Node::setOpacity(opacity);
+        _thumbLayer->setOpacity(opacity);
     }
 
     void ScrollBar::setViewAndContentLength(float viewLength, float contentLength) {

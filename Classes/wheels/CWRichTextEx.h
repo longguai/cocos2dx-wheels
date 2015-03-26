@@ -22,7 +22,7 @@ public:
         CUSTOM,
         NEWLINE
     };
-    typedef std::function<void(Ref*, Ref*)> ccRichElementExClickCallback;
+    typedef std::function<void (Ref*, Ref*)> ccRichElementExClickCallback;
     RichElementEx(){};
     virtual ~RichElementEx(){};
     bool init(int tag, const Color3B& color, GLubyte opacity);

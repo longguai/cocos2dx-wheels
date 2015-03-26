@@ -375,6 +375,8 @@ void RichTextEx::handleTextRenderer(RichElementTextEx* elmtText, const std::stri
             }
             if (leftRenderer)
             {
+                leftRenderer->setHorizontalAlignment(TextHAlignment::CENTER);
+                leftRenderer->setVerticalAlignment(TextVAlignment::CENTER);
                 Node* nodeRenderer = Node::create();
                 nodeRenderer->setContentSize(leftRenderer->getContentSize());
                 nodeRenderer->addChild(leftRenderer);
@@ -402,6 +404,8 @@ void RichTextEx::handleTextRenderer(RichElementTextEx* elmtText, const std::stri
     }
     else
     {
+        textRenderer->setHorizontalAlignment(TextHAlignment::CENTER);
+        textRenderer->setVerticalAlignment(TextVAlignment::CENTER);
         Node* nodeRenderer = Node::create();
         nodeRenderer->setContentSize(textRenderer->getContentSize());
         nodeRenderer->addChild(textRenderer);
