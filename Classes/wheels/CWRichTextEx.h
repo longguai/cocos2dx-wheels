@@ -1,4 +1,4 @@
-#ifndef __CWRICHTEXTEX_H__
+﻿#ifndef __CWRICHTEXTEX_H__
 #define __CWRICHTEXTEX_H__
 
 #include "ui/UIRichText.h"

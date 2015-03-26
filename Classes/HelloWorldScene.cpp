@@ -1,4 +1,4 @@
-#include "HelloWorldScene.h"
+ï»¿#include "HelloWorldScene.h"
 #include "ui/UIButton.h"
 
 #include <codecvt>
@@ -240,14 +240,14 @@ cw::TableViewCell *HelloWorld::tableCellAtIndex(cw::TableView *table, ssize_t id
     }
     else {
         wchar_t wstrValue[64];
-        swprintf(wstrValue, L"ºº×Ö%lu", idx);
+        swprintf(wstrValue, L"æ±‰å­—%lu", idx);
 
         std::wstring_convert<std::codecvt_utf8<wchar_t> > conv;
 
         LabelTTF *label = (LabelTTF *)cell->getChildByTag(123);
         label->setString(conv.to_bytes(wstrValue));
-        //label->setString(u8"ºº×Ö");
-        //label->setString("ºº×Ö");
+        //label->setString(u8"æ±‰å­—");
+        //label->setString("æ±‰å­—");
         CCLOG("reuse + ");
     }
 

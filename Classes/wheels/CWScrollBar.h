@@ -1,4 +1,4 @@
-#ifndef _CWSCROLLBAR_H_
+﻿#ifndef _CWSCROLLBAR_H_
 #define _CWSCROLLBAR_H_
 
 //#include "2d/CCLayer.h"

@@ -1,4 +1,4 @@
-#include "CWScrollBar.h"
+﻿#include "CWScrollBar.h"
 
 USING_NS_CC;
 

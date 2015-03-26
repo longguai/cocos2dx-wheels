@@ -1,4 +1,4 @@
-#include "CWRichTextEx.h"
+﻿#include "CWRichTextEx.h"
 #include "base/CCEventListenerTouch.h"
 #include "base/CCDirector.h"
 
