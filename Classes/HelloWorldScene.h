@@ -3,6 +3,11 @@
 
 #include "cocos2d.h"
 
+namespace cw {
+    class TableViewCell;
+    class TableView;
+}
+
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -17,6 +22,8 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+
+    cw::TableViewCell *tableCellAtIndex(cw::TableView *table, ssize_t idx);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

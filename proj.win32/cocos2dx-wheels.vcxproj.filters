@@ -10,6 +10,9 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="wheels">
+      <UniqueIdentifier>{07e5034a-804a-4406-8e54-22e23b02d47c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +24,15 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\wheels\CWScrollBar.cpp">
+      <Filter>wheels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\CWRichTextEx.cpp">
+      <Filter>wheels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\CWTableView.cpp">
+      <Filter>wheels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -31,6 +43,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWScrollBar.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWTableView.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWRichTextEx.h">
+      <Filter>wheels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
