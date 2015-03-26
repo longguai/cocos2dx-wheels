@@ -39,7 +39,7 @@ namespace cw {
         Size size(0.0F, 0.0F);
         size.width = ((col == 1) ? (eachContentSize.width) : (eachContentSize.width * col + gapSize.width * (col - 1)));
         size.height = ((row == 1) ? (eachContentSize.height) : (eachContentSize.height * row + gapSize.height * (row - 1)));
-        
+
         root->setContentSize(size);
 
         float posX = eachContentSize.width * 0.5;
@@ -57,7 +57,7 @@ namespace cw {
                 posY -= (eachContentSize.height + gapSize.height);
             }
         }
-        
+
         return root;
     }
 

@@ -11,7 +11,7 @@ namespace cocos2d {
 }
 
 namespace cw {
-    
+
 class RichElementEx : public Ref
 {
 public:
@@ -66,7 +66,7 @@ protected:
     Color3B _outlineColor;
     float _outlineSize;
     friend class RichTextEx;
-    
+
 };
 
 class RichElementImageEx : public RichElementEx
@@ -119,7 +119,7 @@ public:
 protected:
     friend class RichTextEx;
 };
-    
+
 class RichTextEx : public Widget
 {
 public:
@@ -145,7 +145,7 @@ public:
 
 CC_CONSTRUCTOR_ACCESS:
     virtual bool init() override;
-    
+
 protected:
     virtual void initRenderer();
     void pushToContainer(Node* renderer);

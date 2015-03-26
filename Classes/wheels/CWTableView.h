@@ -16,7 +16,7 @@ namespace cw {
     {
     public:
         CREATE_FUNC(TableViewCell);
-        
+
         TableViewCell() {}
         /**
          * The index used internally by SWTableView and its subclasses
@@ -27,7 +27,7 @@ namespace cw {
          * Cleans up any resources linked to this cell and resets <code>idx</code> property.
          */
         void reset() { _idx = CC_INVALID_INDEX; }
-        
+
     private:
         ssize_t _idx;
     };
@@ -51,7 +51,7 @@ namespace cw {
          * @lua NA
          */
         virtual void tableCellTouched(TableView* table, TableViewCell* cell) = 0;
-        
+
         /**
          * Delegate to respond a table cell press event.
          *
@@ -61,7 +61,7 @@ namespace cw {
          * @lua NA
          */
         virtual void tableCellHighlight(TableView* table, TableViewCell* cell){};
-        
+
         /**
          * Delegate to respond a table cell release event
          *
@@ -71,7 +71,7 @@ namespace cw {
          * @lua NA
          */
         virtual void tableCellUnhighlight(TableView* table, TableViewCell* cell){};
-        
+
         /**
          * Delegate called when the cell is about to be recycled. Immediately
          * after this call the cell will be removed from the scene graph and
@@ -96,7 +96,7 @@ namespace cw {
          * @lua NA
          */
         virtual ~TableViewDataSource() {}
-        
+
         /**
          * cell size for a given index
          *
@@ -128,7 +128,7 @@ namespace cw {
          * @return number of cells
          */
         virtual ssize_t numberOfCellsInTableView(TableView *table) = 0;
-        
+
     };
 
     class TableView: public ScrollView
@@ -159,12 +159,12 @@ namespace cw {
          * Default constructor
          */
         TableView();
-        
+
         /**
          * Default destructor
          */
         virtual ~TableView();
-        
+
         /**
          * Allocates and initializes.
          */
@@ -173,7 +173,7 @@ namespace cw {
 
         bool init();
         CC_DEPRECATED_ATTRIBUTE bool initWithViewSize(TableViewDataSource *dataSource, const Size &size);
-        
+
         /**
          * data source
          * @js NA
@@ -249,7 +249,7 @@ namespace cw {
          * @return free cell
          */
         TableViewCell *dequeueCell();
-        
+
         /**
          * Returns an existing cell at a given index. Returns nil if a cell is nonexistent at the moment of query.
          *
@@ -259,7 +259,7 @@ namespace cw {
         TableViewCell *cellAtIndex(ssize_t idx);
 
         virtual void setDirection(ScrollView::Direction dir) override;
-        
+
         //handle touch event
         virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) override;
         virtual void onTouchMoved(Touch *touch, Event *unusedEvent) override;
@@ -286,25 +286,25 @@ namespace cw {
         long _indexFromOffset(Vec2 offset);
         Vec2 __offsetFromIndex(ssize_t index);
         Vec2 _offsetFromIndex(ssize_t index);
-        
+
         void _moveCellOutOfSight(TableViewCell *cell);
         void _setIndexForCell(ssize_t index, TableViewCell *cell);
         void _addCellIfNecessary(TableViewCell * cell);
-        
+
         void _updateCellPositions();
         void _scrollViewDidScroll();
-        
+
         TableViewCell *_touchedCell;
         /**
          * vertical direction of cell filling
          */
         VerticalFillOrder _vordering;
-        
+
         /**
          * index set to query the indexes of the cells used.
          */
         std::set<ssize_t>* _indices;
-        
+
         /**
          * vector with all cell positions
          */
@@ -326,9 +326,9 @@ namespace cw {
         ccNumberOfCellsInTableView _numberOfCellsInTableView;
 
         Direction _oldDirection;
-        
+
         bool _isUsedCellsDirty;
-        
+
     public:
         void _updateContentSize();
     };

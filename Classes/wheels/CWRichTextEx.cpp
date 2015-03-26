@@ -11,7 +11,7 @@
 USING_NS_CC;
 
 namespace cw {
-    
+
 static std::string utf8_substr(const std::string& str, unsigned long start, unsigned long leng)
 {
     if (leng==0)
@@ -29,9 +29,9 @@ static std::string utf8_substr(const std::string& str, unsigned long start, unsi
         {
             max = i;
         }
-        
+
         c = (unsigned char) str[i];
-        
+
         if      (c<=127) i+=0;
         else if ((c & 0xE0) == 0xC0) i+=1;
         else if ((c & 0xF0) == 0xE0) i+=2;
@@ -157,7 +157,7 @@ _emptyLineHeight(0.0f),
 _hAlignment(TextHAlignment::LEFT),
 _elementRenderersContainer(nullptr)
 {
-    
+
 }
 
 RichTextEx::~RichTextEx()
@@ -284,7 +284,7 @@ void RichTextEx::formatText()
             addNewLine();
             for (ssize_t i=0; i<_richElements.size(); i++)
             {
-                
+
                 RichElementEx* element = _richElements.at(i);
                 switch (element->_type)
                 {
@@ -325,7 +325,7 @@ void RichTextEx::handleTextRenderer(RichElementTextEx* elmtText, const std::stri
 {
     auto fileExist = FileUtils::getInstance()->isFileExist(fontName);
     Label* textRenderer = nullptr;
-    
+
     // support new line
     std::string::size_type pos = text.find('\n');
     std::string subText;
@@ -398,7 +398,7 @@ void RichTextEx::handleTextRenderer(RichElementTextEx* elmtText, const std::stri
                 pushToContainer(nodeRenderer);
             }
         }
-        
+
         addNewLine();
         handleTextRenderer(elmtText, cutWords, fontName, fontSize, color, opacity);
     }
@@ -426,7 +426,7 @@ void RichTextEx::handleTextRenderer(RichElementTextEx* elmtText, const std::stri
         nodeRenderer->setUserData(elmtText);
         pushToContainer(nodeRenderer);
     }
-    
+
     // remainder
     if (pos != std::string::npos)
     {
@@ -504,7 +504,7 @@ void RichTextEx::formatRenderers()
     {
         float newContentSizeWidth = 0.0f;
         float newContentSizeHeight = 0.0f;
-        
+
         Vector<Node*>* row = (_elementRenders[0]);
         float nextPosX = 0.0f;
         for (ssize_t j=0; j<row->size(); j++)
@@ -524,7 +524,7 @@ void RichTextEx::formatRenderers()
     {
         float newContentSizeHeight = 0.0f;
         Size *rowSizes = new Size[_elementRenders.size()];
-        
+
         for (size_t i=0,length=_elementRenders.size(); i<length; ++i)
         {
             Vector<Node*>* row = (_elementRenders[i]);
@@ -541,10 +541,10 @@ void RichTextEx::formatRenderers()
             rowSizes[i].height = row->empty() ? _emptyLineHeight : maxHeight;
             newContentSizeHeight += (rowSizes[i].height + _verticalSpace);
         }
-        
+
         newContentSizeHeight -= _verticalSpace;
         _customSize.height = newContentSizeHeight;
-        
+
         float nextPosY = _customSize.height;
         for (size_t i=0,length=_elementRenders.size(); i<length; ++i)
         {
@@ -558,7 +558,7 @@ void RichTextEx::formatRenderers()
                 default: break;
             }
             nextPosY -= rowSizes[i].height;
-            
+
             for (auto it=row->begin(),end=row->end(); it!=end; ++it)
             {
                 Node* l = *it;
@@ -569,20 +569,20 @@ void RichTextEx::formatRenderers()
             }
             nextPosY -= _verticalSpace;
         }
-        
+
         _elementRenderersContainer->setContentSize(_customSize);
         delete [] rowSizes;
     }
-    
+
     size_t length = _elementRenders.size();
     for (size_t i = 0; i<length; i++)
     {
         Vector<Node*>* l = _elementRenders[i];
         l->clear();
         delete l;
-    }    
+    }
     _elementRenders.clear();
-    
+
     if (_ignoreSize)
     {
         Size s = getVirtualRendererSize();
@@ -622,7 +622,7 @@ void RichTextEx::setVerticalSpace(float space)
         _formatTextDirty = true;
     }
 }
-    
+
 float RichTextEx::getVerticalSpace() const
 {
     return _verticalSpace;
@@ -674,7 +674,7 @@ void RichTextEx::ignoreContentAdaptWithSize(bool ignore)
         Widget::ignoreContentAdaptWithSize(ignore);
     }
 }
-    
+
 void RichTextEx::releaseUpEvent()
 {
     Vector<Node*> &children = _elementRenderersContainer->getChildren();
@@ -696,7 +696,7 @@ void RichTextEx::releaseUpEvent()
             }
         }
     }
-    
+
     Widget::releaseUpEvent();
 }
 
