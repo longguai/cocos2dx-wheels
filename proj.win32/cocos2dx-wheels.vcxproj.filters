@@ -36,6 +36,9 @@
     <ClCompile Include="..\Classes\wheels\cocos2dx-wheels.cpp">
       <Filter>wheels</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\wheels\CWGeometry.cpp">
+      <Filter>wheels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -57,6 +60,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWGeometry.h">
       <Filter>wheels</Filter>
     </ClInclude>
   </ItemGroup>

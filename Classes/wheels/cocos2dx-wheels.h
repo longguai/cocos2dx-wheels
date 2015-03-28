@@ -1,9 +1,10 @@
-#ifndef _COCOS2DX_WHEELS_H_
+﻿#ifndef _COCOS2DX_WHEELS_H_
 #define _COCOS2DX_WHEELS_H_
 
 #include "CWRichTextEx.h"
 #include "CWScrollBar.h"
 #include "CWTableView.h"
+#include "CWGeometry.h"
 #include "base/CCVector.h"
 #include "2d/CCActionInterval.h"
 
