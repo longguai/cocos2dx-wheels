@@ -22,6 +22,7 @@
 		46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
+		4A9E5DDA1AC4F782009C120B /* CWGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E5DD81AC4F782009C120B /* CWGeometry.cpp */; };
 		4A9E6EC11AC3A9E50028F9D9 /* CWRichTextEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */; };
 		4A9E6EC21AC3A9E50028F9D9 /* CWScrollBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */; };
 		4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */; };
@@ -115,6 +116,8 @@
 		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4A9E5DD81AC4F782009C120B /* CWGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWGeometry.cpp; sourceTree = "<group>"; };
+		4A9E5DD91AC4F782009C120B /* CWGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGeometry.h; sourceTree = "<group>"; };
 		4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRichTextEx.cpp; sourceTree = "<group>"; };
 		4A9E6EBC1AC3A9E50028F9D9 /* CWRichTextEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRichTextEx.h; sourceTree = "<group>"; };
 		4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWScrollBar.cpp; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 				4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */,
 				4A9E6EC01AC3A9E50028F9D9 /* CWTableView.h */,
 				4A9E6ECE1AC3BFE90028F9D9 /* cocos2dx-wheels.h */,
+				4A9E5DD81AC4F782009C120B /* CWGeometry.cpp */,
+				4A9E5DD91AC4F782009C120B /* CWGeometry.h */,
 			);
 			path = wheels;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				4A9E5DDA1AC4F782009C120B /* CWGeometry.cpp in Sources */,
 				4A9E6EC11AC3A9E50028F9D9 /* CWRichTextEx.cpp in Sources */,
 				4A9E6ED51AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp in Sources */,
 				4A9E6EC21AC3A9E50028F9D9 /* CWScrollBar.cpp in Sources */,
