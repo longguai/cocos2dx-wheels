@@ -9,6 +9,7 @@
 #include "2d/CCActionInterval.h"
 
 namespace cw {
+    // 创建与ScrollView关联的ScrollBar
     ScrollBar *createRelativeScrollBarForScrollView(cocos2d::ui::ScrollView *scrollView);
     void tableViewReloadData(cw::TableView *tableView, cw::ScrollBar *scrollBar);
 
@@ -19,6 +20,7 @@ namespace cw {
         node->addChild(layerColor, INT_MIN);
     }
 
+    // 将一组NODE排成一个矩阵
     template <class _NODE, class _VECTOR>
     _NODE *arrangeAsMatrixByColumn(const _VECTOR &array, int col, const cocos2d::Size &gapSize, cocos2d::Size eachContentSize = cocos2d::Size(0.0f, 0.0f)) {
         using namespace cocos2d;
@@ -89,6 +91,7 @@ namespace cw {
         }
     };
 
+    // 用不定长参数创建一个Sequence动作，参数可以用nullptr结尾，也可以不用，随便你
     template <class _FINITE_TIME_ACTION_0, class ..._FINITE_TIME_ACTION_N>
     cocos2d::Sequence *createSequence(_FINITE_TIME_ACTION_0 action0, _FINITE_TIME_ACTION_N...actionN) {
         cocos2d::Vector<cocos2d::FiniteTimeAction *> vec;
@@ -96,6 +99,7 @@ namespace cw {
         return cocos2d::Sequence::create(vec);
     }
 
+    // 用不定长参数创建一个Spawn动作，参数可以用nullptr结尾，也可以不用，随便你
     template <class _FINITE_TIME_ACTION_0, class ..._FINITE_TIME_ACTION_N>
     cocos2d::Spawn *createSpawn(_FINITE_TIME_ACTION_0 action0, _FINITE_TIME_ACTION_N...actionN) {
         cocos2d::Vector<cocos2d::FiniteTimeAction *> vec;

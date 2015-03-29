@@ -1,4 +1,4 @@
-#ifndef __cocos2dx_wheels__TestCaseScene__
+﻿#ifndef __cocos2dx_wheels__TestCaseScene__
 #define __cocos2dx_wheels__TestCaseScene__
 
 #include "cocos2d.h"

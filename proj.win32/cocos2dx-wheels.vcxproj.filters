@@ -13,6 +13,9 @@
     <Filter Include="wheels">
       <UniqueIdentifier>{07e5034a-804a-4406-8e54-22e23b02d47c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tests">
+      <UniqueIdentifier>{f49a1382-03c9-42ac-bc2d-6ef977912933}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,6 +42,18 @@
     <ClCompile Include="..\Classes\wheels\CWGeometry.cpp">
       <Filter>wheels</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\tests\ArrangeTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tests\InConvexPolygonTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tests\RichTextExTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tests\TableViewTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -64,6 +79,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\wheels\CWGeometry.h">
       <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWMacros.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\ArrangeTest.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\InConvexPolygonTest.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\RichTextExTest.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\TableViewTest.h">
+      <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
