@@ -28,6 +28,10 @@
 		4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */; };
 		4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6ECB1AC3BFB90028F9D9 /* TestCaseScene.cpp */; };
 		4A9E6ED51AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */; };
+		4AA6BEA91AC8E3CC00E063D3 /* ArrangeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA11AC8E3CC00E063D3 /* ArrangeTest.cpp */; };
+		4AA6BEAA1AC8E3CC00E063D3 /* InConvexPolygonTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA31AC8E3CC00E063D3 /* InConvexPolygonTest.cpp */; };
+		4AA6BEAB1AC8E3CC00E063D3 /* RichTextExTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA51AC8E3CC00E063D3 /* RichTextExTest.cpp */; };
+		4AA6BEAC1AC8E3CC00E063D3 /* TableViewTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA71AC8E3CC00E063D3 /* TableViewTest.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -128,6 +132,14 @@
 		4A9E6ECC1AC3BFB90028F9D9 /* TestCaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseScene.h; sourceTree = "<group>"; };
 		4A9E6ECE1AC3BFE90028F9D9 /* cocos2dx-wheels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cocos2dx-wheels.h"; sourceTree = "<group>"; };
 		4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "cocos2dx-wheels.cpp"; sourceTree = "<group>"; };
+		4AA6BEA11AC8E3CC00E063D3 /* ArrangeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrangeTest.cpp; path = tests/ArrangeTest.cpp; sourceTree = "<group>"; };
+		4AA6BEA21AC8E3CC00E063D3 /* ArrangeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrangeTest.h; path = tests/ArrangeTest.h; sourceTree = "<group>"; };
+		4AA6BEA31AC8E3CC00E063D3 /* InConvexPolygonTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InConvexPolygonTest.cpp; path = tests/InConvexPolygonTest.cpp; sourceTree = "<group>"; };
+		4AA6BEA41AC8E3CC00E063D3 /* InConvexPolygonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InConvexPolygonTest.h; path = tests/InConvexPolygonTest.h; sourceTree = "<group>"; };
+		4AA6BEA51AC8E3CC00E063D3 /* RichTextExTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RichTextExTest.cpp; path = tests/RichTextExTest.cpp; sourceTree = "<group>"; };
+		4AA6BEA61AC8E3CC00E063D3 /* RichTextExTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichTextExTest.h; path = tests/RichTextExTest.h; sourceTree = "<group>"; };
+		4AA6BEA71AC8E3CC00E063D3 /* TableViewTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TableViewTest.cpp; path = tests/TableViewTest.cpp; sourceTree = "<group>"; };
+		4AA6BEA81AC8E3CC00E063D3 /* TableViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewTest.h; path = tests/TableViewTest.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -297,6 +309,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4AA6BEA01AC8E3B800E063D3 /* tests */,
 				4A9E6EBA1AC3A9E50028F9D9 /* wheels */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
@@ -322,6 +335,21 @@
 				4A9E5DD91AC4F782009C120B /* CWGeometry.h */,
 			);
 			path = wheels;
+			sourceTree = "<group>";
+		};
+		4AA6BEA01AC8E3B800E063D3 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				4AA6BEA11AC8E3CC00E063D3 /* ArrangeTest.cpp */,
+				4AA6BEA21AC8E3CC00E063D3 /* ArrangeTest.h */,
+				4AA6BEA31AC8E3CC00E063D3 /* InConvexPolygonTest.cpp */,
+				4AA6BEA41AC8E3CC00E063D3 /* InConvexPolygonTest.h */,
+				4AA6BEA51AC8E3CC00E063D3 /* RichTextExTest.cpp */,
+				4AA6BEA61AC8E3CC00E063D3 /* RichTextExTest.h */,
+				4AA6BEA71AC8E3CC00E063D3 /* TableViewTest.cpp */,
+				4AA6BEA81AC8E3CC00E063D3 /* TableViewTest.h */,
+			);
+			name = tests;
 			sourceTree = "<group>";
 		};
 		503AE0F517EB97AB00D1A890 /* Icons */ = {
@@ -520,12 +548,16 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				4A9E5DDA1AC4F782009C120B /* CWGeometry.cpp in Sources */,
 				4A9E6EC11AC3A9E50028F9D9 /* CWRichTextEx.cpp in Sources */,
+				4AA6BEA91AC8E3CC00E063D3 /* ArrangeTest.cpp in Sources */,
 				4A9E6ED51AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp in Sources */,
 				4A9E6EC21AC3A9E50028F9D9 /* CWScrollBar.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */,
 				4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */,
+				4AA6BEAB1AC8E3CC00E063D3 /* RichTextExTest.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				4AA6BEAC1AC8E3CC00E063D3 /* TableViewTest.cpp in Sources */,
+				4AA6BEAA1AC8E3CC00E063D3 /* InConvexPolygonTest.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

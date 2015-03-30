@@ -1,5 +1,5 @@
 ﻿#include "RichTextExTest.h"
-#include "wheels/cocos2dx-wheels.h"
+#include "../wheels/cocos2dx-wheels.h"
 
 #pragma execution_character_set("utf-8")
 

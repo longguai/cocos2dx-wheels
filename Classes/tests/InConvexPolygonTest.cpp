@@ -1,5 +1,5 @@
 ﻿#include "InConvexPolygonTest.h"
-#include "wheels/cocos2dx-wheels.h"
+#include "../wheels/cocos2dx-wheels.h"
 
 bool InConvexPolygonTestLayer::init() {
     if (!Layer::init()) {

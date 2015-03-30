@@ -1,5 +1,5 @@
 ﻿#include "TableViewTest.h"
-#include "wheels/cocos2dx-wheels.h"
+#include "../wheels/cocos2dx-wheels.h"
 #include "ui/CocosGUI.h"
 #include <codecvt>
 

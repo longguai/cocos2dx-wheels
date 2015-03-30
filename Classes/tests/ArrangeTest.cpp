@@ -1,5 +1,5 @@
 ﻿#include "ArrangeTest.h"
-#include "wheels/cocos2dx-wheels.h"
+#include "../wheels/cocos2dx-wheels.h"
 
 bool ArrangeTestLayer::init() {
     if (!Layer::init()) {
