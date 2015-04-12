@@ -6,23 +6,22 @@
 
 namespace cw {
     namespace geometry {
-        using cocos2d::Vec2;
 
         // 判断点在凸多边形内
-        bool inConvexPolygon(const Vec2 vertices[], size_t n, const Vec2 &point);
+        bool inConvexPolygon(const cocos2d::Vec2 vertices[], size_t n, const cocos2d::Vec2 &point);
 
         template <size_t _N>
-        inline bool inConvexPolygon(const Vec2 (&vertices)[_N], const Vec2 &point) {
+        inline bool inConvexPolygon(const cocos2d::Vec2 (&vertices)[_N], const cocos2d::Vec2 &point) {
             return inConvexPolygon(vertices, _N, point);
         }
 
         template <template <class> class _ALLOC>
-        inline bool inConvexPolygon(const std::vector<Vec2, _ALLOC<Vec2> > &vertices, const Vec2 &point) {
+        inline bool inConvexPolygon(const std::vector<cocos2d::Vec2, _ALLOC<cocos2d::Vec2> > &vertices, const cocos2d::Vec2 &point) {
             return inConvexPolygon(&vertices[0], vertices.size(), point);
         }
 
         // 判断点在线段上
-        static inline bool onSegment(const Vec2 &p1, const Vec2 &p2, const Vec2 &a) {
+        static inline bool onSegment(const cocos2d::Vec2 &p1, const cocos2d::Vec2 &p2, const cocos2d::Vec2 &a) {
             if (p1.x < p2.x) { if (a.x < p1.x || a.x > p2.x) return false; }
             else             { if (a.x < p2.x || a.x > p1.x) return false; }
 
@@ -33,7 +32,7 @@ namespace cw {
         }
 
         // 判断线段相交
-        bool isSegmentIntersect(const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, const Vec2 &p4);
+        bool isSegmentIntersect(const cocos2d::Vec2 &p1, const cocos2d::Vec2 &p2, const cocos2d::Vec2 &p3, const cocos2d::Vec2 &p4);
     }
 }
 

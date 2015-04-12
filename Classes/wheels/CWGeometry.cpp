@@ -2,14 +2,14 @@
 
 namespace cw {
     namespace geometry {
-        bool inConvexPolygon(const Vec2 vertices[], size_t n, const Vec2 &point) {
+        bool inConvexPolygon(const cocos2d::Vec2 vertices[], size_t n, const cocos2d::Vec2 &point) {
             CC_ASSERT(n > 2);
             --n;
 
-            Vec2 pn;
-            Vec2::subtract(vertices[n], point, &pn);
-            Vec2 n0;
-            Vec2::subtract(vertices[0], vertices[n], &n0);
+            cocos2d::Vec2 pn;
+            cocos2d::Vec2::subtract(vertices[n], point, &pn);
+            cocos2d::Vec2 n0;
+            cocos2d::Vec2::subtract(vertices[0], vertices[n], &n0);
             float cross = pn.cross(n0);
             bool positive = true;
             if (cross == 0) {
@@ -19,10 +19,10 @@ namespace cw {
             }
 
             for (size_t i = 0; i < n; ++i) {
-                Vec2 pi0;
-                Vec2::subtract(vertices[i], point, &pi0);
-                Vec2 i1i0;
-                Vec2::subtract(vertices[i + 1], vertices[i], &i1i0);
+                cocos2d::Vec2 pi0;
+                cocos2d::Vec2::subtract(vertices[i], point, &pi0);
+                cocos2d::Vec2 i1i0;
+                cocos2d::Vec2::subtract(vertices[i + 1], vertices[i], &i1i0);
                 cross = pi0.cross(i1i0);
                 if (cross == 0) {
                     return true;
@@ -40,7 +40,7 @@ namespace cw {
             return true;
         }
 
-        bool isSegmentIntersect(const Vec2 &p1, const Vec2 &p2, const Vec2 &p3, const Vec2 &p4) {
+        bool isSegmentIntersect(const cocos2d::Vec2 &p1, const cocos2d::Vec2 &p2, const cocos2d::Vec2 &p3, const cocos2d::Vec2 &p4) {
             if ((p1.x == p2.x && p1.y == p2.y) || (p3.x == p4.x && p3.y == p4.y)) {
                 return false;
             }

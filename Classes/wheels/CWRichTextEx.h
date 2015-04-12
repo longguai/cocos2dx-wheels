@@ -3,16 +3,13 @@
 
 #include "ui/UIRichText.h"
 
-using namespace cocos2d;
-using namespace cocos2d::ui;
-
 namespace cocos2d {
     class Label;
 }
 
 namespace cw {
 
-class RichElementEx : public Ref
+class RichElementEx : public cocos2d::Ref
 {
 public:
     enum class Type
@@ -22,13 +19,13 @@ public:
         CUSTOM,
         NEWLINE
     };
-    typedef std::function<void (Ref*, Ref*)> ccRichElementExClickCallback;
+    typedef std::function<void (cocos2d::Ref*, cocos2d::Ref*)> ccRichElementExClickCallback;
     RichElementEx(){};
     virtual ~RichElementEx(){};
-    bool init(int tag, const Color3B& color, GLubyte opacity);
+    bool init(int tag, const cocos2d::Color3B& color, GLubyte opacity);
     Type getType() const { return _type; }
     int getTag() const { return _tag; }
-    const Color3B &getColor() const { return _color; }
+    const cocos2d::Color3B &getColor() const { return _color; }
     GLubyte getOpacity() const { return _opacity; }
     void setClickCallback(const ccRichElementExClickCallback &clickCallback) { _clickCallback = clickCallback; }
     const ccRichElementExClickCallback &getClickCallback() const { return _clickCallback; }
@@ -36,7 +33,7 @@ public:
 protected:
     Type _type;
     int _tag;
-    Color3B _color;
+    cocos2d::Color3B _color;
     GLubyte _opacity;
     ccRichElementExClickCallback _clickCallback;
     friend class RichTextEx;
@@ -47,14 +44,14 @@ class RichElementTextEx : public RichElementEx
 public:
     RichElementTextEx(){_type = Type::TEXT; _underlineEnable = false; _outlineEnable = false;};
     virtual ~RichElementTextEx(){};
-    bool init(int tag, const Color3B& color, GLubyte opacity, const std::string& text, const std::string& fontName, float fontSize);
-    static RichElementTextEx* create(int tag, const Color3B& color, GLubyte opacity, const std::string& text, const std::string& fontName, float fontSize);
+    bool init(int tag, const cocos2d::Color3B& color, GLubyte opacity, const std::string& text, const std::string& fontName, float fontSize);
+    static RichElementTextEx* create(int tag, const cocos2d::Color3B& color, GLubyte opacity, const std::string& text, const std::string& fontName, float fontSize);
     const std::string &getText() const { return _text; }
     const std::string &getFontName() const { return _fontName; }
     float getFontSize() const { return _fontSize; }
     void enableUnderline() { _underlineEnable = true; }
     void disableUnderline() { _underlineEnable = false; }
-    void enableOutline(const Color3B &outlineColor, float outlineSize){_outlineEnable = true; _outlineColor = outlineColor; _outlineSize = outlineSize;}
+    void enableOutline(const cocos2d::Color3B &outlineColor, float outlineSize){ _outlineEnable = true; _outlineColor = outlineColor; _outlineSize = outlineSize; }
     void disableOutline() { _outlineEnable = false; }
 
 protected:
@@ -63,7 +60,7 @@ protected:
     float _fontSize;
     bool _underlineEnable;
     bool _outlineEnable;
-    Color3B _outlineColor;
+    cocos2d::Color3B _outlineColor;
     float _outlineSize;
     friend class RichTextEx;
 
@@ -79,8 +76,8 @@ public:
     };
     RichElementImageEx(){_type = Type::IMAGE; _textureType = TextureType::LOCAL; _scaleX = _scaleY = 1.0f;};
     virtual ~RichElementImageEx(){};
-    bool init(int tag, const Color3B& color, GLubyte opacity, const std::string& filePath, TextureType textureType);
-    static RichElementImageEx* create(int tag, const Color3B& color, GLubyte opacity, const std::string& filePath, TextureType textureType);
+    bool init(int tag, const cocos2d::Color3B& color, GLubyte opacity, const std::string& filePath, TextureType textureType);
+    static RichElementImageEx* create(int tag, const cocos2d::Color3B& color, GLubyte opacity, const std::string& filePath, TextureType textureType);
     const std::string &getFilePath() const { return _filePath; }
     TextureType getTextureType() const { return _textureType; }
     void setScale(float scale){_scaleX = _scaleY = scale;}
@@ -90,7 +87,7 @@ public:
 
 protected:
     std::string _filePath;
-    Rect _textureRect;
+    cocos2d::Rect _textureRect;
     TextureType _textureType;
     float _scaleX;
     float _scaleY;
@@ -102,10 +99,10 @@ class RichElementCustomNodeEx : public RichElementEx
 public:
     RichElementCustomNodeEx(){_type = Type::CUSTOM;};
     virtual ~RichElementCustomNodeEx(){CC_SAFE_RELEASE(_customNode);};
-    bool init(int tag, const Color3B& color, GLubyte opacity, Node* customNode);
-    static RichElementCustomNodeEx* create(int tag, const Color3B& color, GLubyte opacity, Node* customNode);
+    bool init(int tag, const cocos2d::Color3B& color, GLubyte opacity, cocos2d::Node* customNode);
+    static RichElementCustomNodeEx* create(int tag, const cocos2d::Color3B& color, GLubyte opacity, cocos2d::Node* customNode);
 protected:
-    Node* _customNode;
+    cocos2d::Node* _customNode;
     friend class RichTextEx;
 };
 
@@ -120,7 +117,7 @@ protected:
     friend class RichTextEx;
 };
 
-class RichTextEx : public Widget
+class RichTextEx : public cocos2d::ui::Widget
 {
 public:
     RichTextEx();
@@ -130,15 +127,15 @@ public:
     void pushBackElement(RichElementEx* element);
     void removeElement(int index);
     void removeElement(RichElementEx* element);
-    virtual void visit(cocos2d::Renderer *renderer, const Mat4 &parentTransform, uint32_t parentFlags) override;
+    virtual void visit(cocos2d::Renderer *renderer, const cocos2d::Mat4 &parentTransform, uint32_t parentFlags) override;
     void setVerticalSpace(float space);
     float getVerticalSpace() const;
     void setEmptyLineHeight(float height);
     float getEmptyLineHeight() const;
-    void setHorizontalAlignment(TextHAlignment alignment);
-    TextHAlignment getHorizontalAlignment() const;
-    virtual void setAnchorPoint(const Vec2 &pt);
-    virtual Size getVirtualRendererSize() const override;
+    void setHorizontalAlignment(cocos2d::TextHAlignment alignment);
+    cocos2d::TextHAlignment getHorizontalAlignment() const;
+    virtual void setAnchorPoint(const cocos2d::Vec2 &pt);
+    virtual cocos2d::Size getVirtualRendererSize() const override;
     void formatText();
     virtual void ignoreContentAdaptWithSize(bool ignore);
     virtual std::string getDescription() const override;
@@ -148,10 +145,10 @@ CC_CONSTRUCTOR_ACCESS:
 
 protected:
     virtual void initRenderer();
-    void pushToContainer(Node* renderer);
-    void handleTextRenderer(RichElementTextEx* elmtText, const std::string& text, const std::string& fontName, float fontSize, const Color3B& color, GLubyte opacity);
-    void handleImageRenderer(RichElementImageEx* elmtImage, const std::string& fileParh, const Color3B& color, GLubyte opacity);
-    void handleCustomRenderer(RichElementEx* element, Node* renderer);
+    void pushToContainer(cocos2d::Node* renderer);
+    void handleTextRenderer(RichElementTextEx* elmtText, const std::string& text, const std::string& fontName, float fontSize, const cocos2d::Color3B& color, GLubyte opacity);
+    void handleImageRenderer(RichElementImageEx* elmtImage, const std::string& fileParh, const cocos2d::Color3B& color, GLubyte opacity);
+    void handleCustomRenderer(RichElementEx* element, cocos2d::Node* renderer);
     void formatRenderers();
     void addNewLine();
     virtual void releaseUpEvent() override;
@@ -159,13 +156,13 @@ protected:
 
 protected:
     bool _formatTextDirty;
-    Vector<RichElementEx*> _richElements;
-    std::vector<Vector<Node*>*> _elementRenders;
+    cocos2d::Vector<RichElementEx*> _richElements;
+    std::vector<cocos2d::Vector<cocos2d::Node*>*> _elementRenders;
     float _leftSpaceWidth;
     float _verticalSpace;
     float _emptyLineHeight;
-    TextHAlignment _hAlignment;
-    Node* _elementRenderersContainer;
+    cocos2d::TextHAlignment _hAlignment;
+    cocos2d::Node* _elementRenderersContainer;
 };
 
 }

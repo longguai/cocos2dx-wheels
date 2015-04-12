@@ -1,5 +1,8 @@
 ﻿#include "CWTableView.h"
 
+using namespace cocos2d;
+using namespace cocos2d::ui;
+
 namespace cw {
     TableView::TableView()
     : _touchedCell(nullptr)
@@ -144,32 +147,56 @@ namespace cw {
         return _tableViewCellCallback;
     }
 
-    void TableView::setTableCellSizeForIndex(const ccTableCellSizeForIndex& func)
+    void TableView::setDataSourceCallback(const ccDataSourceCallback& callback)
+    {
+        if (callback != nullptr)
+        {
+            _tableCellSizeForIndex = [callback](TableView *table, ssize_t idx) {
+                Size size;
+                callback(DataSourceFunction::CELL_SIZE_FOR_INDEX, table, idx, (intptr_t)&size);
+                return size;
+            };
+            _tableCellAtIndex = [callback](TableView *table, ssize_t idx) {
+                return (TableViewCell *)callback(DataSourceFunction::CELL_AT_INDEX, table, idx, 0);
+            };
+            _numberOfCellsInTableView = [callback](TableView *table) {
+                return (ssize_t)callback(DataSourceFunction::NUMBERS_OF_CELLS, table, 0, 0);
+            };
+        }
+        else
+        {
+            _tableCellSizeForIndex = TableView::__tableCellSizeForIndex;
+            _tableCellAtIndex = TableView::__tableCellAtIndex;
+            _numberOfCellsInTableView = TableView::__numberOfCellsInTableView;
+        }
+    }
+
+    void TableView::setTableCellSizeForIndexCallback(const ccTableCellSizeForIndexCallback& func)
     {
         _tableCellSizeForIndex = func ? func : TableView::__tableCellSizeForIndex;
     }
 
-    const TableView::ccTableCellSizeForIndex& TableView::getTableCellSizeForIndex() const
+    const TableView::ccTableCellSizeForIndexCallback& TableView::getTableCellSizeForIndexCallback() const
     {
         return _tableCellSizeForIndex;
     }
 
-    void TableView::setTableCellAtIndex(const ccTableCellAtIndex& func)
+    void TableView::setTableCellAtIndexCallback(const ccTableCellAtIndexCallback& func)
     {
         _tableCellAtIndex = func ? func : TableView::__tableCellAtIndex;
     }
 
-    const TableView::ccTableCellAtIndex& TableView::getTableCellAtIndex() const
+    const TableView::ccTableCellAtIndexCallback& TableView::getTableCellAtIndexCallback() const
     {
         return _tableCellAtIndex;
     }
 
-    void TableView::setNumberOfCellsInTableView(const ccNumberOfCellsInTableView& func)
+    void TableView::setNumberOfCellsInTableViewCallback(const ccNumberOfCellsInTableViewCallback& func)
     {
         _numberOfCellsInTableView = func ? func : TableView::__numberOfCellsInTableView;
     }
 
-    const TableView::ccNumberOfCellsInTableView& TableView::getNumberOfCellsInTableView() const
+    const TableView::ccNumberOfCellsInTableViewCallback& TableView::getNumberOfCellsInTableViewCallback() const
     {
         return _numberOfCellsInTableView;
     }

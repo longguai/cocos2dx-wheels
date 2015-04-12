@@ -12,9 +12,9 @@ bool TableViewTestLayer::init() {
 
     cw::TableView *tableView = cw::TableView::create();
     tableView->setContentSize(Size(winSize.width, 200));
-    tableView->setNumberOfCellsInTableView([](cw::TableView*)->ssize_t {return 20; });
-    tableView->setTableCellSizeForIndex([](cw::TableView *table, ssize_t idx) { return cocos2d::Size(100, 40); });
-    tableView->setTableCellAtIndex(std::bind(&TableViewTestLayer::_tableCellAtIndex, this, std::placeholders::_1, std::placeholders::_2));
+    tableView->setNumberOfCellsInTableViewCallback([](cw::TableView*)->ssize_t {return 20; });
+    tableView->setTableCellSizeForIndexCallback([](cw::TableView *table, ssize_t idx) { return cocos2d::Size(100, 40); });
+    tableView->setTableCellAtIndexCallback(std::bind(&TableViewTestLayer::_tableCellAtIndex, this, std::placeholders::_1, std::placeholders::_2));
     tableView->setDirection(ui::ScrollView::Direction::VERTICAL);
 
     tableView->reloadData();

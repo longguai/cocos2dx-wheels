@@ -5,14 +5,11 @@
 #include <set>
 #include <vector>
 
-using namespace cocos2d;
-using namespace cocos2d::ui;
-
 namespace cw {
     /**
      * Abstract class for SWTableView cell node
      */
-    class TableViewCell: public Widget
+    class TableViewCell : public cocos2d::ui::Widget
     {
     public:
         CREATE_FUNC(TableViewCell);
@@ -26,7 +23,7 @@ namespace cw {
         /**
          * Cleans up any resources linked to this cell and resets <code>idx</code> property.
          */
-        void reset() { _idx = CC_INVALID_INDEX; }
+        void reset() { _idx = cocos2d::CC_INVALID_INDEX; }
 
     private:
         ssize_t _idx;
@@ -103,7 +100,7 @@ namespace cw {
          * @param idx the index of a cell to get a size
          * @return size of a cell at given index
          */
-        virtual Size tableCellSizeForIndex(TableView *table, ssize_t idx) {
+        virtual cocos2d::Size tableCellSizeForIndex(TableView *table, ssize_t idx) {
             return cellSizeForTable(table);
         };
         /**
@@ -112,8 +109,8 @@ namespace cw {
          * @param table table to hold the instances of Class
          * @return cell size
          */
-        virtual Size cellSizeForTable(TableView *table) {
-            return Size::ZERO;
+        virtual cocos2d::Size cellSizeForTable(TableView *table) {
+            return cocos2d::Size::ZERO;
         };
         /**
          * a cell instance at a given index
@@ -131,7 +128,7 @@ namespace cw {
 
     };
 
-    class TableView: public ScrollView
+    class TableView : public cocos2d::ui::ScrollView
     {
         DECLARE_CLASS_GUI_INFO
 
@@ -151,9 +148,17 @@ namespace cw {
         };
         typedef std::function<void (TableView* table, TableViewCell* cell, CellEventType)> ccTableViewCellCallback;
 
-        typedef std::function<Size (TableView* table, ssize_t idx)> ccTableCellSizeForIndex;
-        typedef std::function<TableViewCell* (TableView *table, ssize_t idx)> ccTableCellAtIndex;
-        typedef std::function<ssize_t (TableView *table)> ccNumberOfCellsInTableView;
+        enum class DataSourceFunction
+        {
+            CELL_SIZE_FOR_INDEX,
+            CELL_AT_INDEX,
+            NUMBERS_OF_CELLS
+        };
+        typedef std::function<intptr_t(DataSourceFunction, TableView *table, ssize_t idx, intptr_t param)> ccDataSourceCallback;
+
+        typedef std::function<cocos2d::Size (TableView *table, ssize_t idx)> ccTableCellSizeForIndexCallback;
+        typedef std::function<TableViewCell *(TableView *table, ssize_t idx)> ccTableCellAtIndexCallback;
+        typedef std::function<ssize_t (TableView *table)> ccNumberOfCellsInTableViewCallback;
 
         /**
          * Default constructor
@@ -169,10 +174,10 @@ namespace cw {
          * Allocates and initializes.
          */
         static TableView *create();
-        CC_DEPRECATED_ATTRIBUTE static TableView *create(TableViewDataSource *dataSource, const Size &size);
+        CC_DEPRECATED_ATTRIBUTE static TableView *create(TableViewDataSource *dataSource, const cocos2d::Size &size);
 
         bool init();
-        CC_DEPRECATED_ATTRIBUTE bool initWithViewSize(TableViewDataSource *dataSource, const Size &size);
+        CC_DEPRECATED_ATTRIBUTE bool initWithViewSize(TableViewDataSource *dataSource, const cocos2d::Size &size);
 
         /**
          * data source
@@ -205,12 +210,14 @@ namespace cw {
         void setTableViewCellCallback(const ccTableViewCellCallback& callback);
         const ccTableViewCellCallback& getTableViewCellCallback() const;
 
-        void setTableCellSizeForIndex(const ccTableCellSizeForIndex& func);
-        const ccTableCellSizeForIndex& getTableCellSizeForIndex() const;
-        void setTableCellAtIndex(const ccTableCellAtIndex& func);
-        const ccTableCellAtIndex& getTableCellAtIndex() const;
-        void setNumberOfCellsInTableView(const ccNumberOfCellsInTableView& func);
-        const ccNumberOfCellsInTableView& getNumberOfCellsInTableView() const;
+        void setDataSourceCallback(const ccDataSourceCallback& callback);
+
+        void setTableCellSizeForIndexCallback(const ccTableCellSizeForIndexCallback& func);
+        const ccTableCellSizeForIndexCallback& getTableCellSizeForIndexCallback() const;
+        void setTableCellAtIndexCallback(const ccTableCellAtIndexCallback& func);
+        const ccTableCellAtIndexCallback& getTableCellAtIndexCallback() const;
+        void setNumberOfCellsInTableViewCallback(const ccNumberOfCellsInTableViewCallback& func);
+        const ccNumberOfCellsInTableViewCallback& getNumberOfCellsInTableViewCallback() const;
 
         /**
          * determines how cell is ordered and filled in the view.
@@ -218,8 +225,8 @@ namespace cw {
         void setVerticalFillOrder(VerticalFillOrder order);
         VerticalFillOrder getVerticalFillOrder();
 
-        Vec2 getInnerContainerOffset() const;
-        void setInnerContainerOffset(const Vec2 &offset);
+        cocos2d::Vec2 getInnerContainerOffset() const;
+        void setInnerContainerOffset(const cocos2d::Vec2 &offset);
 
         /**
          * Updates the content of the cell at a given index.
@@ -258,34 +265,34 @@ namespace cw {
          */
         TableViewCell *cellAtIndex(ssize_t idx);
 
-        virtual void setDirection(ScrollView::Direction dir) override;
+        virtual void setDirection(cocos2d::ui::ScrollView::Direction dir) override;
 
         //handle touch event
-        virtual bool onTouchBegan(Touch *touch, Event *unusedEvent) override;
-        virtual void onTouchMoved(Touch *touch, Event *unusedEvent) override;
-        virtual void onTouchEnded(Touch *touch, Event *unusedEvent) override;
-        virtual void onTouchCancelled(Touch *touch, Event *unusedEvent) override;
+        virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unusedEvent) override;
+        virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *unusedEvent) override;
+        virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *unusedEvent) override;
+        virtual void onTouchCancelled(cocos2d::Touch *touch, cocos2d::Event *unusedEvent) override;
 
-        Vec2 maxContainerOffset();
-        Vec2 minContainerOffset();
+        cocos2d::Vec2 maxContainerOffset();
+        cocos2d::Vec2 minContainerOffset();
 
     protected:
-        static Size __tableCellSizeForIndex(TableView*, ssize_t) { return Size::ZERO; }
+        static cocos2d::Size __tableCellSizeForIndex(TableView*, ssize_t) { return cocos2d::Size::ZERO; }
         static TableViewCell* __tableCellAtIndex(TableView*, ssize_t) { return nullptr; }
         static ssize_t __numberOfCellsInTableView(TableView*) { return 0; }
 
-        CC_DEPRECATED_ATTRIBUTE void _initWithViewSize(const Size &size);
+        CC_DEPRECATED_ATTRIBUTE void _initWithViewSize(const cocos2d::Size &size);
 
         virtual void onSizeChanged() override;
 
-        void _scrollEvent(Ref *sender, ScrollView::EventType type);
+        void _scrollEvent(Ref *sender, cocos2d::ui::ScrollView::EventType type);
 
         virtual bool scrollChildren(float touchOffsetX, float touchOffsetY) override;
 
-        long __indexFromOffset(Vec2 offset);
-        long _indexFromOffset(Vec2 offset);
-        Vec2 __offsetFromIndex(ssize_t index);
-        Vec2 _offsetFromIndex(ssize_t index);
+        long __indexFromOffset(cocos2d::Vec2 offset);
+        long _indexFromOffset(cocos2d::Vec2 offset);
+        cocos2d::Vec2 __offsetFromIndex(ssize_t index);
+        cocos2d::Vec2 _offsetFromIndex(ssize_t index);
 
         void _moveCellOutOfSight(TableViewCell *cell);
         void _setIndexForCell(ssize_t index, TableViewCell *cell);
@@ -313,19 +320,19 @@ namespace cw {
         /**
          * cells that are currently in the table
          */
-        Vector<TableViewCell*> _cellsUsed;
+        cocos2d::Vector<TableViewCell*> _cellsUsed;
         /**
          * free list of cells
          */
-        Vector<TableViewCell*> _cellsFreed;
+        cocos2d::Vector<TableViewCell*> _cellsFreed;
 
         ccTableViewCellCallback _tableViewCellCallback;
 
-        ccTableCellSizeForIndex _tableCellSizeForIndex;
-        ccTableCellAtIndex _tableCellAtIndex;
-        ccNumberOfCellsInTableView _numberOfCellsInTableView;
+        ccTableCellSizeForIndexCallback _tableCellSizeForIndex;
+        ccTableCellAtIndexCallback _tableCellAtIndex;
+        ccNumberOfCellsInTableViewCallback _numberOfCellsInTableView;
 
-        Direction _oldDirection;
+        cocos2d::ui::ScrollView::Direction _oldDirection;
 
         bool _isUsedCellsDirty;
 
