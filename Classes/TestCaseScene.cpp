@@ -6,6 +6,7 @@
 #include "tests/InConvexPolygonTest.h"
 #include "tests/RichTextExTest.h"
 #include "tests/TableViewTest.h"
+#include "tests/UnfoldAndFoldTest.h"
 
 USING_NS_CC;
 
@@ -16,7 +17,8 @@ static struct {
     { "RichTextEx Test", &RichTextExTestLayer::create },
     { "TableView Test", &TableViewTestLayer::create },
     { "Arrange Test", &ArrangeTestLayer::create },
-    { "InConvexPolygon Test", &InConvexPolygonTestLayer::create }
+    { "InConvexPolygon Test", &InConvexPolygonTestLayer::create },
+    { "Unfold And Fold Test", &UnfoldAndFoldTestLayer::create }
 };
 
 bool TestCaseScene::init() {

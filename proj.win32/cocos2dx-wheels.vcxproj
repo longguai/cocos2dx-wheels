@@ -143,6 +143,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\tests\InConvexPolygonTest.cpp" />
     <ClCompile Include="..\Classes\tests\RichTextExTest.cpp" />
     <ClCompile Include="..\Classes\tests\TableViewTest.cpp" />
+    <ClCompile Include="..\Classes\tests\UnfoldAndFoldTest.cpp" />
     <ClCompile Include="..\Classes\wheels\cocos2dx-wheels.cpp" />
     <ClCompile Include="..\Classes\wheels\CWGeometry.cpp" />
     <ClCompile Include="..\Classes\wheels\CWRichTextEx.cpp" />
@@ -157,6 +158,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\tests\InConvexPolygonTest.h" />
     <ClInclude Include="..\Classes\tests\RichTextExTest.h" />
     <ClInclude Include="..\Classes\tests\TableViewTest.h" />
+    <ClInclude Include="..\Classes\tests\UnfoldAndFoldTest.h" />
     <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h" />
     <ClInclude Include="..\Classes\wheels\CWGeometry.h" />
     <ClInclude Include="..\Classes\wheels\CWMacros.h" />

@@ -289,7 +289,7 @@ namespace cw {
 
         virtual bool scrollChildren(float touchOffsetX, float touchOffsetY) override;
 
-        long __indexFromOffset(cocos2d::Vec2 offset);
+        long __indexFromOffset(const cocos2d::Vec2 &offset);
         long _indexFromOffset(cocos2d::Vec2 offset);
         cocos2d::Vec2 __offsetFromIndex(ssize_t index);
         cocos2d::Vec2 _offsetFromIndex(ssize_t index);

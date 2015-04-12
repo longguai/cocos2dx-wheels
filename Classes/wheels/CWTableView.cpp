@@ -471,8 +471,6 @@ namespace cw {
     Vec2 TableView::__offsetFromIndex(ssize_t index)
     {
         Vec2 offset;
-        Size  cellSize;
-
         switch (_direction)
         {
             case Direction::HORIZONTAL:
@@ -508,7 +506,7 @@ namespace cw {
         return index;
     }
 
-    long TableView::__indexFromOffset(Vec2 offset)
+    long TableView::__indexFromOffset(const Vec2 &offset)
     {
         long low = 0;
         long high = _numberOfCellsInTableView(this) - 1;
