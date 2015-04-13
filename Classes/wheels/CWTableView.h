@@ -338,6 +338,16 @@ namespace cw {
 
     public:
         void _updateContentSize();
+
+    private:
+        using cocos2d::ui::ScrollView::setInnerContainerSize;
+        using cocos2d::ui::ScrollView::addChild;
+        using cocos2d::ui::ScrollView::removeAllChildren;
+        using cocos2d::ui::ScrollView::removeAllChildrenWithCleanup;
+        using cocos2d::ui::ScrollView::removeChild;
+
+        using cocos2d::ui::ScrollView::addEventListenerScrollView;
+        using cocos2d::ui::ScrollView::addEventListener;
     };
 }
 
