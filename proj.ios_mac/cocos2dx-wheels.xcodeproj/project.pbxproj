@@ -67,6 +67,7 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
+		A76145C31ADB53AA00F1E1AB /* UnfoldAndFoldTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A76145C11ADB53AA00F1E1AB /* UnfoldAndFoldTest.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -175,6 +176,8 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		A76145C11ADB53AA00F1E1AB /* UnfoldAndFoldTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnfoldAndFoldTest.cpp; path = tests/UnfoldAndFoldTest.cpp; sourceTree = "<group>"; };
+		A76145C21ADB53AA00F1E1AB /* UnfoldAndFoldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UnfoldAndFoldTest.h; path = tests/UnfoldAndFoldTest.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -340,6 +343,8 @@
 		4AA6BEA01AC8E3B800E063D3 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				A76145C11ADB53AA00F1E1AB /* UnfoldAndFoldTest.cpp */,
+				A76145C21ADB53AA00F1E1AB /* UnfoldAndFoldTest.h */,
 				4AA6BEA11AC8E3CC00E063D3 /* ArrangeTest.cpp */,
 				4AA6BEA21AC8E3CC00E063D3 /* ArrangeTest.h */,
 				4AA6BEA31AC8E3CC00E063D3 /* InConvexPolygonTest.cpp */,
@@ -555,6 +560,7 @@
 				4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */,
 				4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */,
 				4AA6BEAB1AC8E3CC00E063D3 /* RichTextExTest.cpp in Sources */,
+				A76145C31ADB53AA00F1E1AB /* UnfoldAndFoldTest.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				4AA6BEAC1AC8E3CC00E063D3 /* TableViewTest.cpp in Sources */,
 				4AA6BEAA1AC8E3CC00E063D3 /* InConvexPolygonTest.cpp in Sources */,

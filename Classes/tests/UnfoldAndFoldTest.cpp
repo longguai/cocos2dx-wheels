@@ -10,7 +10,7 @@ bool UnfoldAndFoldTestLayer::init() {
     Size winSize = Director::getInstance()->getWinSize();
 
     for (int i = 0; i < 25; ++i) {
-        _foldStatus.push_back(std::make_tuple(true, Size(300, 40), Size(300, 80 + /*rand() % 20 * 5*/20)));
+        _foldStatus.push_back(std::make_tuple(true, Size(300, 40), Size(300, 80 + rand() % 20 * 5)));
     }
 
     _tableView = cw::TableView::create();
@@ -25,7 +25,7 @@ bool UnfoldAndFoldTestLayer::init() {
     _tableView->setDirection(ui::ScrollView::Direction::VERTICAL);
 
     _tableView->reloadData();
-    //_tableView->setVerticalFillOrder(cw::TableView::VerticalFillOrder::TOP_DOWN);
+    _tableView->setVerticalFillOrder(cw::TableView::VerticalFillOrder::TOP_DOWN);
 
     _tableView->setBounceEnabled(true);
 
@@ -64,27 +64,6 @@ cw::TableViewCell *UnfoldAndFoldTestLayer::_tableCellAtIndex(cw::TableView *tabl
 
         ui::Button *button = ui::Button::create();
         button->loadTextureNormal("CloseNormal.png", ui::Widget::TextureResType::LOCAL);
-        button->addTouchEventListener([this, table, cell, label, button](Ref *sender, ui::Widget::TouchEventType type) {
-            if (type == ui::Widget::TouchEventType::ENDED) {
-                CCLOG("uibutton clicked");
-                ssize_t idx = cell->getIdx();
-                bool &fold = std::get<0>(_foldStatus[idx]);
-                fold = !fold;
-
-                Vec2 maxOffset1 = _tableView->minContainerOffset();
-                Vec2 offset = _tableView->getInnerContainerOffset();
-                Vec2 delta = maxOffset1 - offset;
-                cw::tableViewReloadData(_tableView, _scrollBar);
-
-                Vec2 maxOffset2 = _tableView->minContainerOffset();
-                offset = maxOffset2 - delta;
-                _tableView->setInnerContainerOffset(offset);
-
-                const Size &cellSize = fold ? std::get<1>(_foldStatus[idx]) : std::get<2>(_foldStatus[idx]);
-                label->setPositionY(cellSize.height);
-                button->setPositionY(cellSize.height - button->getContentSize().height * 0.5);
-            }
-        });
         cell->addChild(button);
         button->setTag(BUTTON_TAG);
         button->setPositionX(300);
@@ -104,6 +83,20 @@ cw::TableViewCell *UnfoldAndFoldTestLayer::_tableCellAtIndex(cw::TableView *tabl
 
     ui::Button *button = (ui::Button *)cell->getChildByTag(BUTTON_TAG);
     button->setPositionY(cellSize.height - button->getContentSize().height * 0.5);
+    button->addTouchEventListener([this, table, cell, idx, label, button](Ref *sender, ui::Widget::TouchEventType type) {
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            bool &fold = std::get<0>(_foldStatus[idx]);
+            fold = !fold;
 
+            Vec2 maxOffset = _tableView->minContainerOffset();
+            Vec2 offset = _tableView->getInnerContainerOffset();
+            Vec2 delta = maxOffset - offset;
+            cw::tableViewReloadData(_tableView, _scrollBar);
+
+            maxOffset = _tableView->minContainerOffset();
+            offset = maxOffset - delta;
+            _tableView->setInnerContainerOffset(offset);
+        }
+    });
     return cell;
 }
