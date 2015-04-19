@@ -496,13 +496,14 @@ namespace cw {
     {
         long low = 0;
         long high = _numberOfCellsInTableView(this) - 1;
-        float search = (_direction == Direction::HORIZONTAL ? offset.x : offset.y);
+        const float search = (_direction == Direction::HORIZONTAL ? offset.x : offset.y);
 
+        // binary search
         while (high >= low)
         {
             long index = low + (high - low) / 2;
-            float cellStart = _cellsPositions[index];
-            float cellEnd = _cellsPositions[index + 1];
+            const float cellStart = _cellsPositions[index];
+            const float cellEnd = _cellsPositions[index + 1];
 
             if (search >= cellStart && search <= cellEnd)
             {
@@ -517,12 +518,7 @@ namespace cw {
                 low = index + 1;
             }
         }
-
-        if (low <= 0) {
-            return 0;
-        }
-
-        return -1;
+        return (low <= 0) ? 0 : -1;
     }
 
     void TableView::_moveCellOutOfSight(TableViewCell *cell)
@@ -560,7 +556,7 @@ namespace cw {
         {
             float currentPos = 0;
             Size cellSize;
-            for (ssize_t i=0; i < cellsCount; i++)
+            for (ssize_t i = 0; i < cellsCount; ++i)
             {
                 _cellsPositions[i] = currentPos;
                 cellSize = _tableCellSizeForIndex(this, i);
@@ -608,9 +604,9 @@ namespace cw {
         offset.y = MIN(maxOffset.y, offset.y);
         offset.y = MAX(minOffset.y, offset.y);
 
-        offset.x *= -1;
-        offset.y *= -1;
-        maxIdx = MAX(countOfItems-1, 0);
+        offset.x = -offset.x;
+        offset.y = -offset.y;
+        maxIdx = MAX(countOfItems - 1, 0);
 
         if (_vordering == VerticalFillOrder::TOP_DOWN)
         {
@@ -642,13 +638,13 @@ namespace cw {
         int i = 0;
         std::for_each(_cellsUsed.begin(), _cellsUsed.end(), [&i](TableViewCell* pCell) {
             log("cells Used index %d, value = %lu", i, pCell->getIdx());
-            i++;
+            ++i;
         });
         log("---------------------------------------");
         i = 0;
         std::for_each(_cellsFreed.begin(), _cellsFreed.end(), [&i](TableViewCell* pCell) {
             log("cells freed index %d, value = %lu", i, pCell->getIdx());
-            i++;
+            ++i;
         });
         log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 #endif
@@ -680,7 +676,7 @@ namespace cw {
             }
         }
 
-        for (ssize_t i = startIdx; i <= endIdx; i++)
+        for (ssize_t i = startIdx; i <= endIdx; ++i)
         {
             if (_indices->find(i) == _indices->end())
             {
@@ -691,11 +687,13 @@ namespace cw {
 
     void TableView::onTouchEnded(Touch *pTouch, Event *pEvent)
     {
-        if (!this->isVisible()) {
+        if (!this->isVisible())
+        {
             return;
         }
 
-        if (_touchedCell){
+        if (_touchedCell != nullptr)
+        {
             Rect bb = this->getBoundingBox();
             bb.origin = _parent->convertToWorldSpace(bb.origin);
 
@@ -761,7 +759,7 @@ namespace cw {
     {
         ScrollView::onTouchCancelled(pTouch, pEvent);
 
-        if (_touchedCell)
+        if (_touchedCell != nullptr)
         {
             if (_tableViewCellCallback)
             {
