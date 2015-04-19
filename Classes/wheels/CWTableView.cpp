@@ -147,30 +147,6 @@ namespace cw {
         return _tableViewCellCallback;
     }
 
-    void TableView::setDataSourceCallback(const ccDataSourceCallback& callback)
-    {
-        if (callback != nullptr)
-        {
-            _tableCellSizeForIndex = [callback](TableView *table, ssize_t idx) {
-                Size size;
-                callback(DataSourceFunction::CELL_SIZE_FOR_INDEX, table, idx, (intptr_t)&size);
-                return size;
-            };
-            _tableCellAtIndex = [callback](TableView *table, ssize_t idx) {
-                return (TableViewCell *)callback(DataSourceFunction::CELL_AT_INDEX, table, idx, 0);
-            };
-            _numberOfCellsInTableView = [callback](TableView *table) {
-                return (ssize_t)callback(DataSourceFunction::NUMBERS_OF_CELLS, table, 0, 0);
-            };
-        }
-        else
-        {
-            _tableCellSizeForIndex = TableView::__tableCellSizeForIndex;
-            _tableCellAtIndex = TableView::__tableCellAtIndex;
-            _numberOfCellsInTableView = TableView::__numberOfCellsInTableView;
-        }
-    }
-
     void TableView::setTableCellSizeForIndexCallback(const ccTableCellSizeForIndexCallback& func)
     {
         _tableCellSizeForIndex = func ? func : TableView::__tableCellSizeForIndex;

@@ -148,14 +148,6 @@ namespace cw {
         };
         typedef std::function<void (TableView* table, TableViewCell* cell, CellEventType)> ccTableViewCellCallback;
 
-        enum class DataSourceFunction
-        {
-            CELL_SIZE_FOR_INDEX,
-            CELL_AT_INDEX,
-            NUMBERS_OF_CELLS
-        };
-        typedef std::function<intptr_t(DataSourceFunction, TableView *table, ssize_t idx, intptr_t param)> ccDataSourceCallback;
-
         typedef std::function<cocos2d::Size (TableView *table, ssize_t idx)> ccTableCellSizeForIndexCallback;
         typedef std::function<TableViewCell *(TableView *table, ssize_t idx)> ccTableCellAtIndexCallback;
         typedef std::function<ssize_t (TableView *table)> ccNumberOfCellsInTableViewCallback;
@@ -209,8 +201,6 @@ namespace cw {
 
         void setTableViewCellCallback(const ccTableViewCellCallback& callback);
         const ccTableViewCellCallback& getTableViewCellCallback() const;
-
-        void setDataSourceCallback(const ccDataSourceCallback& callback);
 
         void setTableCellSizeForIndexCallback(const ccTableCellSizeForIndexCallback& func);
         const ccTableCellSizeForIndexCallback& getTableCellSizeForIndexCallback() const;
