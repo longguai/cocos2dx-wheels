@@ -1,8 +1,8 @@
-﻿#include "UnfoldAndFoldTest.h"
+﻿#include "FoldableTest.h"
 #include "../wheels/cocos2dx-wheels.h"
 #include "ui/CocosGUI.h"
 
-bool UnfoldAndFoldTestLayer::init() {
+bool FoldableTestLayer::init() {
     if (!Layer::init()) {
         return false;
     }
@@ -21,7 +21,7 @@ bool UnfoldAndFoldTestLayer::init() {
     _tableView->setTableCellSizeForIndexCallback([this](cw::TableView *table, ssize_t idx) {
         return std::get<0>(_foldStatus[idx]) ? std::get<1>(_foldStatus[idx]) : std::get<2>(_foldStatus[idx]);
     });
-    _tableView->setTableCellAtIndexCallback(std::bind(&UnfoldAndFoldTestLayer::_tableCellAtIndex, this, std::placeholders::_1, std::placeholders::_2));
+    _tableView->setTableCellAtIndexCallback(std::bind(&FoldableTestLayer::_tableCellAtIndex, this, std::placeholders::_1, std::placeholders::_2));
     _tableView->setDirection(ui::ScrollView::Direction::VERTICAL);
 
     _tableView->reloadData();
@@ -49,7 +49,7 @@ bool UnfoldAndFoldTestLayer::init() {
 #define LABEL_TAG 123
 #define BUTTON_TAG 456
 
-cw::TableViewCell *UnfoldAndFoldTestLayer::_tableCellAtIndex(cw::TableView *table, ssize_t idx)
+cw::TableViewCell *FoldableTestLayer::_tableCellAtIndex(cw::TableView *table, ssize_t idx)
 {
     cw::TableViewCell *cell = table->dequeueCell();
     if (cell == nullptr) {

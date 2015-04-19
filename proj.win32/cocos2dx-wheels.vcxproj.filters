@@ -54,7 +54,7 @@
     <ClCompile Include="..\Classes\tests\TableViewTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\tests\UnfoldAndFoldTest.cpp">
+    <ClCompile Include="..\Classes\tests\FoldableTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +98,7 @@
     <ClInclude Include="..\Classes\tests\TableViewTest.h">
       <Filter>tests</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\tests\UnfoldAndFoldTest.h">
+    <ClInclude Include="..\Classes\tests\FoldableTest.h">
       <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
