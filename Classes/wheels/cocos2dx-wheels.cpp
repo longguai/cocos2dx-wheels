@@ -46,19 +46,35 @@ namespace cw {
 
     void tableViewReloadData(TableView *tableView, ScrollBar *scrollBar) {
         switch (tableView->getDirection()) {
-            case ui::ScrollView::Direction::HORIZONTAL:
-                tableView->reloadData();
-                scrollBar->setViewAndContentLength(tableView->getContentSize().width, tableView->getInnerContainerSize().width);
-                scrollBar->refreshOffset(tableView->getInnerContainer()->getPositionX());
-                break;
-            case ui::ScrollView::Direction::VERTICAL:
-                tableView->reloadData();
-                scrollBar->setViewAndContentLength(tableView->getContentSize().height, tableView->getInnerContainerSize().height);
-                scrollBar->refreshOffset(tableView->getInnerContainer()->getPositionY());
-                break;
-            default:
-                break;
+        case ui::ScrollView::Direction::HORIZONTAL:
+            tableView->reloadData();
+            scrollBar->setViewAndContentLength(tableView->getContentSize().width, tableView->getInnerContainerSize().width);
+            scrollBar->refreshOffset(tableView->getInnerContainer()->getPositionX());
+            break;
+        case ui::ScrollView::Direction::VERTICAL:
+            tableView->reloadData();
+            scrollBar->setViewAndContentLength(tableView->getContentSize().height, tableView->getInnerContainerSize().height);
+            scrollBar->refreshOffset(tableView->getInnerContainer()->getPositionY());
+            break;
+        default:
+            break;
+        }
+    }
+
+    void tableViewInplaceReloadData(TableView *tableView, ScrollBar *scrollBar) {
+        switch (tableView->getDirection()) {
+        case ui::ScrollView::Direction::HORIZONTAL:
+            tableView->inplaceReloadData();
+            scrollBar->setViewAndContentLength(tableView->getContentSize().width, tableView->getInnerContainerSize().width);
+            scrollBar->refreshOffset(tableView->getInnerContainer()->getPositionX());
+            break;
+        case ui::ScrollView::Direction::VERTICAL:
+            tableView->inplaceReloadData();
+            scrollBar->setViewAndContentLength(tableView->getContentSize().height, tableView->getInnerContainerSize().height);
+            scrollBar->refreshOffset(tableView->getInnerContainer()->getPositionY());
+            break;
+        default:
+            break;
         }
     }
 }
-

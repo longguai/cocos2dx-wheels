@@ -87,15 +87,7 @@ cw::TableViewCell *UnfoldAndFoldTestLayer::_tableCellAtIndex(cw::TableView *tabl
         if (type == ui::Widget::TouchEventType::ENDED) {
             bool &fold = std::get<0>(_foldStatus[idx]);
             fold = !fold;
-
-            Vec2 maxOffset = _tableView->minContainerOffset();
-            Vec2 offset = _tableView->getInnerContainerOffset();
-            Vec2 delta = maxOffset - offset;
-            cw::tableViewReloadData(_tableView, _scrollBar);
-
-            maxOffset = _tableView->minContainerOffset();
-            offset = maxOffset - delta;
-            _tableView->setInnerContainerOffset(offset);
+            cw::tableViewInplaceReloadData(_tableView, _scrollBar);
         }
     });
     return cell;

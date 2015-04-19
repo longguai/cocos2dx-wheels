@@ -11,7 +11,8 @@
 namespace cw {
     // 创建与ScrollView关联的ScrollBar
     ScrollBar *createRelativeScrollBarForScrollView(cocos2d::ui::ScrollView *scrollView);
-    void tableViewReloadData(cw::TableView *tableView, cw::ScrollBar *scrollBar);
+    void tableViewReloadData(TableView *tableView, ScrollBar *scrollBar);
+    void tableViewInplaceReloadData(TableView *tableView, ScrollBar *scrollBar);
 
     template <class _NODE> void addBackground(_NODE *node, const cocos2d::Color4B &color) {
         using namespace cocos2d;
