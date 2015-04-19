@@ -429,16 +429,8 @@ namespace cw {
         if (cellsCount > 0)
         {
             float maxPosition = _cellsPositions[cellsCount];
-
-            switch (_direction)
-            {
-                case Direction::HORIZONTAL:
-                size = Size(maxPosition, _contentSize.height);
-                break;
-                default:
-                size = Size(_contentSize.width, maxPosition);
-                break;
-            }
+            size = _contentSize;
+            (_direction == Direction::HORIZONTAL ? size.width : size.height) = maxPosition;
         }
 
         this->setInnerContainerSize(size);
@@ -474,16 +466,7 @@ namespace cw {
     Vec2 TableView::__offsetFromIndex(ssize_t index)
     {
         Vec2 offset;
-        switch (_direction)
-        {
-            case Direction::HORIZONTAL:
-            offset = Vec2(_cellsPositions[index], 0.0f);
-            break;
-            default:
-            offset = Vec2(0.0f, _cellsPositions[index]);
-            break;
-        }
-
+        (_direction == Direction::HORIZONTAL ? offset.x : offset.y) = _cellsPositions[index];
         return offset;
     }
 
@@ -513,16 +496,7 @@ namespace cw {
     {
         long low = 0;
         long high = _numberOfCellsInTableView(this) - 1;
-        float search;
-        switch (_direction)
-        {
-            case Direction::HORIZONTAL:
-            search = offset.x;
-            break;
-            default:
-            search = offset.y;
-            break;
-        }
+        float search = (_direction == Direction::HORIZONTAL ? offset.x : offset.y);
 
         while (high >= low)
         {
@@ -590,19 +564,10 @@ namespace cw {
             {
                 _cellsPositions[i] = currentPos;
                 cellSize = _tableCellSizeForIndex(this, i);
-                switch (_direction)
-                {
-                    case Direction::HORIZONTAL:
-                    currentPos += cellSize.width;
-                    break;
-                    default:
-                    currentPos += cellSize.height;
-                    break;
-                }
+                currentPos += (_direction == Direction::HORIZONTAL ? cellSize.width : cellSize.height);
             }
             _cellsPositions[cellsCount] = currentPos;//1 extra value allows us to get right/bottom of the last cell
         }
-
     }
 
     Vec2 TableView::maxContainerOffset()
@@ -764,14 +729,7 @@ namespace cw {
         point = this->_innerContainer->convertTouchToNodeSpace(pTouch);
 
         index = this->_indexFromOffset(point);
-        if (index == CC_INVALID_INDEX)
-        {
-            _touchedCell = nullptr;
-        }
-        else
-        {
-            _touchedCell  = this->cellAtIndex(index);
-        }
+        _touchedCell = (index == CC_INVALID_INDEX ? nullptr :  this->cellAtIndex(index));
 
         if (_touchedCell != nullptr)
         {
