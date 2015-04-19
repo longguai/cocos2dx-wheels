@@ -77,7 +77,7 @@ namespace cw {
         _cellsUsed.clear();
         _cellsFreed.clear();
         CC_SAFE_DELETE(_indices);
-        _indices = new std::set<ssize_t>();
+        _indices = new (std::nothrow) std::set<ssize_t>();
         _vordering = VerticalFillOrder::BOTTOM_UP;
         this->setDirection(Direction::VERTICAL);
 
@@ -91,7 +91,7 @@ namespace cw {
         _cellsUsed.clear();
         _cellsFreed.clear();
         CC_SAFE_DELETE(_indices);
-        _indices = new std::set<ssize_t>();
+        _indices = new (std::nothrow) std::set<ssize_t>();
         _vordering = VerticalFillOrder::BOTTOM_UP;
         this->setDirection(Direction::VERTICAL);
     }
@@ -198,17 +198,17 @@ namespace cw {
     {
         switch (_direction)
         {
-            case Direction::NONE:
-            case Direction::HORIZONTAL:
-            case Direction::VERTICAL:
-                _direction = dir;
-                break;
-            case Direction::BOTH:
-                CCLOG("TableView doesn't support both diretion!");
-                break;
-            default:
-                CCLOG("Unknown diretion!");
-                break;
+        case Direction::NONE:
+        case Direction::HORIZONTAL:
+        case Direction::VERTICAL:
+            _direction = dir;
+            break;
+        case Direction::BOTH:
+            CCAssert(0, "TableView doesn't support both diretion!");
+            break;
+        default:
+            CCAssert(0, "Unknown diretion!");
+            break;
         }
     }
 
@@ -232,7 +232,7 @@ namespace cw {
     {
         _oldDirection = Direction::NONE;
 
-        for(const auto &cell : _cellsUsed) {
+        for (const auto &cell : _cellsUsed) {
             if (_tableViewCellCallback) {
                 _tableViewCellCallback(this, cell, CellEventType::WILL_RECYCLE);
             }
@@ -292,7 +292,7 @@ namespace cw {
     {
         if (_indices->find(idx) != _indices->end())
         {
-            for (const auto& cell : _cellsUsed)
+            for (const auto &cell : _cellsUsed)
             {
                 if (cell->getIdx() == idx)
                 {
@@ -317,7 +317,7 @@ namespace cw {
         }
 
         TableViewCell* cell = this->cellAtIndex(idx);
-        if (cell)
+        if (cell != nullptr)
         {
             this->_moveCellOutOfSight(cell);
         }
@@ -342,7 +342,7 @@ namespace cw {
         long newIdx = 0;
 
         auto cell = cellAtIndex(idx);
-        if (cell)
+        if (cell != nullptr)
         {
             newIdx = _cellsUsed.getIndex(cell);
             // Move all cells behind the inserted position
@@ -370,12 +370,10 @@ namespace cw {
         }
 
         long uCountOfItems = _numberOfCellsInTableView(this);
-        if (0 == uCountOfItems || idx > uCountOfItems-1)
+        if (0 == uCountOfItems || idx > uCountOfItems - 1)
         {
             return;
         }
-
-        ssize_t newIdx = 0;
 
         TableViewCell* cell = this->cellAtIndex(idx);
         if (cell == nullptr)
@@ -383,7 +381,7 @@ namespace cw {
             return;
         }
 
-        newIdx = _cellsUsed.getIndex(cell);
+        ssize_t newIdx = _cellsUsed.getIndex(cell);
 
         //remove first
         this->_moveCellOutOfSight(cell);
@@ -401,7 +399,6 @@ namespace cw {
     TableViewCell *TableView::dequeueCell()
     {
         TableViewCell *cell;
-
         if (_cellsFreed.empty()) {
             cell = nullptr;
         } else {
@@ -670,7 +667,7 @@ namespace cw {
         }
         offset.x += _contentSize.width / _innerContainer->getScaleX();
 
-        endIdx   = this->_indexFromOffset(offset);
+        endIdx = this->_indexFromOffset(offset);
         if (endIdx == CC_INVALID_INDEX)
         {
             endIdx = countOfItems - 1;
@@ -696,18 +693,12 @@ namespace cw {
             auto cell = _cellsUsed.at(0);
             idx = cell->getIdx();
 
-            while(idx < startIdx)
+            while (idx < startIdx)
             {
                 this->_moveCellOutOfSight(cell);
-                if (!_cellsUsed.empty())
-                {
-                    cell = _cellsUsed.at(0);
-                    idx = cell->getIdx();
-                }
-                else
-                {
-                    break;
-                }
+                CC_BREAK_IF(_cellsUsed.empty());
+                cell = _cellsUsed.at(0);
+                idx = cell->getIdx();
             }
         }
         if (!_cellsUsed.empty())
@@ -715,28 +706,21 @@ namespace cw {
             auto cell = _cellsUsed.back();
             idx = cell->getIdx();
 
-            while(idx <= maxIdx && idx > endIdx)
+            while (idx <= maxIdx && idx > endIdx)
             {
                 this->_moveCellOutOfSight(cell);
-                if (!_cellsUsed.empty())
-                {
-                    cell = _cellsUsed.back();
-                    idx = cell->getIdx();
-                }
-                else
-                {
-                    break;
-                }
+                CC_BREAK_IF(_cellsUsed.empty());
+                cell = _cellsUsed.back();
+                idx = cell->getIdx();
             }
         }
 
         for (ssize_t i = startIdx; i <= endIdx; i++)
         {
-            if (_indices->find(i) != _indices->end())
+            if (_indices->find(i) == _indices->end())
             {
-                continue;
+                this->updateCellAtIndex(i);
             }
-            this->updateCellAtIndex(i);
         }
     }
 
