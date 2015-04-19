@@ -282,6 +282,36 @@ namespace cw {
         }
     }
 
+    void TableView::inplaceReloadData()
+    {
+        _oldDirection = _direction;
+
+        for (const auto &cell : _cellsUsed) {
+            if (_tableViewCellCallback) {
+                _tableViewCellCallback(this, cell, CellEventType::WILL_RECYCLE);
+            }
+
+            _cellsFreed.pushBack(cell);
+
+            cell->reset();
+            if (cell->getParent() == _innerContainer)
+            {
+                _innerContainer->removeChild(cell, true);
+            }
+        }
+
+        _indices->clear();
+        _cellsUsed.clear();
+
+        this->_updateCellPositions();
+        this->_updateContentSize();
+        if (_numberOfCellsInTableView(this) > 0)
+        {
+            _scrollViewDidScroll();
+            this->scrollingEvent();
+        }
+    }
+
     TableViewCell *TableView::cellAtIndex(ssize_t idx)
     {
         if (_indices->find(idx) != _indices->end())
