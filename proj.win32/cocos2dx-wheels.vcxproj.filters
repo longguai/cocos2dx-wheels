@@ -16,6 +16,9 @@
     <Filter Include="tests">
       <UniqueIdentifier>{f49a1382-03c9-42ac-bc2d-6ef977912933}</UniqueIdentifier>
     </Filter>
+    <Filter Include="other">
+      <UniqueIdentifier>{f20b9a8b-6e87-4f15-a66c-21d4420e3bf5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -55,6 +58,12 @@
       <Filter>tests</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\tests\FoldableTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\CWCoordinateSystem.cpp">
+      <Filter>wheels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tests\CoordinateSystemTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
@@ -99,6 +108,12 @@
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\FoldableTest.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWCoordinateSystem.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\CoordinateSystemTest.h">
       <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>

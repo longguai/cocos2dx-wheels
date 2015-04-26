@@ -7,6 +7,7 @@
 #include "tests/RichTextExTest.h"
 #include "tests/TableViewTest.h"
 #include "tests/FoldableTest.h"
+#include "tests/CoordinateSystemTest.h"
 
 USING_NS_CC;
 
@@ -18,7 +19,8 @@ static struct {
     { "TableView Test", &TableViewTestLayer::create },
     { "Arrange Test", &ArrangeTestLayer::create },
     { "InConvexPolygon Test", &InConvexPolygonTestLayer::create },
-    { "Foldable Test", &FoldableTestLayer::create }
+    { "Foldable Test", &FoldableTestLayer::create },
+    { "CoordinateSystem Test", &CoordinateSystemLayer::create }
 };
 
 bool TestCaseScene::init() {

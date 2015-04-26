@@ -140,11 +140,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\TestCaseScene.cpp" />
     <ClCompile Include="..\Classes\tests\ArrangeTest.cpp" />
+    <ClCompile Include="..\Classes\tests\CoordinateSystemTest.cpp" />
     <ClCompile Include="..\Classes\tests\InConvexPolygonTest.cpp" />
     <ClCompile Include="..\Classes\tests\RichTextExTest.cpp" />
     <ClCompile Include="..\Classes\tests\TableViewTest.cpp" />
     <ClCompile Include="..\Classes\tests\FoldableTest.cpp" />
     <ClCompile Include="..\Classes\wheels\cocos2dx-wheels.cpp" />
+    <ClCompile Include="..\Classes\wheels\CWCoordinateSystem.cpp" />
     <ClCompile Include="..\Classes\wheels\CWGeometry.cpp" />
     <ClCompile Include="..\Classes\wheels\CWRichTextEx.cpp" />
     <ClCompile Include="..\Classes\wheels\CWScrollBar.cpp" />
@@ -155,11 +157,13 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\TestCaseScene.h" />
     <ClInclude Include="..\Classes\tests\ArrangeTest.h" />
+    <ClInclude Include="..\Classes\tests\CoordinateSystemTest.h" />
     <ClInclude Include="..\Classes\tests\InConvexPolygonTest.h" />
     <ClInclude Include="..\Classes\tests\RichTextExTest.h" />
     <ClInclude Include="..\Classes\tests\TableViewTest.h" />
     <ClInclude Include="..\Classes\tests\FoldableTest.h" />
     <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h" />
+    <ClInclude Include="..\Classes\wheels\CWCoordinateSystem.h" />
     <ClInclude Include="..\Classes\wheels\CWGeometry.h" />
     <ClInclude Include="..\Classes\wheels\CWMacros.h" />
     <ClInclude Include="..\Classes\wheels\CWRichTextEx.h" />
