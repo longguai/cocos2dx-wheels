@@ -18,6 +18,16 @@ namespace cw {
         bool _showNegative = true;
         bool _drawFullGrid = true;
 
+        using cocos2d::Node::setContentSize;
+        using cocos2d::Node::setAnchorPoint;
+        using cocos2d::Node::setPosition;
+        using cocos2d::Node::setPositionX;
+        using cocos2d::Node::setPositionY;
+        using cocos2d::Node::setScale;
+        using cocos2d::Node::setScaleX;
+        using cocos2d::Node::setScaleY;
+        using cocos2d::Node::setScaleZ;
+
         using cocos2d::Node::addChild;
         using cocos2d::Node::removeAllChildren;
         using cocos2d::Node::removeAllChildrenWithCleanup;

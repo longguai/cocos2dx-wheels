@@ -28,53 +28,61 @@ namespace cw {
             return false;
         }
 
+        _step = step;
+        _showNegative = showNegative;
+        _drawFullGrid = drawFullGrid;
+
         cocos2d::DrawNode *drawNode = cocos2d::DrawNode::create();
         this->addChild(drawNode);
 
         const cocos2d::Size winSize = cocos2d::Director::getInstance()->getWinSize();
 
-        int x = 0, y = 0;
+        int x0 = 0, y0 = 0, x1 = 0, y1 = 0;
         if (_showNegative) {
-            while (x > -winSize.width) x-= step;
-            while (y > -winSize.height) y -= step;
+            while (x0 > -winSize.width) x0 -= _step;
+            while (y0 > -winSize.height) y0 -= _step;
         }
-        const int xx = x, yy = y;
-        drawNode->drawLine(cocos2d::Vec2(0.0f, yy), cocos2d::Vec2(0.0f, winSize.height), cocos2d::Color4F::WHITE);
-        drawNode->drawLine(cocos2d::Vec2(xx, 0.0f), cocos2d::Vec2(winSize.width, 0.0f), cocos2d::Color4F::WHITE);
+        while (x1 < winSize.width) x1 += _step;
+        while (y1 < winSize.height) y1 += _step;
+
+        drawNode->drawLine(cocos2d::Vec2(0.0f, y0), cocos2d::Vec2(0.0f, y1), cocos2d::Color4F::WHITE);
+        drawNode->drawLine(cocos2d::Vec2(x0, 0.0f), cocos2d::Vec2(x1, 0.0f), cocos2d::Color4F::WHITE);
 
         char str[64];
-        while (x < winSize.width) {
-            cocos2d::Label *label = cocos2d::Label::create();
+        cocos2d::Label *label;
+
+        for (int x = x0; x < x1; x += _step) {
+            if (x == 0) continue;
+            label = cocos2d::Label::create();
             label->setSystemFontSize(20);
             snprintf(str, 63, "%d", x);
             label->setString(str);
             this->addChild(label);
             label->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE_BOTTOM);
-            label->setPosition(cocos2d::Vec2(x, 5));
+            label->setPosition(cocos2d::Vec2(x, 10));
 
             if (_drawFullGrid) {
-                drawNode->drawLine(cocos2d::Vec2(x, yy), cocos2d::Vec2(x, winSize.height), cocos2d::Color4F::WHITE);
+                drawNode->drawLine(cocos2d::Vec2(x, y0), cocos2d::Vec2(x, y1), cocos2d::Color4F::WHITE);
             } else {
                 drawNode->drawLine(cocos2d::Vec2(x, 0.0f), cocos2d::Vec2(x, 5.0f), cocos2d::Color4F::WHITE);
             }
-            x += step;
         }
 
-        while (y < winSize.height) {
-            cocos2d::Label *label = cocos2d::Label::create();
+        for (int y = y0; y < y1; y += _step) {
+            if (y == 0) continue;
+            label = cocos2d::Label::create();
             label->setSystemFontSize(20);
             snprintf(str, 63, "%d", y);
             label->setString(str);
             this->addChild(label);
             label->setAnchorPoint(cocos2d::Vec2::ANCHOR_MIDDLE_LEFT);
-            label->setPosition(cocos2d::Vec2(5, y));
+            label->setPosition(cocos2d::Vec2(10, y));
 
             if (_drawFullGrid) {
-                drawNode->drawLine(cocos2d::Vec2(xx, y), cocos2d::Vec2(winSize.width, y), cocos2d::Color4F::WHITE);
+                drawNode->drawLine(cocos2d::Vec2(x0, y), cocos2d::Vec2(x1, y), cocos2d::Color4F::WHITE);
             } else {
                 drawNode->drawLine(cocos2d::Vec2(0.0f, y), cocos2d::Vec2(5.0f, y), cocos2d::Color4F::WHITE);
             }
-            y += step;
         }
 
         return true;
