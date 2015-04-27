@@ -5,8 +5,7 @@
 
 namespace cw {
 
-    class CoordinateSystem : public cocos2d::Node
-    {
+    class CoordinateSystem : public cocos2d::Node {
     public:
         CoordinateSystem();
         virtual ~CoordinateSystem();
