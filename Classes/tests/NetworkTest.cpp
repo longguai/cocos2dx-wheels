@@ -1,5 +1,5 @@
 #include "NetworkTest.h"
-#include "cocos-ext.h"
+#include "ui/CocosGUI.h"
 
 #include "../network/CWSocketManager.h"
 

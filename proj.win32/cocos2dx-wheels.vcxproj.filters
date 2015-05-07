@@ -19,6 +19,9 @@
     <Filter Include="other">
       <UniqueIdentifier>{f20b9a8b-6e87-4f15-a66c-21d4420e3bf5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{e90a5d5a-f370-4d4d-a7ee-49450669187e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -64,6 +67,15 @@
       <Filter>wheels</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\tests\CoordinateSystemTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\ClientConnection.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\network\CWSocketManager.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tests\NetworkTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
@@ -114,6 +126,18 @@
       <Filter>wheels</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\CoordinateSystemTest.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\CircularIOBuffer.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\ClientConnection.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\network\CWSocketManager.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\NetworkTest.h">
       <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
