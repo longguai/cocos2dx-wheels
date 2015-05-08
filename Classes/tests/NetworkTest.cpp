@@ -3,6 +3,16 @@
 
 #include "../network/CWSocketManager.h"
 
+USING_NS_CC;
+
+NetworkTestLayer::NetworkTestLayer() {
+    _sm = new (std::nothrow) cw::SocketManager();
+}
+
+NetworkTestLayer::~NetworkTestLayer() {
+    delete _sm;
+}
+
 bool NetworkTestLayer::init() {
     if (!Layer::init()) {
         return false;
@@ -13,8 +23,7 @@ bool NetworkTestLayer::init() {
     this->addChild(label);
     label->setPosition(Vec2(visibleSize.width * 0.5, visibleSize.height - 100));
 
-    static cw::SocketManager sm;
-    sm.connectToServer("192.168.4.162", 8899, [=](cw::SocketManager *thiz, bool result) {
+    _sm->connectToServer("192.168.4.162", 8899, [=](cw::SocketManager *thiz, bool result) {
         label->setString(result ? "connect succeeded" : "connect failed");
         if (!result) {
             return;
@@ -28,7 +37,7 @@ bool NetworkTestLayer::init() {
         button->addTouchEventListener([this](Ref *sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED) {
                 char vec[] = "Test1";
-                sm.sendAndRegisterRecvCallback(100, vec, strlen(vec), [](char *data, int len) {
+                _sm->sendAndRegisterRecvCallback(100, vec, strlen(vec), [](char *data, int len) {
                     CCLOG("%.*s", len, data);
                 });
             }
@@ -42,7 +51,7 @@ bool NetworkTestLayer::init() {
         button->addTouchEventListener([this](Ref *sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED) {
                 char vec[] = "Test2";
-                sm.sendAndRegisterRecvCallback(200, vec, strlen(vec), [](char *data, int len) {
+                _sm->sendAndRegisterRecvCallback(200, vec, strlen(vec), [](char *data, int len) {
                     CCLOG("%.*s", len, data);
                 });
 
@@ -61,7 +70,7 @@ bool NetworkTestLayer::init() {
                 };
                 
                 char vec[] = "Test1";
-                sm.sendAndRegisterRecvCallback(300, vec, strlen(vec), func3);
+                _sm->sendAndRegisterRecvCallback(300, vec, strlen(vec), func3);
             }
         });
 
@@ -76,7 +85,7 @@ bool NetworkTestLayer::init() {
                 std::function<void (char *data, size_t len)> func4 = [](char *data, int len) {
                     CCLOG("%.*s", len, data);
                 };
-                sm.sendAndRegisterRecvCallback(400, vec, strlen(vec), func4);
+                _sm->sendAndRegisterRecvCallback(400, vec, strlen(vec), func4);
             }
         });
 

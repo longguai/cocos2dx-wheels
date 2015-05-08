@@ -3,12 +3,20 @@
 
 #include "cocos2d.h"
 
-USING_NS_CC;
+namespace cw {
+    class SocketManager;
+}
 
-class NetworkTestLayer : public Layer {
+class NetworkTestLayer : public cocos2d::Layer {
 public:
+    NetworkTestLayer();
+    virtual ~NetworkTestLayer();
+
     virtual bool init() override;
     CREATE_FUNC(NetworkTestLayer)
+
+private:
+    cw::SocketManager *_sm;
 };
 
 #endif
