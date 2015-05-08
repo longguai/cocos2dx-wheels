@@ -2,6 +2,8 @@
 #include "../wheels/cocos2dx-wheels.h"
 #include "ui/CocosGUI.h"
 
+USING_NS_CC;
+
 bool FoldableTestLayer::init() {
     if (!Layer::init()) {
         return false;

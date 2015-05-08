@@ -3,9 +3,7 @@
 
 #include "cocos2d.h"
 
-USING_NS_CC;
-
-class RichTextExTestLayer : public Layer {
+class RichTextExTestLayer : public cocos2d::Layer {
 public:
     virtual bool init() override;
     CREATE_FUNC(RichTextExTestLayer)

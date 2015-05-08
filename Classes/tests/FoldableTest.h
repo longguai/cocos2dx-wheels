@@ -2,7 +2,6 @@
 #define _FOLDABLE_TEST_H_
 
 #include "cocos2d.h"
-USING_NS_CC;
 
 namespace cw {
     class TableViewCell;
@@ -10,7 +9,7 @@ namespace cw {
     class ScrollBar;
 }
 
-class FoldableTestLayer : public Layer {
+class FoldableTestLayer : public cocos2d::Layer {
 public:
     virtual bool init() override;
     CREATE_FUNC(FoldableTestLayer)

@@ -1,6 +1,8 @@
 ﻿#include "RichTextExTest.h"
 #include "../wheels/cocos2dx-wheels.h"
 
+USING_NS_CC;
+
 #pragma execution_character_set("utf-8")
 
 bool RichTextExTestLayer::init() {

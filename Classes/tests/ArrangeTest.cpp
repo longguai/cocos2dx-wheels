@@ -1,6 +1,8 @@
 ﻿#include "ArrangeTest.h"
 #include "../wheels/cocos2dx-wheels.h"
 
+USING_NS_CC;
+
 bool ArrangeTestLayer::init() {
     if (!Layer::init()) {
         return false;

@@ -1,6 +1,8 @@
 ﻿#include "InConvexPolygonTest.h"
 #include "../wheels/cocos2dx-wheels.h"
 
+USING_NS_CC;
+
 bool InConvexPolygonTestLayer::init() {
     if (!Layer::init()) {
         return false;

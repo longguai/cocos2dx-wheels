@@ -3,9 +3,7 @@
 
 #include "cocos2d.h"
 
-USING_NS_CC;
-
-class ArrangeTestLayer : public Layer {
+class ArrangeTestLayer : public cocos2d::Layer {
 public:
     virtual bool init() override;
     CREATE_FUNC(ArrangeTestLayer)

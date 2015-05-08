@@ -2,14 +2,13 @@
 #define _TABLE_VIEW_TEST_H_
 
 #include "cocos2d.h"
-USING_NS_CC;
 
 namespace cw {
     class TableViewCell;
     class TableView;
 }
 
-class TableViewTestLayer : public Layer {
+class TableViewTestLayer : public cocos2d::Layer {
 public:
     virtual bool init() override;
     CREATE_FUNC(TableViewTestLayer)

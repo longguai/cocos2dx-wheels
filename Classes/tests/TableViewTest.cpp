@@ -3,6 +3,8 @@
 #include "ui/CocosGUI.h"
 #include <codecvt>
 
+USING_NS_CC;
+
 bool TableViewTestLayer::init() {
     if (!Layer::init()) {
         return false;
