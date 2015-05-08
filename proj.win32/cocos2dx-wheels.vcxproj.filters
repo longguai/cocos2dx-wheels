@@ -140,6 +140,15 @@
     <ClInclude Include="..\Classes\tests\NetworkTest.h">
       <Filter>tests</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWLayoutFunctions.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWDebugHelper.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWVariableArgumentList.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
