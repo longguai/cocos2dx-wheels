@@ -14,6 +14,15 @@ namespace cw {
 
 class SocketManager {
 public:
+    SocketManager() {
+    }
+
+    ~SocketManager() {
+        cocos2d::Scheduler *scheduler = cocos2d::Director::getInstance()->getScheduler();
+        scheduler->unschedule(KEY_SOCKET_CONNECTION_TEST, this);
+        scheduler->unschedule(KEY_SOCKET_PEEK, this);
+    }
+
     void connectToServer(const char *ip, unsigned short port, const std::function<void (SocketManager *thiz, bool result)> &callback) {
         _cc.connentToServer(ip, port);
 
@@ -25,6 +34,7 @@ public:
             scheduler->unschedule(KEY_SOCKET_CONNECTION_TEST, this);
             if (!_cc.isConnectSuccess()) {
                 callback(this, false);
+                return;
             }
             callback(this, true);
             scheduler->schedule([this](float) {

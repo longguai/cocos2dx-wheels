@@ -41,17 +41,17 @@ private:
     ClientConnection &operator=(const ClientConnection &);
     ClientConnection &operator=(ClientConnection &&);
 
-    SOCKET                          _socket;
-    std::thread                     *_connectThread;
-    volatile bool                   _isWaiting;
-    volatile bool                   _isConnectSuccess;
+    SOCKET                          _socket = INVALID_SOCKET;
+    std::thread                     *_connectThread = nullptr;
+    volatile bool                   _isWaiting = true;
+    volatile bool                   _isConnectSuccess = false;
 
-    std::thread                     *_sendThread;
-    volatile bool                   _sendNeedQuit;
+    std::thread                     *_sendThread = nullptr;
+    volatile bool                   _sendNeedQuit = false;
     SocketSendBuffer<1024>          _sendBuf;
 
-    std::thread                     *_recvThread;
-    volatile bool                   _recvNeedQuit;
+    std::thread                     *_recvThread = nullptr;
+    volatile bool                   _recvNeedQuit = false;
     SocketRecvBuffer<1024>          _recvBuf;
 
     void _connectToServer(const char *ip, unsigned short port);

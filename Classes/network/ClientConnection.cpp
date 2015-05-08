@@ -31,19 +31,10 @@ ClientConnection::ClientConnection() {
 #if PLATFORM_IS_WINDOWS
     static WinSockLibLoader loader;
 #endif
-
-    _socket             = INVALID_SOCKET;
-    _connectThread      = nullptr;
-    _isWaiting          = true;
-    _isConnectSuccess   = false;
-    _sendThread         = nullptr;
-    _sendNeedQuit       = false;
-    _recvThread         = nullptr;
-    _recvNeedQuit       = false;
 }
 
 ClientConnection::~ClientConnection() {
-
+    quit();
 }
 
 void ClientConnection::connentToServer(const char *ip, unsigned short port) {
