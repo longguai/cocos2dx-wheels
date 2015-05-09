@@ -23,7 +23,7 @@ public:
         scheduler->unschedule(KEY_SOCKET_PEEK, this);
     }
 
-    void connectToServer(const char *ip, unsigned short port, const std::function<void (SocketManager *thiz, bool result)> &callback) {
+    void connectToServer(const char *ip, unsigned short port, const std::function<void (bool result)> &callback) {
         _cc.connentToServer(ip, port);
 
         cocos2d::Scheduler *scheduler = cocos2d::Director::getInstance()->getScheduler();
@@ -31,20 +31,15 @@ public:
             if (_cc.isWaiting()) {
                 return;
             }
+
             scheduler->unschedule(KEY_SOCKET_CONNECTION_TEST, this);
-            if (!_cc.isConnectSuccess()) {
-                callback(this, false);
-                return;
+
+            if (_cc.isConnectSuccess()) {
+                callback(true);
+                startPeek();
+            } else {
+                callback(false);
             }
-            callback(this, true);
-            scheduler->schedule([this](float) {
-                std::vector<char> buf;
-                if (!_cc.peekBuf(&buf) || buf.size() < 4) {
-                    return;
-                }
-                int protocal = SocketManager::readProtocal(&buf[0]);
-                _packets.insert(std::make_pair(protocal, std::move(buf)));
-            }, this, 0.0F, CC_REPEAT_FOREVER, 0.0F, false, KEY_SOCKET_PEEK);
         }, this, 0.0F, CC_REPEAT_FOREVER, 0.0F, false, KEY_SOCKET_CONNECTION_TEST);
     }
 
@@ -62,22 +57,21 @@ public:
         memcpy(&buf[4], data, size);
         _cc.sendBuf(&buf[0], (int)buf.size());
 
-        _Helper *helper = _Helper::create([this, protocal, callback](_Helper *thiz) {
+        _Helper::create([this, protocal, callback](_Helper *helper) {
             std::unordered_map<int, std::vector<char> >::iterator it = _packets.find(protocal);
             if (it != _packets.end()) {
                 std::vector<char> buf(std::move(it->second));
                 _packets.erase(it);
 
-                thiz->shutdown();
-                thiz->autorelease();
+                helper->shutdown();
+                helper->autorelease();
 #ifdef SOCKET_MANAGER_DEBUG
                 --_helperCnt;
                 CCLOG("%d _helperCnt = %u", __LINE__, _helperCnt);
 #endif
                 callback(&buf[4], buf.size() - 4);
             }
-        });
-        helper->startup();
+        })->startup();
 #ifdef SOCKET_MANAGER_DEBUG
         ++_helperCnt;
         CCLOG("%d _helperCnt = %u", __LINE__, _helperCnt);
@@ -104,6 +98,19 @@ private:
         protocal <<= 8;
         protocal |= (unsigned char)buf[3];
         return protocal;
+    }
+
+    void startPeek() {
+        cocos2d::Scheduler *scheduler = cocos2d::Director::getInstance()->getScheduler();
+        scheduler->schedule([this](float) {
+            std::vector<char> buf;
+            if (!_cc.peekBuf(&buf) || buf.size() < 4) {
+                return;
+            }
+            
+            int protocal = SocketManager::readProtocal(&buf[0]);
+            _packets.insert(std::make_pair(protocal, std::move(buf)));
+        }, this, 0.0F, CC_REPEAT_FOREVER, 0.0F, false, KEY_SOCKET_PEEK);
     }
 
 #ifdef SOCKET_MANAGER_DEBUG

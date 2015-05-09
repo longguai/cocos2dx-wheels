@@ -23,7 +23,7 @@ bool NetworkTestLayer::init() {
     this->addChild(label);
     label->setPosition(Vec2(visibleSize.width * 0.5, visibleSize.height - 100));
 
-    _sm->connectToServer("192.168.4.162", 8899, [=](cw::SocketManager *thiz, bool result) {
+    _sm->connectToServer("192.168.4.162", 8899, [=](bool result) {
         label->setString(result ? "connect succeeded" : "connect failed");
         if (!result) {
             return;
@@ -91,7 +91,6 @@ bool NetworkTestLayer::init() {
 
 
     });
-
 
     return true;
 }
