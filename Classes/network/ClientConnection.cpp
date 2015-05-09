@@ -48,7 +48,7 @@ void ClientConnection::connentToServer(const char *ip, unsigned short port) {
     }
 
     _isWaiting = true;
-    _connectThread = new std::thread(std::bind(&ClientConnection::_connectToServer, this, std::placeholders::_1, std::placeholders::_2), ip, port);
+    _connectThread = new (std::nothrow) std::thread(std::bind(&ClientConnection::_connectToServer, this, ip, port));
 }
 
 void ClientConnection::quit() {
