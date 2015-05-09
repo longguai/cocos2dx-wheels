@@ -188,6 +188,9 @@
 		A77AD5EC1AEDC41900352FD0 /* CWCoordinateSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWCoordinateSystem.cpp; sourceTree = "<group>"; };
 		A77AD5ED1AEDC41900352FD0 /* CWCoordinateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCoordinateSystem.h; sourceTree = "<group>"; };
 		A77AD5EE1AEDC41900352FD0 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMacros.h; sourceTree = "<group>"; };
+		A79D299B1AFD9A0700BE41CF /* CWDebugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDebugHelper.h; sourceTree = "<group>"; };
+		A79D299C1AFD9A0700BE41CF /* CWLayoutFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLayoutFunctions.h; sourceTree = "<group>"; };
+		A79D299D1AFD9A0700BE41CF /* CWVariableArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWVariableArgumentList.h; sourceTree = "<group>"; };
 		A7F9920A1AFB4F850034D4B3 /* NetworkTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkTest.cpp; path = tests/NetworkTest.cpp; sourceTree = "<group>"; };
 		A7F9920B1AFB4F850034D4B3 /* NetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTest.h; path = tests/NetworkTest.h; sourceTree = "<group>"; };
 		A7F9920E1AFB4FA40034D4B3 /* CircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularIOBuffer.h; sourceTree = "<group>"; };
@@ -344,6 +347,9 @@
 		4A9E6EBA1AC3A9E50028F9D9 /* wheels */ = {
 			isa = PBXGroup;
 			children = (
+				A79D299B1AFD9A0700BE41CF /* CWDebugHelper.h */,
+				A79D299C1AFD9A0700BE41CF /* CWLayoutFunctions.h */,
+				A79D299D1AFD9A0700BE41CF /* CWVariableArgumentList.h */,
 				A77AD5EC1AEDC41900352FD0 /* CWCoordinateSystem.cpp */,
 				A77AD5ED1AEDC41900352FD0 /* CWCoordinateSystem.h */,
 				A77AD5EE1AEDC41900352FD0 /* CWMacros.h */,
