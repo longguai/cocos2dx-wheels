@@ -164,14 +164,15 @@ namespace cw {
                 _texCoordinates.push_back(s);
                 _texCoordinates.push_back(t);
 
-                _colorList.push_back(255);
-                _colorList.push_back(255);
-                _colorList.push_back(255);
-                _colorList.push_back(255);
+                _colorList.push_back(1.0F);
+                _colorList.push_back(1.0F);
+                _colorList.push_back(1.0F);
+                _colorList.push_back(1.0F);
             }
         }
 
         //fill indexs
+        _indices.reserve(_row * _col * 6);
         const int nVertexPerRow = _col + 1;
         for (int i = 0; i < _row; ++i) {
             for (int j = 0; j < _col; ++j) {
@@ -204,7 +205,7 @@ namespace cw {
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         glBindBuffer(GL_ARRAY_BUFFER, _colorBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLubyte) * _colorList.size(), &_colorList[0], GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * _colorList.size(), &_colorList[0], GL_STATIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
@@ -274,7 +275,7 @@ namespace cw {
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         glBindBuffer(GL_ARRAY_BUFFER, _colorBuffer);
-        glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_UNSIGNED_BYTE, GL_TRUE, 4 * sizeof(GLubyte), 0);
+        glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_COLOR, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
@@ -337,7 +338,7 @@ namespace cw {
         jmax = std::min(nCol - 1 - jmargin, (int)ceilf(xmax / _gridSideLen) - 1);
 
         //iterate all vertex in range [imin,imax]x[jmin,jmax], and press them
-        for (int i = imin; i <= imax; ++i){
+        for (int i = imin; i <= imax; ++i) {
             for (int j = jmin; j <= jmax; ++j) {
                 int idx = (i * nCol + j) * 2;
                 const Vec2 v = Vec2(_vertices[idx], _vertices[idx + 1]);
@@ -390,7 +391,7 @@ namespace cw {
 
         //resubmit texCoord
         glBindBuffer(GL_ARRAY_BUFFER, _texCoordinateBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * _texCoordinates.size(), &_texCoordinates.front(), GL_DYNAMIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * _texCoordinates.size(), &_texCoordinates[0], GL_DYNAMIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
 }

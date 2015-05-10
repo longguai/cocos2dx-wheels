@@ -48,7 +48,7 @@ namespace cw {
 
         std::vector<GLfloat> _vertices;
         std::vector<GLfloat> _texCoordinates;
-        std::vector<GLubyte> _colorList;
+        std::vector<GLfloat> _colorList;
         std::vector<GLushort> _indices;
 
         GLuint _vertexBuffer = 0;
