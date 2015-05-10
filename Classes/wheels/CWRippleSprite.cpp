@@ -1,4 +1,8 @@
 #include "CWRippleSprite.h"
+#include "base/CCDirector.h"
+#include "renderer/ccGLStateCache.h"
+#include "renderer/CCRenderer.h"
+#include "renderer/CCGLProgram.h"
 
 namespace cw {
 
