@@ -70,6 +70,8 @@
 		A724C0181AE727F500092A6C /* FoldableTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A724C0161AE727F500092A6C /* FoldableTest.cpp */; };
 		A77AD5EB1AEDC40B00352FD0 /* CoordinateSystemTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A77AD5E91AEDC40B00352FD0 /* CoordinateSystemTest.cpp */; };
 		A77AD5EF1AEDC41900352FD0 /* CWCoordinateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A77AD5EC1AEDC41900352FD0 /* CWCoordinateSystem.cpp */; };
+		A7A2F4081AFF36020025ACF2 /* CWRippleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7A2F4061AFF36020025ACF2 /* CWRippleSprite.cpp */; };
+		A7A2F40B1AFF45330025ACF2 /* RippleTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7A2F4091AFF45330025ACF2 /* RippleTest.cpp */; };
 		A7F9920C1AFB4F850034D4B3 /* NetworkTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7F9920A1AFB4F850034D4B3 /* NetworkTest.cpp */; };
 		A7F992131AFB4FA40034D4B3 /* ClientConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7F9920F1AFB4FA40034D4B3 /* ClientConnection.cpp */; };
 		A7F992141AFB4FA40034D4B3 /* CWSocketManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7F992111AFB4FA40034D4B3 /* CWSocketManager.cpp */; };
@@ -191,6 +193,10 @@
 		A79D299B1AFD9A0700BE41CF /* CWDebugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDebugHelper.h; sourceTree = "<group>"; };
 		A79D299C1AFD9A0700BE41CF /* CWLayoutFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLayoutFunctions.h; sourceTree = "<group>"; };
 		A79D299D1AFD9A0700BE41CF /* CWVariableArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWVariableArgumentList.h; sourceTree = "<group>"; };
+		A7A2F4061AFF36020025ACF2 /* CWRippleSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRippleSprite.cpp; sourceTree = "<group>"; };
+		A7A2F4071AFF36020025ACF2 /* CWRippleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRippleSprite.h; sourceTree = "<group>"; };
+		A7A2F4091AFF45330025ACF2 /* RippleTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RippleTest.cpp; path = tests/RippleTest.cpp; sourceTree = "<group>"; };
+		A7A2F40A1AFF45330025ACF2 /* RippleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RippleTest.h; path = tests/RippleTest.h; sourceTree = "<group>"; };
 		A7F9920A1AFB4F850034D4B3 /* NetworkTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkTest.cpp; path = tests/NetworkTest.cpp; sourceTree = "<group>"; };
 		A7F9920B1AFB4F850034D4B3 /* NetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTest.h; path = tests/NetworkTest.h; sourceTree = "<group>"; };
 		A7F9920E1AFB4FA40034D4B3 /* CircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularIOBuffer.h; sourceTree = "<group>"; };
@@ -363,6 +369,8 @@
 				4A9E6ECE1AC3BFE90028F9D9 /* cocos2dx-wheels.h */,
 				4A9E5DD81AC4F782009C120B /* CWGeometry.cpp */,
 				4A9E5DD91AC4F782009C120B /* CWGeometry.h */,
+				A7A2F4061AFF36020025ACF2 /* CWRippleSprite.cpp */,
+				A7A2F4071AFF36020025ACF2 /* CWRippleSprite.h */,
 			);
 			path = wheels;
 			sourceTree = "<group>";
@@ -384,6 +392,8 @@
 				4AA6BEA61AC8E3CC00E063D3 /* RichTextExTest.h */,
 				4AA6BEA71AC8E3CC00E063D3 /* TableViewTest.cpp */,
 				4AA6BEA81AC8E3CC00E063D3 /* TableViewTest.h */,
+				A7A2F4091AFF45330025ACF2 /* RippleTest.cpp */,
+				A7A2F40A1AFF45330025ACF2 /* RippleTest.h */,
 			);
 			name = tests;
 			sourceTree = "<group>";
@@ -606,6 +616,8 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */,
 				4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */,
+				A7A2F40B1AFF45330025ACF2 /* RippleTest.cpp in Sources */,
+				A7A2F4081AFF36020025ACF2 /* CWRippleSprite.cpp in Sources */,
 				4AA6BEAB1AC8E3CC00E063D3 /* RichTextExTest.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				4AA6BEAC1AC8E3CC00E063D3 /* TableViewTest.cpp in Sources */,
