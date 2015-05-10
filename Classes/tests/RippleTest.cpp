@@ -27,9 +27,9 @@ bool RippleTestLayer::init() {
     };
 
     listener->onTouchBegan = [func](Touch *touch, Event *event) { func(touch, event); return true; };
-    //listener->onTouchMoved = func;
-    //listener->onTouchEnded = func;
-    //listener->onTouchCancelled = func;
+    listener->onTouchMoved = func;
+    listener->onTouchEnded = func;
+    listener->onTouchCancelled = func;
 
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
 

@@ -1,4 +1,4 @@
-#include "CWRippleSprite.h"
+﻿#include "CWRippleSprite.h"
 #include "base/CCDirector.h"
 #include "renderer/ccGLStateCache.h"
 #include "renderer/CCRenderer.h"
@@ -157,10 +157,10 @@ namespace cw {
         _colorList.reserve(nVertex * 4);
         for (int i = 0; i < _row + 1; ++i) {
             for (int j = 0; j < _col + 1; ++j) {
-                float x = _gridSideLen * j;
-                float y = _contentSize.height - _gridSideLen * i;
-                float s = x / _contentSize.width;
-                float t = 1.0F - y / _contentSize.height;
+                const GLfloat x = _gridSideLen * j;
+                const GLfloat y = _contentSize.height - _gridSideLen * i;
+                const GLfloat s = x / _contentSize.width;
+                const GLfloat t = 1.0F - y / _contentSize.height;
 
                 _vertices.push_back(x);
                 _vertices.push_back(y);
@@ -183,10 +183,10 @@ namespace cw {
                 //current grid is grid(i,j)
                 //grid(i,j)'s leftup vertex is vertex(i,j)
                 //vertex(i,j) is vertex(i*nVertexPerRow+j)
-                int vID_LU = i * nVertexPerRow + j;
-                int vID_RU = vID_LU + 1;
-                int vID_LD = vID_LU + nVertexPerRow;
-                int vID_RD = vID_LD + 1;
+                const GLushort vID_LU = i * nVertexPerRow + j;
+                const GLushort vID_RU = vID_LU + 1;
+                const GLushort vID_LD = vID_LU + nVertexPerRow;
+                const GLushort vID_RD = vID_LD + 1;
 
                 _indices.push_back(vID_LU);
                 _indices.push_back(vID_LD);
@@ -308,7 +308,7 @@ namespace cw {
         CHECK_GL_ERROR_DEBUG();
         CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, _vertices.size());
     }
-    
+
     void RippleSprite::touch(const cocos2d::Vec2 &pt, float depth, float radius) {
         using namespace cocos2d;
 
@@ -320,38 +320,37 @@ namespace cw {
         Vec2 np = PointApplyAffineTransform(pt, parentToNodeTransform);
 
         //convert np to OLU (origin at left up corner) space
-        float x_OLU = np.x;//origin at left up corner
-        float y_OLU = _contentSize.height - np.y;//origin at left up corner
+        const float x_OLU = np.x;//origin at left up corner
+        const float y_OLU = _contentSize.height - np.y;//origin at left up corner
 
         //position range in OLU space
-        float xmin = x_OLU - radius;
-        float xmax = x_OLU + radius;
-        float ymin = y_OLU - radius;
-        float ymax = y_OLU + radius;
+        const float xmin = x_OLU - radius;
+        const float xmax = x_OLU + radius;
+        const float ymin = y_OLU - radius;
+        const float ymax = y_OLU + radius;
 
         //calculate index range from position range
         //note: min is floor(x), max is ceil ceil(x)-1
-        int imin, imax, jmin, jmax;
-        int nRow = _row + 1;
-        int nCol = _col + 1;
+        const int nRow = _row + 1;
+        const int nCol = _col + 1;
         const int imargin = 1;  //do not let the vertex on the edge to be pressed
         const int jmargin = 1;  //do not let the vertex on the edge to be pressed
-        imin = std::max(imargin, (int)floorf(ymin / _gridSideLen));
-        imax = std::min(nRow - 1 - imargin, (int)ceilf(ymax / _gridSideLen) - 1);
-        jmin = std::max(jmargin, (int)floorf(xmin / _gridSideLen));
-        jmax = std::min(nCol - 1 - jmargin, (int)ceilf(xmax / _gridSideLen) - 1);
+        const int imin = std::max(imargin, (int)floorf(ymin / _gridSideLen));
+        const int imax = std::min(nRow - 1 - imargin, (int)ceilf(ymax / _gridSideLen) - 1);
+        const int jmin = std::max(jmargin, (int)floorf(xmin / _gridSideLen));
+        const int jmax = std::min(nCol - 1 - jmargin, (int)ceilf(xmax / _gridSideLen) - 1);
 
         //iterate all vertex in range [imin,imax]x[jmin,jmax], and press them
         for (int i = imin; i <= imax; ++i) {
             for (int j = jmin; j <= jmax; ++j) {
-                int idx = (i * nCol + j) * 2;
+                const int idx = (i * nCol + j) * 2;
                 const Vec2 v = Vec2(_vertices[idx], _vertices[idx + 1]);
                 const Vec2 v_OLU = Vec2(v.x, _contentSize.height - v.y);
                 //press m_srcBuffer at point v
-                float dis = v_OLU.distance(Vec2(x_OLU, y_OLU));
+                const float dis = v_OLU.distance(Vec2(x_OLU, y_OLU));
                 if (dis < radius) {
-                    float curDepth = depth * (0.5F + 0.5F * cosf(dis * M_PI / radius));
-                    _srcMat[i * nRow + j] -= curDepth;
+                    const float curDepth = depth * (0.5F + 0.5F * cosf(dis * M_PI / radius));
+                    _srcMat[i * nCol + j] -= curDepth;
                 }
             }
         }
@@ -367,24 +366,24 @@ namespace cw {
         using namespace cocos2d;
 
         //update buffer and mesh
-        float k = 0.5F - 0.5F / _rippleStrength;
-        float kTexCoord = 1.0F / 1048;
+        const float k = 0.5F - 0.5F / _rippleStrength;
+        const float kTexCoord = 1.0F / 1024;
         const int nRow = _row + 1;
         const int nCol = _col + 1;
         for (int i = 1; i < _row; ++i){
             for (int j = 1; j < _col; ++j){
                 //update m_dstBuffer
-                GLfloat Hup_src = _srcMat[(i - 1) * nRow + j];
-                GLfloat Hdn_src = _srcMat[(i + 1) * nRow + j];
-                GLfloat Hleft_src = _srcMat[i * nRow + j - 1];
-                GLfloat Hright_src = _srcMat[i * nRow + j + 1];
-                GLfloat Hcenter_dst = _dstMat[i * nRow + j];
-                GLfloat H = (Hup_src + Hdn_src + Hleft_src + Hright_src - 2 * Hcenter_dst) * k;
-                _dstMat[i * nRow + j] = H;
+                const GLfloat Hup_src = _srcMat[(i - 1) * nCol + j];
+                const GLfloat Hdn_src = _srcMat[(i + 1) * nCol + j];
+                const GLfloat Hleft_src = _srcMat[i * nCol + j - 1];
+                const GLfloat Hright_src = _srcMat[i * nCol + j + 1];
+                const GLfloat Hcenter_dst = _dstMat[i * nCol + j];
+                const GLfloat H = (Hup_src + Hdn_src + Hleft_src + Hright_src - 2 * Hcenter_dst) * k;
+                _dstMat[i * nCol + j] = H;
 
                 //update texCoord
-                float s_offset = (Hup_src - Hdn_src) * kTexCoord;
-                float t_offset = (Hleft_src - Hright_src) * kTexCoord;
+                const float s_offset = (Hup_src - Hdn_src) * kTexCoord;
+                const float t_offset = (Hleft_src - Hright_src) * kTexCoord;
                 const int idx = (i * nCol + j) * 2;
                 _texCoordinates[idx] = _texCoordinatesStore[idx] + s_offset;
                 _texCoordinates[idx + 1] = _texCoordinatesStore[idx + 1] + t_offset;

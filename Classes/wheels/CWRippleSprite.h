@@ -1,4 +1,4 @@
-#ifndef __cocos2dx_wheels__CWRippleSprite__
+﻿#ifndef __cocos2dx_wheels__CWRippleSprite__
 #define __cocos2dx_wheels__CWRippleSprite__
 
 #include "2d/CCSprite.h"
