@@ -336,9 +336,9 @@ namespace cw {
         int nCol = _col + 1;
         const int imargin = 1;  //do not let the vertex on the edge to be pressed
         const int jmargin = 1;  //do not let the vertex on the edge to be pressed
-        imin = std::min(imargin, (int)floorf(ymin / _gridSideLen));
+        imin = std::max(imargin, (int)floorf(ymin / _gridSideLen));
         imax = std::min(nRow - 1 - imargin, (int)ceilf(ymax / _gridSideLen) - 1);
-        jmin = std::min(jmargin, (int)floorf(xmin / _gridSideLen));
+        jmin = std::max(jmargin, (int)floorf(xmin / _gridSideLen));
         jmax = std::min(nCol - 1 - jmargin, (int)ceilf(xmax / _gridSideLen) - 1);
 
         //iterate all vertex in range [imin,imax]x[jmin,jmax], and press them
