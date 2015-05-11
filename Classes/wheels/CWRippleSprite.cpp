@@ -132,14 +132,14 @@ namespace cw {
 
     RippleSprite::RippleSprite() {
         glGenBuffers(1, &_vertexBuffer);
-        glGenBuffers(1, &_texCoordinateBuffer);
+        glGenBuffers(1, &_texCoordBuffer);
         glGenBuffers(1, &_colorBuffer);
         glGenBuffers(1, &_indexBuffer);
     }
 
     RippleSprite::~RippleSprite() {
         if (_vertexBuffer != 0) glDeleteBuffers(1, &_vertexBuffer);
-        if (_texCoordinateBuffer != 0) glDeleteBuffers(1, &_texCoordinateBuffer);
+        if (_texCoordBuffer != 0) glDeleteBuffers(1, &_texCoordBuffer);
         if (_colorBuffer != 0) glDeleteBuffers(1, &_colorBuffer);
         if (_indexBuffer != 0) glDeleteBuffers(1, &_indexBuffer);
     }
@@ -153,25 +153,25 @@ namespace cw {
         //fill vertex attributes
         const int nVertex = (_row + 1) * (_col + 1);
         _vertices.reserve(nVertex * 2);//in order to faster push_back, do reserve
-        _texCoordinates.reserve(nVertex * 2);
-        _colorList.reserve(nVertex * 4);
+        _texCoords.reserve(nVertex * 2);
+        _colors.reserve(nVertex * 4);
         for (int i = 0; i < _row + 1; ++i) {
             for (int j = 0; j < _col + 1; ++j) {
                 const GLfloat x = _gridSideLen * j;
                 const GLfloat y = _contentSize.height - _gridSideLen * i;
-                const GLfloat s = x / _contentSize.width;
-                const GLfloat t = 1.0F - y / _contentSize.height;
+                const GLfloat u = x / _contentSize.width;
+                const GLfloat v = 1.0F - y / _contentSize.height;
 
                 _vertices.push_back(x);
                 _vertices.push_back(y);
 
-                _texCoordinates.push_back(s);
-                _texCoordinates.push_back(t);
+                _texCoords.push_back(u);
+                _texCoords.push_back(v);
 
-                _colorList.push_back(1.0F);
-                _colorList.push_back(1.0F);
-                _colorList.push_back(1.0F);
-                _colorList.push_back(1.0F);
+                _colors.push_back(1.0F);  // r
+                _colors.push_back(1.0F);  // g
+                _colors.push_back(1.0F);  // b
+                _colors.push_back(1.0F);  // a
             }
         }
 
@@ -183,37 +183,37 @@ namespace cw {
                 //current grid is grid(i,j)
                 //grid(i,j)'s leftup vertex is vertex(i,j)
                 //vertex(i,j) is vertex(i*nVertexPerRow+j)
-                const GLushort vID_LU = i * nVertexPerRow + j;
-                const GLushort vID_RU = vID_LU + 1;
-                const GLushort vID_LD = vID_LU + nVertexPerRow;
-                const GLushort vID_RD = vID_LD + 1;
+                const GLushort tl = i * nVertexPerRow + j;
+                const GLushort tr = tl + 1;
+                const GLushort bl = tl + nVertexPerRow;
+                const GLushort br = bl + 1;
 
-                _indices.push_back(vID_LU);
-                _indices.push_back(vID_LD);
-                _indices.push_back(vID_RD);
+                _indices.push_back(tl);
+                _indices.push_back(bl);
+                _indices.push_back(br);
 
-                _indices.push_back(vID_LU);
-                _indices.push_back(vID_RD);
-                _indices.push_back(vID_RU);
+                _indices.push_back(tl);
+                _indices.push_back(br);
+                _indices.push_back(tr);
             }
         }
 
-        _texCoordinatesStore = _texCoordinates;
+        _texCoordsStore = _texCoords;
 
         glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * _vertices.size(), &_vertices[0], GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, _vertices.size() * sizeof(GLfloat), &_vertices[0], GL_STATIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-        glBindBuffer(GL_ARRAY_BUFFER, _texCoordinateBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * _texCoordinates.size(), &_texCoordinates[0], GL_STATIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, _texCoordBuffer);
+        glBufferData(GL_ARRAY_BUFFER, _texCoords.size() * sizeof(GLfloat), &_texCoords[0], GL_STATIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         glBindBuffer(GL_ARRAY_BUFFER, _colorBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * _colorList.size(), &_colorList[0], GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, _colors.size() * sizeof(GLfloat), &_colors[0], GL_STATIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLushort) * _indices.size(), &_indices[0], GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indices.size() * sizeof(GLushort), &_indices[0], GL_STATIC_DRAW);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         _srcMat.resize(nVertex);
@@ -274,7 +274,7 @@ namespace cw {
         glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_POSITION, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), 0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-        glBindBuffer(GL_ARRAY_BUFFER, _texCoordinateBuffer);
+        glBindBuffer(GL_ARRAY_BUFFER, _texCoordBuffer);
         glVertexAttribPointer(GLProgram::VERTEX_ATTRIB_TEX_COORD, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), 0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -368,33 +368,32 @@ namespace cw {
         //update buffer and mesh
         const float k = 0.5F - 0.5F / _rippleStrength;
         const float kTexCoord = 1.0F / 1024;
-        const int nRow = _row + 1;
         const int nCol = _col + 1;
         for (int i = 1; i < _row; ++i){
             for (int j = 1; j < _col; ++j){
                 //update m_dstBuffer
-                const GLfloat Hup_src = _srcMat[(i - 1) * nCol + j];
-                const GLfloat Hdn_src = _srcMat[(i + 1) * nCol + j];
-                const GLfloat Hleft_src = _srcMat[i * nCol + j - 1];
-                const GLfloat Hright_src = _srcMat[i * nCol + j + 1];
-                const GLfloat Hcenter_dst = _dstMat[i * nCol + j];
-                const GLfloat H = (Hup_src + Hdn_src + Hleft_src + Hright_src - 2 * Hcenter_dst) * k;
+                const GLfloat HTSrc = _srcMat[(i - 1) * nCol + j];
+                const GLfloat HBSrc = _srcMat[(i + 1) * nCol + j];
+                const GLfloat HLSrc = _srcMat[i * nCol + j - 1];
+                const GLfloat HRSrc = _srcMat[i * nCol + j + 1];
+                const GLfloat HCenterDst = _dstMat[i * nCol + j];
+                const GLfloat H = (HTSrc + HBSrc + HLSrc + HRSrc - 2 * HCenterDst) * k;
                 _dstMat[i * nCol + j] = H;
 
                 //update texCoord
-                const float s_offset = (Hup_src - Hdn_src) * kTexCoord;
-                const float t_offset = (Hleft_src - Hright_src) * kTexCoord;
+                const float offsetV = (HTSrc - HBSrc) * kTexCoord;
+                const float offsetH = (HLSrc - HRSrc) * kTexCoord;
                 const int idx = (i * nCol + j) * 2;
-                _texCoordinates[idx] = _texCoordinatesStore[idx] + s_offset;
-                _texCoordinates[idx + 1] = _texCoordinatesStore[idx + 1] + t_offset;
+                _texCoords[idx] = _texCoordsStore[idx] + offsetV;
+                _texCoords[idx + 1] = _texCoordsStore[idx + 1] + offsetH;
             }
         }
 
         std::swap(_dstMat, _srcMat);
 
         //resubmit texCoord
-        glBindBuffer(GL_ARRAY_BUFFER, _texCoordinateBuffer);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * _texCoordinates.size(), &_texCoordinates[0], GL_DYNAMIC_DRAW);
+        glBindBuffer(GL_ARRAY_BUFFER, _texCoordBuffer);
+        glBufferData(GL_ARRAY_BUFFER, _texCoords.size() * sizeof(GLfloat), &_texCoords[0], GL_DYNAMIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
 }

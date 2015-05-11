@@ -42,17 +42,17 @@ namespace cw {
         float _gridSideLen = 0.0F;
         int _row = 0;  // grid row count
         int _col = 0;  // grid col count
-        std::vector<GLfloat> _texCoordinatesStore;
+        std::vector<GLfloat> _texCoordsStore;
         float _rippleStrength = 8;
         float _time = 0.0F;
 
         std::vector<GLfloat> _vertices;
-        std::vector<GLfloat> _texCoordinates;
-        std::vector<GLfloat> _colorList;
+        std::vector<GLfloat> _texCoords;
+        std::vector<GLfloat> _colors;
         std::vector<GLushort> _indices;
 
         GLuint _vertexBuffer = 0;
-        GLuint _texCoordinateBuffer = 0;
+        GLuint _texCoordBuffer = 0;
         GLuint _indexBuffer = 0;
         GLuint _colorBuffer = 0;
 
