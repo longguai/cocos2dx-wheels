@@ -131,20 +131,42 @@ namespace cw {
     }
 
     RippleSprite::RippleSprite() {
+    }
+
+    RippleSprite::~RippleSprite() {
+        if (_vertexBuffer != 0) {
+            glDeleteBuffers(1, &_vertexBuffer);
+        }
+        if (_texCoordBuffer != 0) {
+            glDeleteBuffers(1, &_texCoordBuffer);
+        }
+        if (_colorBuffer != 0) {
+            glDeleteBuffers(1, &_colorBuffer);
+        }
+        if (_indexBuffer != 0) {
+            glDeleteBuffers(1, &_indexBuffer);
+        }
+    }
+
+    void RippleSprite::_initRipple() {
+        if (_vertexBuffer != 0) {
+            glDeleteBuffers(1, &_vertexBuffer);
+        }
+        if (_texCoordBuffer != 0) {
+            glDeleteBuffers(1, &_texCoordBuffer);
+        }
+        if (_colorBuffer != 0) {
+            glDeleteBuffers(1, &_colorBuffer);
+        }
+        if (_indexBuffer != 0) {
+            glDeleteBuffers(1, &_indexBuffer);
+        }
+
         glGenBuffers(1, &_vertexBuffer);
         glGenBuffers(1, &_texCoordBuffer);
         glGenBuffers(1, &_colorBuffer);
         glGenBuffers(1, &_indexBuffer);
-    }
 
-    RippleSprite::~RippleSprite() {
-        if (_vertexBuffer != 0) glDeleteBuffers(1, &_vertexBuffer);
-        if (_texCoordBuffer != 0) glDeleteBuffers(1, &_texCoordBuffer);
-        if (_colorBuffer != 0) glDeleteBuffers(1, &_colorBuffer);
-        if (_indexBuffer != 0) glDeleteBuffers(1, &_indexBuffer);
-    }
-
-    void RippleSprite::_initRipple() {
         _gridSideLen = 8;// gridSideLen;
 
         _row = floorf(_contentSize.height / _gridSideLen) + 1;//add one more row to ensure buffer bigger than background pic
@@ -369,8 +391,8 @@ namespace cw {
         const float k = 0.5F - 0.5F / _rippleStrength;
         const float kTexCoord = 1.0F / 1024;
         const int nCol = _col + 1;
-        for (int i = 1; i < _row; ++i){
-            for (int j = 1; j < _col; ++j){
+        for (int i = 1; i < _row; ++i) {
+            for (int j = 1; j < _col; ++j) {
                 //update m_dstBuffer
                 const GLfloat HTSrc = _srcMat[(i - 1) * nCol + j];
                 const GLfloat HBSrc = _srcMat[(i + 1) * nCol + j];
