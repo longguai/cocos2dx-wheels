@@ -255,7 +255,7 @@ namespace cw {
 
         //use scissor test is more fast than clippingNode for large rect.
         //enable scissor test
-        glEnable(GL_SCISSOR_TEST);
+        //glEnable(GL_SCISSOR_TEST);
 
         //calculate world rect
         Rect lr = Rect(0, 0, _contentSize.width, _contentSize.height);
@@ -263,7 +263,7 @@ namespace cw {
 
         //do not use glScissor, instead use cocos2dx api CCEGLView::setScissorInPoints, or the result will be wrong.
         //note: setScissorInPoints receive world space rect as parameter
-        Director::getInstance()->getOpenGLView()->setScissorInPoints(wr.getMinX(), wr.getMinY(), wr.size.width, wr.size.height);
+        //Director::getInstance()->getOpenGLView()->setScissorInPoints(wr.getMinX(), wr.getMinY(), wr.size.width, wr.size.height);
 
         //----change shader
         GL::blendFunc(_blendFunc.src, _blendFunc.dst);
@@ -325,7 +325,7 @@ namespace cw {
         else glDisableVertexAttribArray(GLProgram::VERTEX_ATTRIB_TEX_COORD);
 
         //disable scissor test
-        glDisable(GL_SCISSOR_TEST);
+        //glDisable(GL_SCISSOR_TEST);
 
         CHECK_GL_ERROR_DEBUG();
         CC_INCREMENT_GL_DRAWN_BATCHES_AND_VERTICES(1, _vertices.size());
