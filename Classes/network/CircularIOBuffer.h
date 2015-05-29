@@ -31,8 +31,7 @@ public:
     inline int size() {
         if (_head <= _tail) {
             return _tail - _head;
-        }
-        else {
+        } else {
             return _N - _head + _tail;
         }
     }
@@ -40,8 +39,7 @@ public:
     inline int freeSize() {
         if (_head <= _tail) {
             return _N - 1 - _tail + _head;
-        }
-        else {
+        } else {
             return _head - _tail - 1;
         }
     }
@@ -57,14 +55,12 @@ public:
                 memcpy(data, _buf + _head, len);
                 _head += len;
                 return len;
-            }
-            else {
+            } else {
                 memcpy(data, _buf + _head, s);
                 _head += s;
                 return s;
             }
-        }
-        else {
+        } else {
             int s1 = _N - _head;
             if (s1 >= len) {
                 memcpy(data, _buf + _head, len);
@@ -73,8 +69,7 @@ public:
                     _head = 0;
                 }
                 return len;
-            }
-            else {
+            } else {
                 memcpy(data, _buf + _head, s1);
                 _head += s1;
                 return s1 + read(data + s1, len - s1);
@@ -93,19 +88,16 @@ public:
                 memcpy(_buf + _tail, data, len);
                 _tail += len;
                 return len;
-            }
-            else if (s > 0) {
+            } else if (s > 0) {
                 memcpy(_buf + _tail, data, s);
                 _tail += s;
                 return s + write(data + s, len - s);
-            }
-            else {
+            } else {
                 _buf[_tail] = *data;
                 _tail = 0;
                 return 1 + write(data + 1, len - 1);
             }
-        }
-        else {
+        } else {
             int s = _head - _tail - 1;
             if (s >= len) {
                 s = len;
@@ -177,10 +169,6 @@ public:
     bool skip(int len) {
         assert(len != 0);
 
-        char (&_buf)[_N] = this->_buf;
-        int &_head = this->_head;
-        int &_tail = this->_tail;
-
         if (_head <= _tail) {
             if (_tail - _head < len) {
                 return false;
@@ -207,10 +195,6 @@ public:
 
     bool peek(char *buf, int len, bool skip) {
         assert(len != 0);
-
-        char (&_buf)[_N] = this->_buf;
-        int &_head = this->_head;
-        int &_tail = this->_tail;
 
         if (_head <= _tail) {
             if (_tail - _head < len) {
