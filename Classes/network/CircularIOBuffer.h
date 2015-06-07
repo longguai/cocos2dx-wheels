@@ -127,6 +127,12 @@ public:
 
 template <int _N> class SocketRecvBuffer final : protected CircularIOBuffer<_N> {
 
+protected:
+    // xcode needs these
+    using CircularIOBuffer<_N>::_buf;
+    using CircularIOBuffer<_N>::_head;
+    using CircularIOBuffer<_N>::_tail;
+
 public:
     using CircularIOBuffer<_N>::capacity;
     using CircularIOBuffer<_N>::isFull;
@@ -134,15 +140,10 @@ public:
     using CircularIOBuffer<_N>::size;
     using CircularIOBuffer<_N>::freeSize;
 
-    // xcode needs this->
     template <class _RECV> int doRecv(_RECV &&func) {
         if (isFull()) {
             return 0;
         }
-
-        char (&_buf)[_N] = this->_buf;
-        int &_head = this->_head;
-        int &_tail = this->_tail;
 
         if (_tail >= _head) {
             if (_head == 0) {
@@ -248,6 +249,12 @@ public:
 
 template <int _N> class SocketSendBuffer final : protected CircularIOBuffer<_N> {
 
+protected:
+    // xcode needs these
+    using CircularIOBuffer<_N>::_buf;
+    using CircularIOBuffer<_N>::_head;
+    using CircularIOBuffer<_N>::_tail;
+
 public:
     using CircularIOBuffer<_N>::capacity;
     using CircularIOBuffer<_N>::isFull;
@@ -257,10 +264,6 @@ public:
     using CircularIOBuffer<_N>::write;
 
     template <class _SEND> int doSend(_SEND &&func) {
-        char (&_buf)[_N] = this->_buf;
-        int &_head = this->_head;
-        int &_tail = this->_tail;
-
         if (_head == _tail) {
             return 0;
         }
