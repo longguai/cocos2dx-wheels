@@ -2,6 +2,7 @@
 #define _CW_REF_WRAP_H_
 
 #include "base/CCRef.h"
+#include <type_traits>
 
 namespace cw {
 
@@ -10,32 +11,43 @@ namespace cw {
 
     public:
         ~RefWrap<_REF>() {
-            if (_ref != nullptr) _ref->release();
+            CC_SAFE_RELEASE(_ref);
+            CCLOGINFO("In the destructor of RefWrap!");
         }
 
         explicit RefWrap<_REF>(_REF *ref) {
+            static_assert(std::is_convertible<_REF *, cocos2d::Ref *>::value, "Invalid Type for cw::RefWrap<_REF>!");
+            CCLOGINFO("In the default constructor of RefWrap!");
             _ref = ref;
-            if (_ref != nullptr) _ref->retain();
+            CC_SAFE_RETAIN(_ref);
+        }
+
+        RefWrap<_REF>(const RefWrap<_REF> &other) {
+            static_assert(std::is_convertible<_REF *, cocos2d::Ref *>::value, "Invalid Type for cw::RefWrap<_REF>!");
+            CCLOGINFO("In the copy constructor of RefWrap!");
+            _ref = other._ref;
+            CC_SAFE_RETAIN(_ref);
+        }
+
+        RefWrap<_REF>(RefWrap<_REF> &&other) {
+            static_assert(std::is_convertible<_REF *, cocos2d::Ref *>::value, "Invalid Type for cw::RefWrap<_REF>!");
+            CCLOGINFO("In the move constructor of RefWrap!");
+            _ref = other._ref;
+            other._ref = nullptr;
         }
 
         inline RefWrap<_REF> &operator=(const RefWrap<_REF> &other) {
+            CC_SAFE_RELEASE(_ref);
             _ref = other._ref;
-            if (_ref != nullptr) _ref->retain();
+            CC_SAFE_RETAIN(_ref);
             return *this;
         }
 
         inline RefWrap<_REF> &operator=(RefWrap<_REF> &&other) {
+            CC_SAFE_RELEASE(_ref);
             _ref = other._ref;
             other._ref = nullptr;
             return *this;
-        }
-
-        RefWrap<_REF>(const RefWrap<_REF> &other) {
-            this->operator=(other);
-        }
-
-        RefWrap<_REF>(RefWrap<_REF> &&other) {
-            this->operator=(other);
         }
 
         inline _REF *get() {
@@ -43,14 +55,14 @@ namespace cw {
         }
 
         inline void reset() {
-            if (_ref != nullptr) _ref->release();
+            CC_SAFE_RELEASE(_ref);
             _ref = nullptr;
         }
 
         inline void reset(_REF *ref) {
-            if (_ref != nullptr) _ref->release();
+            CC_SAFE_RELEASE(_ref);
             _ref = ref;
-            if (_ref != nullptr) _ref->retain();
+            CC_SAFE_RETAIN(_ref);
         }
 
         inline _REF *operator->() {
