@@ -184,8 +184,8 @@ namespace cw {
 
         virtual bool scrollChildren(float touchOffsetX, float touchOffsetY) override;
 
-        long __indexFromOffset(const cocos2d::Vec2 &offset);
-        long _indexFromOffset(cocos2d::Vec2 offset);
+        long __indexFromOffset(const cocos2d::Vec2 &offset, ssize_t cellsCount);
+        long _indexFromOffset(cocos2d::Vec2 offset, ssize_t cellsCount);
         cocos2d::Vec2 __offsetFromIndex(ssize_t index);
         cocos2d::Vec2 _offsetFromIndex(ssize_t index);
 
@@ -193,8 +193,8 @@ namespace cw {
         void _setIndexForCell(ssize_t index, TableViewCell *cell);
         void _addCellIfNecessary(TableViewCell * cell);
 
-        void _updateCellPositions();
-        void _scrollViewDidScroll();
+        void _updateCellPositions(ssize_t cellsCount);
+        void _scrollViewDidScroll(ssize_t cellsCount);
 
         TableViewCell *_touchedCell;
         /**
@@ -232,8 +232,8 @@ namespace cw {
         bool _isUsedCellsDirty;
         ccScrollBarEventCallback _scrollBarEventCallback;
 
-    public:
-        void _updateContentSize();
+    //public:
+        void _updateContentSize(ssize_t cellsCount);
 
     private:
         using cocos2d::ui::ScrollView::setInnerContainerSize;
