@@ -2,7 +2,7 @@
 #define _CW_NOTIFICATION_CENTER_H_
 
 #include "deprecated/CCNotificationCenter.h"
-#include "CWAutoRef.h"
+#include "CWRefWrap.h"
 #include "CWCallFuncDelegate.h"
 #include <unordered_map>
 #include <string>
@@ -65,7 +65,7 @@ namespace cw {
         cocos2d::__NotificationCenter *_nc = nullptr;
         static NotificationCenter *_this;
 
-        typedef AutoRef<CallFuncODelegate> CallFuncOMapValue;
+        typedef RefWrap<CallFuncODelegate> CallFuncOMapValue;
         typedef std::unordered_map<std::string, CallFuncOMapValue> CallFuncOMap;
         std::unordered_map<void *, CallFuncOMap> _targetMap;
     };

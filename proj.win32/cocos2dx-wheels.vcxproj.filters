@@ -179,7 +179,7 @@
     <ClInclude Include="..\Classes\tests\NotificationCenterTest.h">
       <Filter>tests</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWAutoRef.h">
+    <ClInclude Include="..\Classes\wheels\CWRefWrap.h">
       <Filter>wheels</Filter>
     </ClInclude>
   </ItemGroup>

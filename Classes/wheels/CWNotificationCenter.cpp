@@ -18,24 +18,24 @@ namespace cw {
             {
                 _nc->removeObserver(it0->second.get(), name);
 
-                CallFuncODelegate *ft = CallFuncODelegate::create(selector);
-                it0->second = AutoRef<CallFuncODelegate>(ft);
-                _nc->addObserver(ft, CallFuncODelegate::getSelector(), name, sender);
+                CallFuncODelegate *cd = CallFuncODelegate::create(selector);
+                it0->second = RefWrap<CallFuncODelegate>(cd);
+                _nc->addObserver(cd, CallFuncODelegate::getSelector(), name, sender);
             }
             else
             {
-                CallFuncODelegate *ft = CallFuncODelegate::create(selector);
-                callfuncOMap.insert(std::make_pair(name, AutoRef<CallFuncODelegate>(ft)));
-                _nc->addObserver(ft, CallFuncODelegate::getSelector(), name, sender);
+                CallFuncODelegate *cd = CallFuncODelegate::create(selector);
+                callfuncOMap.insert(std::make_pair(name, RefWrap<CallFuncODelegate>(cd)));
+                _nc->addObserver(cd, CallFuncODelegate::getSelector(), name, sender);
             }
         }
         else
         {
-            CallFuncOMap callfuncOMap;
-            CallFuncODelegate *ft = CallFuncODelegate::create(selector);
-            callfuncOMap.insert(std::make_pair(name, AutoRef<CallFuncODelegate>(ft)));
+            CallFuncOMap callfuncOMap; cocos2d::Map<std::string, CallFuncODelegate*> aaa;
+            CallFuncODelegate *cd = CallFuncODelegate::create(selector);
+            callfuncOMap.insert(std::make_pair(name, RefWrap<CallFuncODelegate>(cd)));
             _targetMap.insert(std::make_pair(target, std::move(callfuncOMap)));
-            _nc->addObserver(ft, CallFuncODelegate::getSelector(), name, sender);
+            _nc->addObserver(cd, CallFuncODelegate::getSelector(), name, sender);
         }
     }
 
