@@ -37,7 +37,7 @@ bool FoldableTestLayer::init() {
 
     //_tableView->jumpToPercentVertical(100.0F);
 
-    _scrollBar = cw::createRelativeScrollBarForScrollView(_tableView);
+    _scrollBar = cw::createRelativeScrollBarForTableView(_tableView);
 
     this->addChild(_scrollBar);
     _scrollBar->setAnchorPoint(Vec2(0.5, 0.5));
@@ -89,7 +89,7 @@ cw::TableViewCell *FoldableTestLayer::_tableCellAtIndex(cw::TableView *table, ss
         if (type == ui::Widget::TouchEventType::ENDED) {
             bool &fold = std::get<0>(_foldStatus[idx]);
             fold = !fold;
-            cw::tableViewInplaceReloadData(_tableView, _scrollBar);
+            _tableView->inplaceReloadData();
         }
     });
     return cell;

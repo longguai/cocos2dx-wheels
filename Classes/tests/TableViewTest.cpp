@@ -13,7 +13,7 @@ bool TableViewTestLayer::init() {
     Size winSize = Director::getInstance()->getWinSize();
 
     cw::TableView *tableView = cw::TableView::create();
-    tableView->setContentSize(Size(winSize.width, 200));
+    tableView->setContentSize(Size(winSize.width - 200, 200));
     tableView->setNumberOfCellsInTableViewCallback([](cw::TableView*)->ssize_t {return 20; });
     tableView->setTableCellSizeForIndexCallback([](cw::TableView *table, ssize_t idx) { return cocos2d::Size(100, 40); });
     tableView->setTableCellAtIndexCallback(std::bind(&TableViewTestLayer::_tableCellAtIndex, this, std::placeholders::_1, std::placeholders::_2));
@@ -30,7 +30,7 @@ bool TableViewTestLayer::init() {
 
     //tableView->jumpToPercentVertical(100.0F);
 
-    cw::ScrollBar *scrollBar = cw::createRelativeScrollBarForScrollView(tableView);
+    cw::ScrollBar *scrollBar = cw::createRelativeScrollBarForTableView(tableView);
 
     //cw::ScrollBar *scrollBar = cw::ScrollBar::create();
     //scrollBar->setDirection(cw::ScrollBar::Direction::VERTICAL);

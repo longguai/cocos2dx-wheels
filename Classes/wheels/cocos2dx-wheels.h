@@ -15,8 +15,7 @@
 namespace cw {
     // 创建与ScrollView关联的ScrollBar
     ScrollBar *createRelativeScrollBarForScrollView(cocos2d::ui::ScrollView *scrollView);
-    void tableViewReloadData(TableView *tableView, ScrollBar *scrollBar);
-    void tableViewInplaceReloadData(TableView *tableView, ScrollBar *scrollBar);
+    ScrollBar *createRelativeScrollBarForTableView(TableView *tableView);
 }
 
 #endif
