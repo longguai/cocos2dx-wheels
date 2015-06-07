@@ -31,7 +31,7 @@ namespace cw {
         }
         else
         {
-            CallFuncOMap callfuncOMap; cocos2d::Map<std::string, CallFuncODelegate*> aaa;
+            CallFuncOMap callfuncOMap;
             CallFuncODelegate *cd = CallFuncODelegate::create(selector);
             callfuncOMap.insert(std::make_pair(name, RefWrap<CallFuncODelegate>(cd)));
             _targetMap.insert(std::make_pair(target, std::move(callfuncOMap)));
