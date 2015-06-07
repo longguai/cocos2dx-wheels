@@ -10,6 +10,7 @@
 #include "tests/CoordinateSystemTest.h"
 #include "tests/NetworkTest.h"
 #include "tests/RippleTest.h"
+#include "tests/NotificationCenterTest.h"
 
 USING_NS_CC;
 
@@ -24,7 +25,8 @@ static struct {
     { "Foldable Test", &FoldableTestLayer::create },
     { "CoordinateSystem Test", &CoordinateSystemLayer::create },
     { "Network Test", &NetworkTestLayer::create },
-    { "Ripple Test", &RippleTestLayer::create }
+    { "Ripple Test", &RippleTestLayer::create },
+    { "NotificationCenter Test", &NotificationCenterTestLayer::create }
 };
 
 bool TestCaseScene::init() {

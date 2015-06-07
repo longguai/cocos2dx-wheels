@@ -16,11 +16,11 @@
     <Filter Include="tests">
       <UniqueIdentifier>{f49a1382-03c9-42ac-bc2d-6ef977912933}</UniqueIdentifier>
     </Filter>
-    <Filter Include="other">
-      <UniqueIdentifier>{f20b9a8b-6e87-4f15-a66c-21d4420e3bf5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="network">
       <UniqueIdentifier>{e90a5d5a-f370-4d4d-a7ee-49450669187e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utilities">
+      <UniqueIdentifier>{f20b9a8b-6e87-4f15-a66c-21d4420e3bf5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +82,12 @@
       <Filter>wheels</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\tests\RippleTest.cpp">
+      <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\CWNotificationCenter.cpp">
+      <Filter>wheels</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\tests\NotificationCenterTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
@@ -159,6 +165,18 @@
       <Filter>wheels</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\RippleTest.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utilities\stringfiy.h">
+      <Filter>utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWNotificationCenter.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWCallFuncDelegate.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\tests\NotificationCenterTest.h">
       <Filter>tests</Filter>
     </ClInclude>
   </ItemGroup>
