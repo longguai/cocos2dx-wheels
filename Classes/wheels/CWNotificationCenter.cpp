@@ -18,8 +18,8 @@ namespace cw {
             {
                 _nc->removeObserver(it0->second.get(), name);
 
-                CallFuncODelegate *cd = CallFuncODelegate::create(selector);
-                it0->second = makeRefWrap(cd);
+                CallFuncODelegate *cd = it0->second.get();
+                cd->reset(selector);
                 _nc->addObserver(cd, CallFuncODelegate::getSelector(), name, sender);
             }
             else

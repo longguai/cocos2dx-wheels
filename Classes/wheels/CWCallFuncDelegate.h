@@ -21,6 +21,14 @@ namespace cw {
             return (cocos2d::SEL_CallFunc)&CallFuncDelegate::selector;
         }
 
+        void reset(const std::function<void ()> &selector) {
+            _selector = selector;
+        }
+
+        void reset(std::function<void ()> &&selector) {
+            _selector = selector;
+        }
+
     private:
         void selector() {
             _selector();
@@ -43,6 +51,14 @@ namespace cw {
 
         static inline cocos2d::SEL_CallFuncN getSelector() {
             return (cocos2d::SEL_CallFuncN)&CallFuncNDelegate::selector;
+        }
+
+        void reset(const std::function<void (cocos2d::Node *)> &selector) {
+            _selector = selector;
+        }
+
+        void reset(std::function<void (cocos2d::Node *)> &&selector) {
+            _selector = selector;
         }
 
     private:
@@ -69,6 +85,14 @@ namespace cw {
             return (cocos2d::SEL_CallFuncND)&CallFuncNDDelegate::selector;
         }
 
+        void reset(const std::function<void (cocos2d::Node *, void *)> &selector) {
+            _selector = selector;
+        }
+
+        void reset(std::function<void (cocos2d::Node *, void *)> &&selector) {
+            _selector = selector;
+        }
+
     private:
         void selector(cocos2d::Node *node, void *data) {
             _selector(node, data);
@@ -91,6 +115,14 @@ namespace cw {
 
         static inline cocos2d::SEL_CallFuncO getSelector() {
             return (cocos2d::SEL_CallFuncO)&CallFuncODelegate::selector;
+        }
+
+        void reset(const std::function<void (cocos2d::Ref *)> &selector) {
+            _selector = selector;
+        }
+
+        void reset(std::function<void (cocos2d::Ref *)> &&selector) {
+            _selector = selector;
         }
 
     private:
