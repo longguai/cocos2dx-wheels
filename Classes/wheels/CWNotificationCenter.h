@@ -33,18 +33,6 @@ namespace cw {
             NotificationCenter::destroyInstance();
         }
 
-        void addObserver(cocos2d::Ref *target, cocos2d::SEL_CallFuncO selector, const std::string &name, cocos2d::Ref *sender) {
-            _nc->addObserver(target, selector, name, sender);
-        }
-
-        void removeObserver(cocos2d::Ref *target, const std::string &name) {
-            _nc->removeObserver(target, name);
-        }
-
-        int removeAllObservers(cocos2d::Ref *target) {
-            return _nc->removeAllObservers(target);
-        }
-
         void postNotification(const std::string &name) {
             _nc->postNotification(name);
         }
