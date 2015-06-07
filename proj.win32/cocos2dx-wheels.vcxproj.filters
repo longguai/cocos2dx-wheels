@@ -182,6 +182,9 @@
     <ClInclude Include="..\Classes\wheels\CWRefWrap.h">
       <Filter>wheels</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWRefConverter.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
