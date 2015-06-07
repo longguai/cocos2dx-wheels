@@ -48,28 +48,26 @@ bool FoldableTestLayer::init() {
 
 #pragma execution_character_set("utf-8")
 
-#define LABEL_TAG 123
-#define BUTTON_TAG 456
-
 cw::TableViewCell *FoldableTestLayer::_tableCellAtIndex(cw::TableView *table, ssize_t idx)
 {
-    cw::TableViewCell *cell = table->dequeueCell();
+    typedef cw::TableViewCellEx<Label *, ui::Button *> CellType;
+    CellType *cell = (CellType *)table->dequeueCell();
     if (cell == nullptr) {
-        cell = cw::TableViewCell::create();
+        cell = CellType::create();
         cell->setIdx(idx);
 
         Label *label = Label::createWithSystemFont("", "Helvetica", 30.0);
         label->setAnchorPoint(Vec2(0, 1));
-        label->setTag(LABEL_TAG);
         cell->addChild(label);
         label->setPositionX(0);
+        std::get<0>(cell->extData) = label;
 
         ui::Button *button = ui::Button::create();
         button->loadTextureNormal("CloseNormal.png", ui::Widget::TextureResType::LOCAL);
         cell->addChild(button);
-        button->setTag(BUTTON_TAG);
         button->setPositionX(300);
         button->setScale9Enabled(true);
+        std::get<1>(cell->extData) = button;
     }
 
     cell->setIdx(idx);
@@ -79,11 +77,11 @@ cw::TableViewCell *FoldableTestLayer::_tableCellAtIndex(cw::TableView *table, ss
     char strValue[64];
     sprintf(strValue, "第%.2lu个：状态%s", idx, fold ? "收起" : "展开");
 
-    Label *label = (Label *)cell->getChildByTag(LABEL_TAG);
+    Label *label = std::get<0>(cell->extData);
     label->setString(strValue);
     label->setPositionY(cellSize.height);
 
-    ui::Button *button = (ui::Button *)cell->getChildByTag(BUTTON_TAG);
+    ui::Button *button = std::get<1>(cell->extData);
     button->setPositionY(cellSize.height - button->getContentSize().height * 0.5);
     button->addTouchEventListener([this, table, cell, idx, label, button](Ref *sender, ui::Widget::TouchEventType type) {
         if (type == ui::Widget::TouchEventType::ENDED) {
