@@ -54,6 +54,10 @@ namespace cw {
             return _ref;
         }
 
+        inline const _REF *get() const {
+            return _ref;
+        }
+
         inline void reset() {
             CC_SAFE_RELEASE(_ref);
             _ref = nullptr;
@@ -68,7 +72,15 @@ namespace cw {
         inline _REF *operator->() {
             return _ref;
         }
+
+        inline const _REF *operator->() const {
+            return _ref;
+        }
     };
+
+    template <class _REF> static RefWrap<_REF> makeRefWrap(_REF *ref) {
+        return RefWrap<_REF>(ref);
+    }
 }
 
 #endif
