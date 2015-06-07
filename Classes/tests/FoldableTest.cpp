@@ -60,14 +60,14 @@ cw::TableViewCell *FoldableTestLayer::_tableCellAtIndex(cw::TableView *table, ss
         label->setAnchorPoint(Vec2(0, 1));
         cell->addChild(label);
         label->setPositionX(0);
-        std::get<0>(cell->extData) = label;
+        std::get<0>(cell->getExtData()) = label;
 
         ui::Button *button = ui::Button::create();
         button->loadTextureNormal("CloseNormal.png", ui::Widget::TextureResType::LOCAL);
         cell->addChild(button);
         button->setPositionX(300);
         button->setScale9Enabled(true);
-        std::get<1>(cell->extData) = button;
+        std::get<1>(cell->getExtData()) = button;
     }
 
     cell->setIdx(idx);
@@ -77,11 +77,11 @@ cw::TableViewCell *FoldableTestLayer::_tableCellAtIndex(cw::TableView *table, ss
     char strValue[64];
     sprintf(strValue, "第%.2lu个：状态%s", idx, fold ? "收起" : "展开");
 
-    Label *label = std::get<0>(cell->extData);
+    Label *label = std::get<0>(cell->getExtData());
     label->setString(strValue);
     label->setPositionY(cellSize.height);
 
-    ui::Button *button = std::get<1>(cell->extData);
+    ui::Button *button = std::get<1>(cell->getExtData());
     button->setPositionY(cellSize.height - button->getContentSize().height * 0.5);
     button->addTouchEventListener([this, table, cell, idx, label, button](Ref *sender, ui::Widget::TouchEventType type) {
         if (type == ui::Widget::TouchEventType::ENDED) {

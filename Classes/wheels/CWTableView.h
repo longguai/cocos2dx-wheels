@@ -30,10 +30,10 @@ namespace cw {
         ssize_t _idx;
     };
 
-    template <class ...ARGS> class TableViewCellEx : public TableViewCell {
+    template <class ..._ARGS> class TableViewCellEx : public TableViewCell {
     public:
-        static TableViewCellEx<ARGS...> *create() {
-            TableViewCellEx<ARGS...> *ret = new (std::nothrow) TableViewCellEx<ARGS...>();
+        static TableViewCellEx<_ARGS...> *create() {
+            TableViewCellEx<_ARGS...> *ret = new (std::nothrow) TableViewCellEx<_ARGS...>();
             if (ret != nullptr && ret->init()) {
                 ret->autorelease();
                 return ret;
@@ -42,7 +42,18 @@ namespace cw {
             return nullptr;
         }
 
-        std::tuple<ARGS...> extData;
+        typedef std::tuple<_ARGS...> ExtDataType;
+
+        std::tuple<_ARGS...> &getExtData() {
+            return _extData;
+        }
+
+        const std::tuple<_ARGS...> &getExtData() const {
+            return _extData;
+        }
+
+    protected:
+        std::tuple<_ARGS...> _extData;
     };
 
     class TableView : public cocos2d::ui::ScrollView
