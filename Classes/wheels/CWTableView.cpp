@@ -156,7 +156,7 @@ namespace cw {
         }
     }
 
-    Vec2 TableView::getInnerContainerOffset() const
+    const Vec2 &TableView::getInnerContainerOffset() const
     {
         return _innerContainer->getPosition();
     }
