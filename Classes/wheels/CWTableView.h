@@ -1,9 +1,10 @@
-﻿#ifndef __UITABLEVIEW__
-#define __UITABLEVIEW__
+﻿#ifndef _CW_TABLE_VIEW_H_
+#define _CW_TABLE_VIEW_H_
 
 #include "ui/UIScrollView.h"
 #include <set>
 #include <vector>
+#include <tuple>
 
 namespace cw {
     /**
@@ -27,6 +28,21 @@ namespace cw {
 
     private:
         ssize_t _idx;
+    };
+
+    template <class ...ARGS> class TableViewCellEx : public TableViewCell {
+    public:
+        static TableViewCellEx<ARGS...> *create() {
+            TableViewCellEx<ARGS...> *ret = new (std::nothrow) TableViewCellEx<ARGS...>();
+            if (ret != nullptr && ret->init()) {
+                ret->autorelease();
+                return ret;
+            }
+            CC_SAFE_DELETE(ret);
+            return nullptr;
+        }
+
+        std::tuple<ARGS...> extData;
     };
 
     class TableView : public cocos2d::ui::ScrollView
