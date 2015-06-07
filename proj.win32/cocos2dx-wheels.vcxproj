@@ -177,6 +177,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\tests\FoldableTest.h" />
     <ClInclude Include="..\Classes\utilities\stringfiy.h" />
     <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h" />
+    <ClInclude Include="..\Classes\wheels\CWAutoRef.h" />
     <ClInclude Include="..\Classes\wheels\CWCallFuncDelegate.h" />
     <ClInclude Include="..\Classes\wheels\CWCoordinateSystem.h" />
     <ClInclude Include="..\Classes\wheels\CWDebugHelper.h" />

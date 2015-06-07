@@ -179,6 +179,9 @@
     <ClInclude Include="..\Classes\tests\NotificationCenterTest.h">
       <Filter>tests</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\wheels\CWAutoRef.h">
+      <Filter>wheels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
