@@ -1,4 +1,7 @@
-﻿#include "cocos2dx-wheels.h"
+﻿#include "CWUIUtility.h"
+
+#include "../widgets/CWTableView.h"
+#include "../nodes/CWScrollBar.h"
 
 USING_NS_CC;
 

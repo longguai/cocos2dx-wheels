@@ -1,24 +1,24 @@
 ﻿#ifndef _COCOS2DX_WHEELS_H_
 #define _COCOS2DX_WHEELS_H_
 
-#include "CWCallFuncDelegate.h"
-#include "CWCoordinateSystem.h"
-#include "CWDebugHelper.h"
-#include "CWGeometry.h"
-#include "CWLayoutFunctions.h"
-#include "CWMacros.h"
-#include "CWNotificationCenter.h"
-#include "CWRefConverter.h"
-#include "CWRefWrap.h"
-#include "CWRichTextEx.h"
-#include "CWScrollBar.h"
-#include "CWTableView.h"
-#include "CWVariableArgumentList.h"
+#include "compatible/CWCallFuncDelegate.h"
+#include "compatible/CWNotificationCenter.h"
 
-namespace cw {
-    // 创建与ScrollView关联的ScrollBar
-    ScrollBar *createRelativeScrollBarForScrollView(cocos2d::ui::ScrollView *scrollView);
-    ScrollBar *createRelativeScrollBarForTableView(TableView *tableView);
-}
+#include "nodes/CWCoordinateSystem.h"
+#include "nodes/CWRippleSprite.h"
+#include "nodes/CWScrollBar.h"
+
+#include "utilities/CWDebugHelper.h"
+#include "utilities/CWGeometry.h"
+#include "utilities/CWLayoutFunctions.h"
+#include "utilities/CWMacros.h"
+#include "utilities/CWRefConverter.h"
+#include "utilities/CWRefWrap.h"
+#include "utilities/CWUIUtility.h"
+#include "utilities/CWVariableArgumentList.h"
+#include "utilities/stringfiy.h"
+
+#include "widgets/CWRichTextEx.h"
+#include "widgets/CWTableView.h"
 
 #endif
