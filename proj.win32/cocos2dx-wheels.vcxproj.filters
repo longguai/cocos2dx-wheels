@@ -16,11 +16,20 @@
     <Filter Include="tests">
       <UniqueIdentifier>{f49a1382-03c9-42ac-bc2d-6ef977912933}</UniqueIdentifier>
     </Filter>
-    <Filter Include="network">
-      <UniqueIdentifier>{e90a5d5a-f370-4d4d-a7ee-49450669187e}</UniqueIdentifier>
+    <Filter Include="wheels\compatible">
+      <UniqueIdentifier>{3acc471a-7d2e-4bd0-b073-e7f07bbe3f83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="utilities">
-      <UniqueIdentifier>{f20b9a8b-6e87-4f15-a66c-21d4420e3bf5}</UniqueIdentifier>
+    <Filter Include="wheels\network">
+      <UniqueIdentifier>{a65eef4d-e6fd-44d6-b2ae-fb1706b696e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wheels\nodes">
+      <UniqueIdentifier>{5a500869-6992-48f8-a021-68c56b96c5c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wheels\utilities">
+      <UniqueIdentifier>{ffa8bd12-445b-4597-9bfa-0390bd76a25a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="wheels\widgets">
+      <UniqueIdentifier>{fb18e09d-fe1a-4627-8abb-4aa9d4189c39}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,23 +39,8 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\wheels\CWScrollBar.cpp">
-      <Filter>wheels</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\wheels\CWRichTextEx.cpp">
-      <Filter>wheels</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\wheels\CWTableView.cpp">
-      <Filter>wheels</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\TestCaseScene.cpp">
       <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\wheels\cocos2dx-wheels.cpp">
-      <Filter>wheels</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\wheels\CWGeometry.cpp">
-      <Filter>wheels</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\tests\ArrangeTest.cpp">
       <Filter>tests</Filter>
@@ -63,32 +57,47 @@
     <ClCompile Include="..\Classes\tests\FoldableTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\wheels\CWCoordinateSystem.cpp">
-      <Filter>wheels</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\tests\CoordinateSystemTest.cpp">
       <Filter>tests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\network\ClientConnection.cpp">
-      <Filter>network</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\network\CWSocketManager.cpp">
-      <Filter>network</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\tests\NetworkTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\wheels\CWRippleSprite.cpp">
-      <Filter>wheels</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\tests\RippleTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\wheels\CWNotificationCenter.cpp">
-      <Filter>wheels</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\tests\NotificationCenterTest.cpp">
       <Filter>tests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\compatible\CWNotificationCenter.cpp">
+      <Filter>wheels\compatible</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\network\ClientConnection.cpp">
+      <Filter>wheels\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\network\CWSocketManager.cpp">
+      <Filter>wheels\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\nodes\CWCoordinateSystem.cpp">
+      <Filter>wheels\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\nodes\CWRippleSprite.cpp">
+      <Filter>wheels\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\nodes\CWScrollBar.cpp">
+      <Filter>wheels\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\utilities\CWGeometry.cpp">
+      <Filter>wheels\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\utilities\CWUIUtility.cpp">
+      <Filter>wheels\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\widgets\CWRichTextEx.cpp">
+      <Filter>wheels\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\widgets\CWTableView.cpp">
+      <Filter>wheels\widgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,25 +107,10 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWScrollBar.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWTableView.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWRichTextEx.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\TestCaseScene.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWGeometry.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWMacros.h">
       <Filter>wheels</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\ArrangeTest.h">
@@ -134,56 +128,74 @@
     <ClInclude Include="..\Classes\tests\FoldableTest.h">
       <Filter>tests</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWCoordinateSystem.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\tests\CoordinateSystemTest.h">
       <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\network\CircularIOBuffer.h">
-      <Filter>network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\network\ClientConnection.h">
-      <Filter>network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\network\CWSocketManager.h">
-      <Filter>network</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\NetworkTest.h">
       <Filter>tests</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWLayoutFunctions.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWDebugHelper.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWVariableArgumentList.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWRippleSprite.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\tests\RippleTest.h">
       <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\utilities\stringfiy.h">
-      <Filter>utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWNotificationCenter.h">
-      <Filter>wheels</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWCallFuncDelegate.h">
-      <Filter>wheels</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\NotificationCenterTest.h">
       <Filter>tests</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWRefWrap.h">
-      <Filter>wheels</Filter>
+    <ClInclude Include="..\Classes\wheels\compatible\CWNotificationCenter.h">
+      <Filter>wheels\compatible</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\wheels\CWRefConverter.h">
-      <Filter>wheels</Filter>
+    <ClInclude Include="..\Classes\wheels\compatible\CWCallFuncDelegate.h">
+      <Filter>wheels\compatible</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\network\CircularIOBuffer.h">
+      <Filter>wheels\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\network\ClientConnection.h">
+      <Filter>wheels\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\network\CWSocketManager.h">
+      <Filter>wheels\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\nodes\CWCoordinateSystem.h">
+      <Filter>wheels\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\nodes\CWRippleSprite.h">
+      <Filter>wheels\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\nodes\CWScrollBar.h">
+      <Filter>wheels\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWDebugHelper.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWGeometry.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWLayoutFunctions.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWMacros.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWRefConverter.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWRefWrap.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWUIUtility.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\CWVariableArgumentList.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\utilities\stringfiy.h">
+      <Filter>wheels\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\widgets\CWRichTextEx.h">
+      <Filter>wheels\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\widgets\CWTableView.h">
+      <Filter>wheels\widgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

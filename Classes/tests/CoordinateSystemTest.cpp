@@ -1,5 +1,5 @@
 #include "CoordinateSystemTest.h"
-#include "../wheels/CWCoordinateSystem.h"
+#include "wheels/cocos2dx-wheels.h"
 
 bool CoordinateSystemLayer::init()
 {

@@ -138,8 +138,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\network\ClientConnection.cpp" />
-    <ClCompile Include="..\Classes\network\CWSocketManager.cpp" />
     <ClCompile Include="..\Classes\TestCaseScene.cpp" />
     <ClCompile Include="..\Classes\tests\ArrangeTest.cpp" />
     <ClCompile Include="..\Classes\tests\CoordinateSystemTest.cpp" />
@@ -150,21 +148,20 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\tests\RippleTest.cpp" />
     <ClCompile Include="..\Classes\tests\TableViewTest.cpp" />
     <ClCompile Include="..\Classes\tests\FoldableTest.cpp" />
-    <ClCompile Include="..\Classes\wheels\cocos2dx-wheels.cpp" />
-    <ClCompile Include="..\Classes\wheels\CWCoordinateSystem.cpp" />
-    <ClCompile Include="..\Classes\wheels\CWGeometry.cpp" />
-    <ClCompile Include="..\Classes\wheels\CWNotificationCenter.cpp" />
-    <ClCompile Include="..\Classes\wheels\CWRichTextEx.cpp" />
-    <ClCompile Include="..\Classes\wheels\CWRippleSprite.cpp" />
-    <ClCompile Include="..\Classes\wheels\CWScrollBar.cpp" />
-    <ClCompile Include="..\Classes\wheels\CWTableView.cpp" />
+    <ClCompile Include="..\Classes\wheels\compatible\CWNotificationCenter.cpp" />
+    <ClCompile Include="..\Classes\wheels\network\ClientConnection.cpp" />
+    <ClCompile Include="..\Classes\wheels\network\CWSocketManager.cpp" />
+    <ClCompile Include="..\Classes\wheels\nodes\CWCoordinateSystem.cpp" />
+    <ClCompile Include="..\Classes\wheels\nodes\CWRippleSprite.cpp" />
+    <ClCompile Include="..\Classes\wheels\nodes\CWScrollBar.cpp" />
+    <ClCompile Include="..\Classes\wheels\utilities\CWGeometry.cpp" />
+    <ClCompile Include="..\Classes\wheels\utilities\CWUIUtility.cpp" />
+    <ClCompile Include="..\Classes\wheels\widgets\CWRichTextEx.cpp" />
+    <ClCompile Include="..\Classes\wheels\widgets\CWTableView.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\network\CircularIOBuffer.h" />
-    <ClInclude Include="..\Classes\network\ClientConnection.h" />
-    <ClInclude Include="..\Classes\network\CWSocketManager.h" />
     <ClInclude Include="..\Classes\TestCaseScene.h" />
     <ClInclude Include="..\Classes\tests\ArrangeTest.h" />
     <ClInclude Include="..\Classes\tests\CoordinateSystemTest.h" />
@@ -175,22 +172,26 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\tests\RippleTest.h" />
     <ClInclude Include="..\Classes\tests\TableViewTest.h" />
     <ClInclude Include="..\Classes\tests\FoldableTest.h" />
-    <ClInclude Include="..\Classes\utilities\stringfiy.h" />
     <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h" />
-    <ClInclude Include="..\Classes\wheels\CWRefConverter.h" />
-    <ClInclude Include="..\Classes\wheels\CWRefWrap.h" />
-    <ClInclude Include="..\Classes\wheels\CWCallFuncDelegate.h" />
-    <ClInclude Include="..\Classes\wheels\CWCoordinateSystem.h" />
-    <ClInclude Include="..\Classes\wheels\CWDebugHelper.h" />
-    <ClInclude Include="..\Classes\wheels\CWGeometry.h" />
-    <ClInclude Include="..\Classes\wheels\CWLayoutFunctions.h" />
-    <ClInclude Include="..\Classes\wheels\CWMacros.h" />
-    <ClInclude Include="..\Classes\wheels\CWNotificationCenter.h" />
-    <ClInclude Include="..\Classes\wheels\CWRichTextEx.h" />
-    <ClInclude Include="..\Classes\wheels\CWRippleSprite.h" />
-    <ClInclude Include="..\Classes\wheels\CWScrollBar.h" />
-    <ClInclude Include="..\Classes\wheels\CWTableView.h" />
-    <ClInclude Include="..\Classes\wheels\CWVariableArgumentList.h" />
+    <ClInclude Include="..\Classes\wheels\compatible\CWCallFuncDelegate.h" />
+    <ClInclude Include="..\Classes\wheels\compatible\CWNotificationCenter.h" />
+    <ClInclude Include="..\Classes\wheels\network\CircularIOBuffer.h" />
+    <ClInclude Include="..\Classes\wheels\network\ClientConnection.h" />
+    <ClInclude Include="..\Classes\wheels\network\CWSocketManager.h" />
+    <ClInclude Include="..\Classes\wheels\nodes\CWCoordinateSystem.h" />
+    <ClInclude Include="..\Classes\wheels\nodes\CWRippleSprite.h" />
+    <ClInclude Include="..\Classes\wheels\nodes\CWScrollBar.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWDebugHelper.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWGeometry.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWLayoutFunctions.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWMacros.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWRefConverter.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWRefWrap.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWUIUtility.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\CWVariableArgumentList.h" />
+    <ClInclude Include="..\Classes\wheels\utilities\stringfiy.h" />
+    <ClInclude Include="..\Classes\wheels\widgets\CWRichTextEx.h" />
+    <ClInclude Include="..\Classes\wheels\widgets\CWTableView.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #include "NetworkTest.h"
 #include "ui/CocosGUI.h"
 
-#include "../network/CWSocketManager.h"
+#include "../wheels/network/CWSocketManager.h"
 
 USING_NS_CC;
 

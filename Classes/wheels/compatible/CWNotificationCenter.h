@@ -2,7 +2,7 @@
 #define _CW_NOTIFICATION_CENTER_H_
 
 #include "deprecated/CCNotificationCenter.h"
-#include "CWRefWrap.h"
+#include "../utilities/CWRefWrap.h"
 #include "CWCallFuncDelegate.h"
 #include <unordered_map>
 #include <string>

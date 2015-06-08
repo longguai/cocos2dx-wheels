@@ -5,7 +5,7 @@
 #include "compatible/CWNotificationCenter.h"
 
 #include "nodes/CWCoordinateSystem.h"
-#include "nodes/CWRippleSprite.h"
+//#include "nodes/CWRippleSprite.h"
 #include "nodes/CWScrollBar.h"
 
 #include "utilities/CWDebugHelper.h"
