@@ -2,6 +2,8 @@
 #define _CW_REF_CONVERTER_H_
 
 #include "base/CCRef.h"
+#include <type_traits>
+#include <utility>
 
 namespace cw {
 
@@ -45,12 +47,9 @@ namespace cw {
         }
     };
 
-    template <class _T> RefConverter<_T> *createRefConverter(const _T &val) {
-        return RefConverter<_T>::create(val);
-    }
 
-    template <class _T> RefConverter<_T> *createRefConverter(_T &&val) {
-        return RefConverter<_T>::create(std::move(val));
+    template <class _T> RefConverter<typename std::decay<_T>::type> *createRefConverter(_T &&val) {
+        return RefConverter<typename std::decay<_T>::type>::create(std::forward<_T>(val));
     }
 }
 
