@@ -20,18 +20,6 @@
 		46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
 		46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
 		46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
-		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		4A9E5DDA1AC4F782009C120B /* CWGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E5DD81AC4F782009C120B /* CWGeometry.cpp */; };
-		4A9E6EC11AC3A9E50028F9D9 /* CWRichTextEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */; };
-		4A9E6EC21AC3A9E50028F9D9 /* CWScrollBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */; };
-		4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */; };
-		4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6ECB1AC3BFB90028F9D9 /* TestCaseScene.cpp */; };
-		4A9E6ED51AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */; };
-		4AA6BEA91AC8E3CC00E063D3 /* ArrangeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA11AC8E3CC00E063D3 /* ArrangeTest.cpp */; };
-		4AA6BEAA1AC8E3CC00E063D3 /* InConvexPolygonTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA31AC8E3CC00E063D3 /* InConvexPolygonTest.cpp */; };
-		4AA6BEAB1AC8E3CC00E063D3 /* RichTextExTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA51AC8E3CC00E063D3 /* RichTextExTest.cpp */; };
-		4AA6BEAC1AC8E3CC00E063D3 /* TableViewTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6BEA71AC8E3CC00E063D3 /* TableViewTest.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -67,14 +55,27 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
-		A724C0181AE727F500092A6C /* FoldableTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A724C0161AE727F500092A6C /* FoldableTest.cpp */; };
-		A77AD5EB1AEDC40B00352FD0 /* CoordinateSystemTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A77AD5E91AEDC40B00352FD0 /* CoordinateSystemTest.cpp */; };
-		A77AD5EF1AEDC41900352FD0 /* CWCoordinateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A77AD5EC1AEDC41900352FD0 /* CWCoordinateSystem.cpp */; };
-		A7A2F4081AFF36020025ACF2 /* CWRippleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7A2F4061AFF36020025ACF2 /* CWRippleSprite.cpp */; };
-		A7A2F40B1AFF45330025ACF2 /* RippleTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7A2F4091AFF45330025ACF2 /* RippleTest.cpp */; };
-		A7F9920C1AFB4F850034D4B3 /* NetworkTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7F9920A1AFB4F850034D4B3 /* NetworkTest.cpp */; };
-		A7F992131AFB4FA40034D4B3 /* ClientConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7F9920F1AFB4FA40034D4B3 /* ClientConnection.cpp */; };
-		A7F992141AFB4FA40034D4B3 /* CWSocketManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7F992111AFB4FA40034D4B3 /* CWSocketManager.cpp */; };
+		A7BBB83B1B2577DA009433A8 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */; };
+		A7BBB83C1B2577DA009433A8 /* ClientConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8061B2577DA009433A8 /* ClientConnection.cpp */; };
+		A7BBB83D1B2577DA009433A8 /* CWSocketManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8081B2577DA009433A8 /* CWSocketManager.cpp */; };
+		A7BBB83E1B2577DA009433A8 /* TestCaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */; };
+		A7BBB83F1B2577DA009433A8 /* ArrangeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80D1B2577DA009433A8 /* ArrangeTest.cpp */; };
+		A7BBB8401B2577DA009433A8 /* CoordinateSystemTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80F1B2577DA009433A8 /* CoordinateSystemTest.cpp */; };
+		A7BBB8411B2577DA009433A8 /* FoldableTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8111B2577DA009433A8 /* FoldableTest.cpp */; };
+		A7BBB8421B2577DA009433A8 /* InConvexPolygonTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8131B2577DA009433A8 /* InConvexPolygonTest.cpp */; };
+		A7BBB8431B2577DA009433A8 /* NetworkTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8151B2577DA009433A8 /* NetworkTest.cpp */; };
+		A7BBB8441B2577DA009433A8 /* NotificationCenterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8171B2577DA009433A8 /* NotificationCenterTest.cpp */; };
+		A7BBB8451B2577DA009433A8 /* RichTextExTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8191B2577DA009433A8 /* RichTextExTest.cpp */; };
+		A7BBB8461B2577DA009433A8 /* RippleTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB81B1B2577DA009433A8 /* RippleTest.cpp */; };
+		A7BBB8471B2577DA009433A8 /* TableViewTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB81D1B2577DA009433A8 /* TableViewTest.cpp */; };
+		A7BBB8491B2577DA009433A8 /* cocos2dx-wheels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8241B2577DA009433A8 /* cocos2dx-wheels.cpp */; };
+		A7BBB84A1B2577DA009433A8 /* CWCoordinateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8271B2577DA009433A8 /* CWCoordinateSystem.cpp */; };
+		A7BBB84B1B2577DA009433A8 /* CWGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB82A1B2577DA009433A8 /* CWGeometry.cpp */; };
+		A7BBB84C1B2577DA009433A8 /* CWNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB82E1B2577DA009433A8 /* CWNotificationCenter.cpp */; };
+		A7BBB84D1B2577DA009433A8 /* CWRichTextEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8321B2577DA009433A8 /* CWRichTextEx.cpp */; };
+		A7BBB84E1B2577DA009433A8 /* CWRippleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8341B2577DA009433A8 /* CWRippleSprite.cpp */; };
+		A7BBB84F1B2577DA009433A8 /* CWScrollBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8361B2577DA009433A8 /* CWScrollBar.cpp */; };
+		A7BBB8501B2577DA009433A8 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8381B2577DA009433A8 /* CWTableView.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -126,28 +127,6 @@
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
-		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
-		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4A9E5DD81AC4F782009C120B /* CWGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWGeometry.cpp; sourceTree = "<group>"; };
-		4A9E5DD91AC4F782009C120B /* CWGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGeometry.h; sourceTree = "<group>"; };
-		4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRichTextEx.cpp; sourceTree = "<group>"; };
-		4A9E6EBC1AC3A9E50028F9D9 /* CWRichTextEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRichTextEx.h; sourceTree = "<group>"; };
-		4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWScrollBar.cpp; sourceTree = "<group>"; };
-		4A9E6EBE1AC3A9E50028F9D9 /* CWScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWScrollBar.h; sourceTree = "<group>"; };
-		4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWTableView.cpp; sourceTree = "<group>"; };
-		4A9E6EC01AC3A9E50028F9D9 /* CWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableView.h; sourceTree = "<group>"; };
-		4A9E6ECB1AC3BFB90028F9D9 /* TestCaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCaseScene.cpp; sourceTree = "<group>"; };
-		4A9E6ECC1AC3BFB90028F9D9 /* TestCaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseScene.h; sourceTree = "<group>"; };
-		4A9E6ECE1AC3BFE90028F9D9 /* cocos2dx-wheels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cocos2dx-wheels.h"; sourceTree = "<group>"; };
-		4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "cocos2dx-wheels.cpp"; sourceTree = "<group>"; };
-		4AA6BEA11AC8E3CC00E063D3 /* ArrangeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrangeTest.cpp; path = tests/ArrangeTest.cpp; sourceTree = "<group>"; };
-		4AA6BEA21AC8E3CC00E063D3 /* ArrangeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrangeTest.h; path = tests/ArrangeTest.h; sourceTree = "<group>"; };
-		4AA6BEA31AC8E3CC00E063D3 /* InConvexPolygonTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InConvexPolygonTest.cpp; path = tests/InConvexPolygonTest.cpp; sourceTree = "<group>"; };
-		4AA6BEA41AC8E3CC00E063D3 /* InConvexPolygonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InConvexPolygonTest.h; path = tests/InConvexPolygonTest.h; sourceTree = "<group>"; };
-		4AA6BEA51AC8E3CC00E063D3 /* RichTextExTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RichTextExTest.cpp; path = tests/RichTextExTest.cpp; sourceTree = "<group>"; };
-		4AA6BEA61AC8E3CC00E063D3 /* RichTextExTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RichTextExTest.h; path = tests/RichTextExTest.h; sourceTree = "<group>"; };
-		4AA6BEA71AC8E3CC00E063D3 /* TableViewTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TableViewTest.cpp; path = tests/TableViewTest.cpp; sourceTree = "<group>"; };
-		4AA6BEA81AC8E3CC00E063D3 /* TableViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewTest.h; path = tests/TableViewTest.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -183,27 +162,57 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		A724C0161AE727F500092A6C /* FoldableTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FoldableTest.cpp; path = tests/FoldableTest.cpp; sourceTree = "<group>"; };
-		A724C0171AE727F500092A6C /* FoldableTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoldableTest.h; path = tests/FoldableTest.h; sourceTree = "<group>"; };
-		A77AD5E91AEDC40B00352FD0 /* CoordinateSystemTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CoordinateSystemTest.cpp; path = tests/CoordinateSystemTest.cpp; sourceTree = "<group>"; };
-		A77AD5EA1AEDC40B00352FD0 /* CoordinateSystemTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoordinateSystemTest.h; path = tests/CoordinateSystemTest.h; sourceTree = "<group>"; };
-		A77AD5EC1AEDC41900352FD0 /* CWCoordinateSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWCoordinateSystem.cpp; sourceTree = "<group>"; };
-		A77AD5ED1AEDC41900352FD0 /* CWCoordinateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCoordinateSystem.h; sourceTree = "<group>"; };
-		A77AD5EE1AEDC41900352FD0 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMacros.h; sourceTree = "<group>"; };
-		A79D299B1AFD9A0700BE41CF /* CWDebugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDebugHelper.h; sourceTree = "<group>"; };
-		A79D299C1AFD9A0700BE41CF /* CWLayoutFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLayoutFunctions.h; sourceTree = "<group>"; };
-		A79D299D1AFD9A0700BE41CF /* CWVariableArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWVariableArgumentList.h; sourceTree = "<group>"; };
-		A7A2F4061AFF36020025ACF2 /* CWRippleSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRippleSprite.cpp; sourceTree = "<group>"; };
-		A7A2F4071AFF36020025ACF2 /* CWRippleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRippleSprite.h; sourceTree = "<group>"; };
-		A7A2F4091AFF45330025ACF2 /* RippleTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RippleTest.cpp; path = tests/RippleTest.cpp; sourceTree = "<group>"; };
-		A7A2F40A1AFF45330025ACF2 /* RippleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RippleTest.h; path = tests/RippleTest.h; sourceTree = "<group>"; };
-		A7F9920A1AFB4F850034D4B3 /* NetworkTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NetworkTest.cpp; path = tests/NetworkTest.cpp; sourceTree = "<group>"; };
-		A7F9920B1AFB4F850034D4B3 /* NetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkTest.h; path = tests/NetworkTest.h; sourceTree = "<group>"; };
-		A7F9920E1AFB4FA40034D4B3 /* CircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularIOBuffer.h; sourceTree = "<group>"; };
-		A7F9920F1AFB4FA40034D4B3 /* ClientConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientConnection.cpp; sourceTree = "<group>"; };
-		A7F992101AFB4FA40034D4B3 /* ClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientConnection.h; sourceTree = "<group>"; };
-		A7F992111AFB4FA40034D4B3 /* CWSocketManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWSocketManager.cpp; sourceTree = "<group>"; };
-		A7F992121AFB4FA40034D4B3 /* CWSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSocketManager.h; sourceTree = "<group>"; };
+		A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		A7BBB8031B2577DA009433A8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A7BBB8051B2577DA009433A8 /* CircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularIOBuffer.h; sourceTree = "<group>"; };
+		A7BBB8061B2577DA009433A8 /* ClientConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientConnection.cpp; sourceTree = "<group>"; };
+		A7BBB8071B2577DA009433A8 /* ClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientConnection.h; sourceTree = "<group>"; };
+		A7BBB8081B2577DA009433A8 /* CWSocketManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWSocketManager.cpp; sourceTree = "<group>"; };
+		A7BBB8091B2577DA009433A8 /* CWSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSocketManager.h; sourceTree = "<group>"; };
+		A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCaseScene.cpp; sourceTree = "<group>"; };
+		A7BBB80B1B2577DA009433A8 /* TestCaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseScene.h; sourceTree = "<group>"; };
+		A7BBB80D1B2577DA009433A8 /* ArrangeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArrangeTest.cpp; sourceTree = "<group>"; };
+		A7BBB80E1B2577DA009433A8 /* ArrangeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrangeTest.h; sourceTree = "<group>"; };
+		A7BBB80F1B2577DA009433A8 /* CoordinateSystemTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoordinateSystemTest.cpp; sourceTree = "<group>"; };
+		A7BBB8101B2577DA009433A8 /* CoordinateSystemTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinateSystemTest.h; sourceTree = "<group>"; };
+		A7BBB8111B2577DA009433A8 /* FoldableTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FoldableTest.cpp; sourceTree = "<group>"; };
+		A7BBB8121B2577DA009433A8 /* FoldableTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldableTest.h; sourceTree = "<group>"; };
+		A7BBB8131B2577DA009433A8 /* InConvexPolygonTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InConvexPolygonTest.cpp; sourceTree = "<group>"; };
+		A7BBB8141B2577DA009433A8 /* InConvexPolygonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InConvexPolygonTest.h; sourceTree = "<group>"; };
+		A7BBB8151B2577DA009433A8 /* NetworkTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkTest.cpp; sourceTree = "<group>"; };
+		A7BBB8161B2577DA009433A8 /* NetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTest.h; sourceTree = "<group>"; };
+		A7BBB8171B2577DA009433A8 /* NotificationCenterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotificationCenterTest.cpp; sourceTree = "<group>"; };
+		A7BBB8181B2577DA009433A8 /* NotificationCenterTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenterTest.h; sourceTree = "<group>"; };
+		A7BBB8191B2577DA009433A8 /* RichTextExTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RichTextExTest.cpp; sourceTree = "<group>"; };
+		A7BBB81A1B2577DA009433A8 /* RichTextExTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RichTextExTest.h; sourceTree = "<group>"; };
+		A7BBB81B1B2577DA009433A8 /* RippleTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RippleTest.cpp; sourceTree = "<group>"; };
+		A7BBB81C1B2577DA009433A8 /* RippleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleTest.h; sourceTree = "<group>"; };
+		A7BBB81D1B2577DA009433A8 /* TableViewTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableViewTest.cpp; sourceTree = "<group>"; };
+		A7BBB81E1B2577DA009433A8 /* TableViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewTest.h; sourceTree = "<group>"; };
+		A7BBB8221B2577DA009433A8 /* stringfiy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringfiy.h; sourceTree = "<group>"; };
+		A7BBB8241B2577DA009433A8 /* cocos2dx-wheels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "cocos2dx-wheels.cpp"; sourceTree = "<group>"; };
+		A7BBB8251B2577DA009433A8 /* cocos2dx-wheels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "cocos2dx-wheels.h"; sourceTree = "<group>"; };
+		A7BBB8261B2577DA009433A8 /* CWCallFuncDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCallFuncDelegate.h; sourceTree = "<group>"; };
+		A7BBB8271B2577DA009433A8 /* CWCoordinateSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWCoordinateSystem.cpp; sourceTree = "<group>"; };
+		A7BBB8281B2577DA009433A8 /* CWCoordinateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCoordinateSystem.h; sourceTree = "<group>"; };
+		A7BBB8291B2577DA009433A8 /* CWDebugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDebugHelper.h; sourceTree = "<group>"; };
+		A7BBB82A1B2577DA009433A8 /* CWGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWGeometry.cpp; sourceTree = "<group>"; };
+		A7BBB82B1B2577DA009433A8 /* CWGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGeometry.h; sourceTree = "<group>"; };
+		A7BBB82C1B2577DA009433A8 /* CWLayoutFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLayoutFunctions.h; sourceTree = "<group>"; };
+		A7BBB82D1B2577DA009433A8 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMacros.h; sourceTree = "<group>"; };
+		A7BBB82E1B2577DA009433A8 /* CWNotificationCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWNotificationCenter.cpp; sourceTree = "<group>"; };
+		A7BBB82F1B2577DA009433A8 /* CWNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotificationCenter.h; sourceTree = "<group>"; };
+		A7BBB8301B2577DA009433A8 /* CWRefConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRefConverter.h; sourceTree = "<group>"; };
+		A7BBB8311B2577DA009433A8 /* CWRefWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRefWrap.h; sourceTree = "<group>"; };
+		A7BBB8321B2577DA009433A8 /* CWRichTextEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRichTextEx.cpp; sourceTree = "<group>"; };
+		A7BBB8331B2577DA009433A8 /* CWRichTextEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRichTextEx.h; sourceTree = "<group>"; };
+		A7BBB8341B2577DA009433A8 /* CWRippleSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRippleSprite.cpp; sourceTree = "<group>"; };
+		A7BBB8351B2577DA009433A8 /* CWRippleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRippleSprite.h; sourceTree = "<group>"; };
+		A7BBB8361B2577DA009433A8 /* CWScrollBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWScrollBar.cpp; sourceTree = "<group>"; };
+		A7BBB8371B2577DA009433A8 /* CWScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWScrollBar.h; sourceTree = "<group>"; };
+		A7BBB8381B2577DA009433A8 /* CWTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWTableView.cpp; sourceTree = "<group>"; };
+		A7BBB8391B2577DA009433A8 /* CWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableView.h; sourceTree = "<group>"; };
+		A7BBB83A1B2577DA009433A8 /* CWVariableArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWVariableArgumentList.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -289,7 +298,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				46880B8319C43A87006E1F66 /* Classes */,
+				A7BBB8011B2577DA009433A8 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -333,69 +342,6 @@
 			);
 			name = Resources;
 			path = ../Resources;
-			sourceTree = "<group>";
-		};
-		46880B8319C43A87006E1F66 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
-				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				A7F9920D1AFB4FA40034D4B3 /* network */,
-				4A9E6ECB1AC3BFB90028F9D9 /* TestCaseScene.cpp */,
-				4A9E6ECC1AC3BFB90028F9D9 /* TestCaseScene.h */,
-				4AA6BEA01AC8E3B800E063D3 /* tests */,
-				4A9E6EBA1AC3A9E50028F9D9 /* wheels */,
-			);
-			name = Classes;
-			path = ../Classes;
-			sourceTree = "<group>";
-		};
-		4A9E6EBA1AC3A9E50028F9D9 /* wheels */ = {
-			isa = PBXGroup;
-			children = (
-				A79D299B1AFD9A0700BE41CF /* CWDebugHelper.h */,
-				A79D299C1AFD9A0700BE41CF /* CWLayoutFunctions.h */,
-				A79D299D1AFD9A0700BE41CF /* CWVariableArgumentList.h */,
-				A77AD5EC1AEDC41900352FD0 /* CWCoordinateSystem.cpp */,
-				A77AD5ED1AEDC41900352FD0 /* CWCoordinateSystem.h */,
-				A77AD5EE1AEDC41900352FD0 /* CWMacros.h */,
-				4A9E6EBB1AC3A9E50028F9D9 /* CWRichTextEx.cpp */,
-				4A9E6EBC1AC3A9E50028F9D9 /* CWRichTextEx.h */,
-				4A9E6ED41AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp */,
-				4A9E6EBD1AC3A9E50028F9D9 /* CWScrollBar.cpp */,
-				4A9E6EBE1AC3A9E50028F9D9 /* CWScrollBar.h */,
-				4A9E6EBF1AC3A9E50028F9D9 /* CWTableView.cpp */,
-				4A9E6EC01AC3A9E50028F9D9 /* CWTableView.h */,
-				4A9E6ECE1AC3BFE90028F9D9 /* cocos2dx-wheels.h */,
-				4A9E5DD81AC4F782009C120B /* CWGeometry.cpp */,
-				4A9E5DD91AC4F782009C120B /* CWGeometry.h */,
-				A7A2F4061AFF36020025ACF2 /* CWRippleSprite.cpp */,
-				A7A2F4071AFF36020025ACF2 /* CWRippleSprite.h */,
-			);
-			path = wheels;
-			sourceTree = "<group>";
-		};
-		4AA6BEA01AC8E3B800E063D3 /* tests */ = {
-			isa = PBXGroup;
-			children = (
-				4AA6BEA11AC8E3CC00E063D3 /* ArrangeTest.cpp */,
-				4AA6BEA21AC8E3CC00E063D3 /* ArrangeTest.h */,
-				A77AD5E91AEDC40B00352FD0 /* CoordinateSystemTest.cpp */,
-				A77AD5EA1AEDC40B00352FD0 /* CoordinateSystemTest.h */,
-				A724C0161AE727F500092A6C /* FoldableTest.cpp */,
-				A724C0171AE727F500092A6C /* FoldableTest.h */,
-				4AA6BEA31AC8E3CC00E063D3 /* InConvexPolygonTest.cpp */,
-				4AA6BEA41AC8E3CC00E063D3 /* InConvexPolygonTest.h */,
-				A7F9920A1AFB4F850034D4B3 /* NetworkTest.cpp */,
-				A7F9920B1AFB4F850034D4B3 /* NetworkTest.h */,
-				4AA6BEA51AC8E3CC00E063D3 /* RichTextExTest.cpp */,
-				4AA6BEA61AC8E3CC00E063D3 /* RichTextExTest.h */,
-				4AA6BEA71AC8E3CC00E063D3 /* TableViewTest.cpp */,
-				4AA6BEA81AC8E3CC00E063D3 /* TableViewTest.h */,
-				A7A2F4091AFF45330025ACF2 /* RippleTest.cpp */,
-				A7A2F40A1AFF45330025ACF2 /* RippleTest.h */,
-			);
-			name = tests;
 			sourceTree = "<group>";
 		};
 		503AE0F517EB97AB00D1A890 /* Icons */ = {
@@ -445,16 +391,95 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
-		A7F9920D1AFB4FA40034D4B3 /* network */ = {
+		A7BBB8011B2577DA009433A8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A7F9920E1AFB4FA40034D4B3 /* CircularIOBuffer.h */,
-				A7F9920F1AFB4FA40034D4B3 /* ClientConnection.cpp */,
-				A7F992101AFB4FA40034D4B3 /* ClientConnection.h */,
-				A7F992111AFB4FA40034D4B3 /* CWSocketManager.cpp */,
-				A7F992121AFB4FA40034D4B3 /* CWSocketManager.h */,
+				A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */,
+				A7BBB8031B2577DA009433A8 /* AppDelegate.h */,
+				A7BBB8041B2577DA009433A8 /* network */,
+				A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */,
+				A7BBB80B1B2577DA009433A8 /* TestCaseScene.h */,
+				A7BBB80C1B2577DA009433A8 /* tests */,
+				A7BBB81F1B2577DA009433A8 /* utilities */,
+				A7BBB8231B2577DA009433A8 /* wheels */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
+		A7BBB8041B2577DA009433A8 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				A7BBB8051B2577DA009433A8 /* CircularIOBuffer.h */,
+				A7BBB8061B2577DA009433A8 /* ClientConnection.cpp */,
+				A7BBB8071B2577DA009433A8 /* ClientConnection.h */,
+				A7BBB8081B2577DA009433A8 /* CWSocketManager.cpp */,
+				A7BBB8091B2577DA009433A8 /* CWSocketManager.h */,
 			);
 			path = network;
+			sourceTree = "<group>";
+		};
+		A7BBB80C1B2577DA009433A8 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				A7BBB80D1B2577DA009433A8 /* ArrangeTest.cpp */,
+				A7BBB80E1B2577DA009433A8 /* ArrangeTest.h */,
+				A7BBB80F1B2577DA009433A8 /* CoordinateSystemTest.cpp */,
+				A7BBB8101B2577DA009433A8 /* CoordinateSystemTest.h */,
+				A7BBB8111B2577DA009433A8 /* FoldableTest.cpp */,
+				A7BBB8121B2577DA009433A8 /* FoldableTest.h */,
+				A7BBB8131B2577DA009433A8 /* InConvexPolygonTest.cpp */,
+				A7BBB8141B2577DA009433A8 /* InConvexPolygonTest.h */,
+				A7BBB8151B2577DA009433A8 /* NetworkTest.cpp */,
+				A7BBB8161B2577DA009433A8 /* NetworkTest.h */,
+				A7BBB8171B2577DA009433A8 /* NotificationCenterTest.cpp */,
+				A7BBB8181B2577DA009433A8 /* NotificationCenterTest.h */,
+				A7BBB8191B2577DA009433A8 /* RichTextExTest.cpp */,
+				A7BBB81A1B2577DA009433A8 /* RichTextExTest.h */,
+				A7BBB81B1B2577DA009433A8 /* RippleTest.cpp */,
+				A7BBB81C1B2577DA009433A8 /* RippleTest.h */,
+				A7BBB81D1B2577DA009433A8 /* TableViewTest.cpp */,
+				A7BBB81E1B2577DA009433A8 /* TableViewTest.h */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		A7BBB81F1B2577DA009433A8 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A7BBB8221B2577DA009433A8 /* stringfiy.h */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		A7BBB8231B2577DA009433A8 /* wheels */ = {
+			isa = PBXGroup;
+			children = (
+				A7BBB8241B2577DA009433A8 /* cocos2dx-wheels.cpp */,
+				A7BBB8251B2577DA009433A8 /* cocos2dx-wheels.h */,
+				A7BBB8261B2577DA009433A8 /* CWCallFuncDelegate.h */,
+				A7BBB8271B2577DA009433A8 /* CWCoordinateSystem.cpp */,
+				A7BBB8281B2577DA009433A8 /* CWCoordinateSystem.h */,
+				A7BBB8291B2577DA009433A8 /* CWDebugHelper.h */,
+				A7BBB82A1B2577DA009433A8 /* CWGeometry.cpp */,
+				A7BBB82B1B2577DA009433A8 /* CWGeometry.h */,
+				A7BBB82C1B2577DA009433A8 /* CWLayoutFunctions.h */,
+				A7BBB82D1B2577DA009433A8 /* CWMacros.h */,
+				A7BBB82E1B2577DA009433A8 /* CWNotificationCenter.cpp */,
+				A7BBB82F1B2577DA009433A8 /* CWNotificationCenter.h */,
+				A7BBB8301B2577DA009433A8 /* CWRefConverter.h */,
+				A7BBB8311B2577DA009433A8 /* CWRefWrap.h */,
+				A7BBB8321B2577DA009433A8 /* CWRichTextEx.cpp */,
+				A7BBB8331B2577DA009433A8 /* CWRichTextEx.h */,
+				A7BBB8341B2577DA009433A8 /* CWRippleSprite.cpp */,
+				A7BBB8351B2577DA009433A8 /* CWRippleSprite.h */,
+				A7BBB8361B2577DA009433A8 /* CWScrollBar.cpp */,
+				A7BBB8371B2577DA009433A8 /* CWScrollBar.h */,
+				A7BBB8381B2577DA009433A8 /* CWTableView.cpp */,
+				A7BBB8391B2577DA009433A8 /* CWTableView.h */,
+				A7BBB83A1B2577DA009433A8 /* CWVariableArgumentList.h */,
+			);
+			path = wheels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -603,28 +628,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				4A9E5DDA1AC4F782009C120B /* CWGeometry.cpp in Sources */,
-				A7F992141AFB4FA40034D4B3 /* CWSocketManager.cpp in Sources */,
-				4A9E6EC11AC3A9E50028F9D9 /* CWRichTextEx.cpp in Sources */,
-				A7F992131AFB4FA40034D4B3 /* ClientConnection.cpp in Sources */,
-				4AA6BEA91AC8E3CC00E063D3 /* ArrangeTest.cpp in Sources */,
-				A7F9920C1AFB4F850034D4B3 /* NetworkTest.cpp in Sources */,
-				4A9E6ED51AC3EE7F0028F9D9 /* cocos2dx-wheels.cpp in Sources */,
-				4A9E6EC21AC3A9E50028F9D9 /* CWScrollBar.cpp in Sources */,
-				A77AD5EB1AEDC40B00352FD0 /* CoordinateSystemTest.cpp in Sources */,
+				A7BBB8441B2577DA009433A8 /* NotificationCenterTest.cpp in Sources */,
+				A7BBB84B1B2577DA009433A8 /* CWGeometry.cpp in Sources */,
+				A7BBB8451B2577DA009433A8 /* RichTextExTest.cpp in Sources */,
+				A7BBB83F1B2577DA009433A8 /* ArrangeTest.cpp in Sources */,
+				A7BBB84A1B2577DA009433A8 /* CWCoordinateSystem.cpp in Sources */,
+				A7BBB8501B2577DA009433A8 /* CWTableView.cpp in Sources */,
+				A7BBB83B1B2577DA009433A8 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				4A9E6ECD1AC3BFB90028F9D9 /* TestCaseScene.cpp in Sources */,
-				4A9E6EC31AC3A9E50028F9D9 /* CWTableView.cpp in Sources */,
-				A7A2F40B1AFF45330025ACF2 /* RippleTest.cpp in Sources */,
-				A7A2F4081AFF36020025ACF2 /* CWRippleSprite.cpp in Sources */,
-				4AA6BEAB1AC8E3CC00E063D3 /* RichTextExTest.cpp in Sources */,
+				A7BBB8471B2577DA009433A8 /* TableViewTest.cpp in Sources */,
+				A7BBB84D1B2577DA009433A8 /* CWRichTextEx.cpp in Sources */,
+				A7BBB8421B2577DA009433A8 /* InConvexPolygonTest.cpp in Sources */,
+				A7BBB8491B2577DA009433A8 /* cocos2dx-wheels.cpp in Sources */,
+				A7BBB84E1B2577DA009433A8 /* CWRippleSprite.cpp in Sources */,
+				A7BBB83D1B2577DA009433A8 /* CWSocketManager.cpp in Sources */,
+				A7BBB84F1B2577DA009433A8 /* CWScrollBar.cpp in Sources */,
+				A7BBB8401B2577DA009433A8 /* CoordinateSystemTest.cpp in Sources */,
+				A7BBB83C1B2577DA009433A8 /* ClientConnection.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				4AA6BEAC1AC8E3CC00E063D3 /* TableViewTest.cpp in Sources */,
-				4AA6BEAA1AC8E3CC00E063D3 /* InConvexPolygonTest.cpp in Sources */,
-				A724C0181AE727F500092A6C /* FoldableTest.cpp in Sources */,
-				A77AD5EF1AEDC41900352FD0 /* CWCoordinateSystem.cpp in Sources */,
+				A7BBB84C1B2577DA009433A8 /* CWNotificationCenter.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				A7BBB8461B2577DA009433A8 /* RippleTest.cpp in Sources */,
+				A7BBB8411B2577DA009433A8 /* FoldableTest.cpp in Sources */,
+				A7BBB8431B2577DA009433A8 /* NetworkTest.cpp in Sources */,
+				A7BBB83E1B2577DA009433A8 /* TestCaseScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +659,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
