@@ -1,9 +1,10 @@
-﻿#ifndef __UITABLEVIEW__
-#define __UITABLEVIEW__
+﻿#ifndef _CW_TABLE_VIEW_H_
+#define _CW_TABLE_VIEW_H_
 
 #include "ui/UIScrollView.h"
 #include <set>
 #include <vector>
+#include <tuple>
 
 namespace cw {
     /**
@@ -29,103 +30,30 @@ namespace cw {
         ssize_t _idx;
     };
 
-    class TableView;
-
-    /**
-     * Sole purpose of this delegate is to single touch event in this version.
-     */
-    class CC_DEPRECATED_ATTRIBUTE TableViewDelegate
-    {
+    template <class ..._ARGS> class TableViewCellEx : public TableViewCell {
     public:
-        virtual ~TableViewDelegate() { }
+        static TableViewCellEx<_ARGS...> *create() {
+            TableViewCellEx<_ARGS...> *ret = new (std::nothrow) TableViewCellEx<_ARGS...>();
+            if (ret != nullptr && ret->init()) {
+                ret->autorelease();
+                return ret;
+            }
+            CC_SAFE_DELETE(ret);
+            return nullptr;
+        }
 
-        /**
-         * Delegate to respond touch event
-         *
-         * @param table table contains the given cell
-         * @param cell  cell that is touched
-         * @js NA
-         * @lua NA
-         */
-        virtual void tableCellTouched(TableView* table, TableViewCell* cell) = 0;
+        typedef std::tuple<_ARGS...> ExtDataType;
 
-        /**
-         * Delegate to respond a table cell press event.
-         *
-         * @param table table contains the given cell
-         * @param cell  cell that is pressed
-         * @js NA
-         * @lua NA
-         */
-        virtual void tableCellHighlight(TableView* table, TableViewCell* cell){};
+        std::tuple<_ARGS...> &getExtData() {
+            return _extData;
+        }
 
-        /**
-         * Delegate to respond a table cell release event
-         *
-         * @param table table contains the given cell
-         * @param cell  cell that is pressed
-         * @js NA
-         * @lua NA
-         */
-        virtual void tableCellUnhighlight(TableView* table, TableViewCell* cell){};
+        const std::tuple<_ARGS...> &getExtData() const {
+            return _extData;
+        }
 
-        /**
-         * Delegate called when the cell is about to be recycled. Immediately
-         * after this call the cell will be removed from the scene graph and
-         * recycled.
-         *
-         * @param table table contains the given cell
-         * @param cell  cell that is pressed
-         * @js NA
-         * @lua NA
-         */
-        virtual void tableCellWillRecycle(TableView* table, TableViewCell* cell){};
-    };
-
-    /**
-     * Data source that governs table backend data.
-     */
-    class CC_DEPRECATED_ATTRIBUTE TableViewDataSource
-    {
-    public:
-        /**
-         * @js NA
-         * @lua NA
-         */
-        virtual ~TableViewDataSource() {}
-
-        /**
-         * cell size for a given index
-         *
-         * @param idx the index of a cell to get a size
-         * @return size of a cell at given index
-         */
-        virtual cocos2d::Size tableCellSizeForIndex(TableView *table, ssize_t idx) {
-            return cellSizeForTable(table);
-        };
-        /**
-         * cell height for a given table.
-         *
-         * @param table table to hold the instances of Class
-         * @return cell size
-         */
-        virtual cocos2d::Size cellSizeForTable(TableView *table) {
-            return cocos2d::Size::ZERO;
-        };
-        /**
-         * a cell instance at a given index
-         *
-         * @param idx index to search for a cell
-         * @return cell found at idx
-         */
-        virtual TableViewCell* tableCellAtIndex(TableView *table, ssize_t idx) = 0;
-        /**
-         * Returns number of cells in a given table view.
-         *
-         * @return number of cells
-         */
-        virtual ssize_t numberOfCellsInTableView(TableView *table) = 0;
-
+    protected:
+        std::tuple<_ARGS...> _extData;
     };
 
     class TableView : public cocos2d::ui::ScrollView
@@ -152,6 +80,13 @@ namespace cw {
         typedef std::function<TableViewCell *(TableView *table, ssize_t idx)> ccTableCellAtIndexCallback;
         typedef std::function<ssize_t (TableView *table)> ccNumberOfCellsInTableViewCallback;
 
+        enum class ScrollBarEvent
+        {
+            REFRESH_OFFSET,
+            REFRESH_LENGTH
+        };
+        typedef std::function<void (TableView *table, ScrollBarEvent event)> ccScrollBarEventCallback;
+
         /**
          * Default constructor
          */
@@ -166,38 +101,7 @@ namespace cw {
          * Allocates and initializes.
          */
         static TableView *create();
-        CC_DEPRECATED_ATTRIBUTE static TableView *create(TableViewDataSource *dataSource, const cocos2d::Size &size);
-
-        bool init();
-        CC_DEPRECATED_ATTRIBUTE bool initWithViewSize(TableViewDataSource *dataSource, const cocos2d::Size &size);
-
-        /**
-         * data source
-         * @js NA
-         * @lua NA
-         */
-        CC_DEPRECATED_ATTRIBUTE TableViewDataSource* getDataSource() { return nullptr; }
-        /**
-         * when this function bound to js or lua,the input params are changed
-         * in js:var setDataSource(var jsSource)
-         * in lua:local setDataSource()
-         * @endcode
-         */
-        CC_DEPRECATED_ATTRIBUTE void setDataSource(TableViewDataSource* source);
-        /**
-         * delegate
-         * @js NA
-         * @lua NA
-         */
-        CC_DEPRECATED_ATTRIBUTE TableViewDelegate* getDelegate() { return nullptr; }
-        /**
-         * @code
-         * when this function bound to js or lua,the input params are changed
-         * in js:var setDelegate(var jsDelegate)
-         * in lua:local setDelegate()
-         * @endcode
-         */
-        CC_DEPRECATED_ATTRIBUTE void setDelegate(TableViewDelegate* pDelegate);
+        virtual bool init() override;
 
         void setTableViewCellCallback(const ccTableViewCellCallback& callback);
         const ccTableViewCellCallback& getTableViewCellCallback() const;
@@ -209,13 +113,16 @@ namespace cw {
         void setNumberOfCellsInTableViewCallback(const ccNumberOfCellsInTableViewCallback& func);
         const ccNumberOfCellsInTableViewCallback& getNumberOfCellsInTableViewCallback() const;
 
+        void setScrollBarEventCallback(const ccScrollBarEventCallback &func);
+        const ccScrollBarEventCallback &getScrollBarEventCallback() const;
+
         /**
          * determines how cell is ordered and filled in the view.
          */
         void setVerticalFillOrder(VerticalFillOrder order);
         VerticalFillOrder getVerticalFillOrder();
 
-        cocos2d::Vec2 getInnerContainerOffset() const;
+        const cocos2d::Vec2 &getInnerContainerOffset() const;
         void setInnerContainerOffset(const cocos2d::Vec2 &offset);
 
         /**
@@ -273,16 +180,12 @@ namespace cw {
         static TableViewCell* __tableCellAtIndex(TableView*, ssize_t) { return nullptr; }
         static ssize_t __numberOfCellsInTableView(TableView*) { return 0; }
 
-        CC_DEPRECATED_ATTRIBUTE void _initWithViewSize(const cocos2d::Size &size);
-
         virtual void onSizeChanged() override;
-
-        void _scrollEvent(Ref *sender, cocos2d::ui::ScrollView::EventType type);
 
         virtual bool scrollChildren(float touchOffsetX, float touchOffsetY) override;
 
-        long __indexFromOffset(const cocos2d::Vec2 &offset);
-        long _indexFromOffset(cocos2d::Vec2 offset);
+        long __indexFromOffset(const cocos2d::Vec2 &offset, ssize_t cellsCount);
+        long _indexFromOffset(cocos2d::Vec2 offset, ssize_t cellsCount);
         cocos2d::Vec2 __offsetFromIndex(ssize_t index);
         cocos2d::Vec2 _offsetFromIndex(ssize_t index);
 
@@ -290,8 +193,8 @@ namespace cw {
         void _setIndexForCell(ssize_t index, TableViewCell *cell);
         void _addCellIfNecessary(TableViewCell * cell);
 
-        void _updateCellPositions();
-        void _scrollViewDidScroll();
+        void _updateCellPositions(ssize_t cellsCount);
+        void _scrollViewDidScroll(ssize_t cellsCount);
 
         TableViewCell *_touchedCell;
         /**
@@ -327,9 +230,10 @@ namespace cw {
         cocos2d::ui::ScrollView::Direction _oldDirection;
 
         bool _isUsedCellsDirty;
+        ccScrollBarEventCallback _scrollBarEventCallback;
 
-    public:
-        void _updateContentSize();
+    //public:
+        void _updateContentSize(ssize_t cellsCount);
 
     private:
         using cocos2d::ui::ScrollView::setInnerContainerSize;

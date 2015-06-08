@@ -23,18 +23,6 @@ namespace cw {
         CC_SAFE_DELETE(_indices);
     }
 
-    TableView *TableView::create(TableViewDataSource *dataSource, const Size &size)
-    {
-        TableView *table = new (std::nothrow) TableView();
-        if (table != nullptr && table->initWithViewSize(dataSource, size))
-        {
-            table->autorelease();
-            return table;
-        }
-        CC_SAFE_DELETE(table);
-        return NULL;
-    }
-
     TableView *TableView::create()
     {
         TableView *table = new (std::nothrow) TableView();
@@ -45,24 +33,6 @@ namespace cw {
         }
         CC_SAFE_DELETE(table);
         return NULL;
-    }
-
-    bool TableView::initWithViewSize(TableViewDataSource *dataSource, const Size &size)
-    {
-        if (ScrollView::init())
-        {
-            _oldDirection = Direction::NONE;
-            _cellsPositions.clear();
-
-            _initWithViewSize(size);
-            setDataSource(dataSource);
-
-            _updateCellPositions();
-            _updateContentSize();
-
-            return true;
-        }
-        return false;
     }
 
     bool TableView::init()
@@ -84,18 +54,6 @@ namespace cw {
         return true;
     }
 
-    void TableView::_initWithViewSize(const Size &size)
-    {
-        this->setContentSize(size);
-
-        _cellsUsed.clear();
-        _cellsFreed.clear();
-        CC_SAFE_DELETE(_indices);
-        _indices = new (std::nothrow) std::set<ssize_t>();
-        _vordering = VerticalFillOrder::BOTTOM_UP;
-        this->setDirection(Direction::VERTICAL);
-    }
-
     void TableView::onSizeChanged()
     {
         Size orginSize = _innerContainer->getContentSize();
@@ -105,36 +63,12 @@ namespace cw {
         {
             _innerContainer->setPosition(orginPos);
         }
-    }
 
-    void TableView::setDataSource(TableViewDataSource* source)
-    {
-        _tableCellSizeForIndex = std::bind(&TableViewDataSource::tableCellSizeForIndex, source, std::placeholders::_1, std::placeholders::_2);
-        _tableCellAtIndex = std::bind(&TableViewDataSource::tableCellAtIndex, source, std::placeholders::_1, std::placeholders::_2);
-        _numberOfCellsInTableView = std::bind(&TableViewDataSource::numberOfCellsInTableView, source, std::placeholders::_1);
-    }
-
-    void TableView::setDelegate(TableViewDelegate* pDelegate)
-    {
-        _tableViewCellCallback = [pDelegate](TableView* table, TableViewCell* cell, CellEventType type) {
-            switch (type)
-            {
-            case CellEventType::TOUCHED:
-                pDelegate->tableCellTouched(table, cell);
-                break;
-            case CellEventType::HIGHLIGHT:
-                pDelegate->tableCellHighlight(table, cell);
-                break;
-            case CellEventType::UNHIGHLIGHT:
-                pDelegate->tableCellUnhighlight(table, cell);
-                break;
-            case CellEventType::WILL_RECYCLE:
-                pDelegate->tableCellWillRecycle(table, cell);
-                break;
-            default:
-                break;
-            }
-        };
+        if (_scrollBarEventCallback)
+        {
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_LENGTH);
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_OFFSET);
+        }
     }
 
     void TableView::setTableViewCellCallback(const ccTableViewCellCallback& callback)
@@ -177,6 +111,16 @@ namespace cw {
         return _numberOfCellsInTableView;
     }
 
+    void TableView::setScrollBarEventCallback(const ccScrollBarEventCallback &func)
+    {
+        _scrollBarEventCallback = func;
+    }
+
+    const TableView::ccScrollBarEventCallback &TableView::getScrollBarEventCallback() const
+    {
+        return _scrollBarEventCallback;
+    }
+
     void TableView::setVerticalFillOrder(VerticalFillOrder fillOrder)
     {
         if (_vordering != fillOrder)
@@ -212,7 +156,7 @@ namespace cw {
         }
     }
 
-    Vec2 TableView::getInnerContainerOffset() const
+    const Vec2 &TableView::getInnerContainerOffset() const
     {
         return _innerContainer->getPosition();
     }
@@ -224,16 +168,24 @@ namespace cw {
 
         Vec2 o(MAX(minOffset.x, MIN(maxOffset.x, offset.x)), MAX(minOffset.y, MIN(maxOffset.y, offset.y)));
         _innerContainer->setPosition(o);
-        _scrollViewDidScroll();
+        ssize_t cellsCount = _numberOfCellsInTableView(this);
+        _scrollViewDidScroll(cellsCount);
         this->scrollingEvent();
+
+        if (_scrollBarEventCallback)
+        {
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_OFFSET);
+        }
     }
 
     void TableView::reloadData()
     {
         _oldDirection = Direction::NONE;
 
-        for (const auto &cell : _cellsUsed) {
-            if (_tableViewCellCallback) {
+        for (const auto &cell : _cellsUsed)
+        {
+            if (_tableViewCellCallback)
+            {
                 _tableViewCellCallback(this, cell, CellEventType::WILL_RECYCLE);
             }
 
@@ -249,12 +201,19 @@ namespace cw {
         _indices->clear();
         _cellsUsed.clear();
 
-        this->_updateCellPositions();
-        this->_updateContentSize();
-        if (_numberOfCellsInTableView(this) > 0)
+        ssize_t cellsCount = _numberOfCellsInTableView(this);
+        this->_updateCellPositions(cellsCount);
+        this->_updateContentSize(cellsCount);
+        if (cellsCount > 0)
         {
-            _scrollViewDidScroll();
+            _scrollViewDidScroll(cellsCount);
             this->scrollingEvent();
+        }
+
+        if (_scrollBarEventCallback)
+        {
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_LENGTH);
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_OFFSET);
         }
     }
 
@@ -262,8 +221,10 @@ namespace cw {
     {
         _oldDirection = _direction;
 
-        for (const auto &cell : _cellsUsed) {
-            if (_tableViewCellCallback) {
+        for (const auto &cell : _cellsUsed)
+        {
+            if (_tableViewCellCallback)
+            {
                 _tableViewCellCallback(this, cell, CellEventType::WILL_RECYCLE);
             }
 
@@ -279,12 +240,19 @@ namespace cw {
         _indices->clear();
         _cellsUsed.clear();
 
-        this->_updateCellPositions();
-        this->_updateContentSize();
-        if (_numberOfCellsInTableView(this) > 0)
+        ssize_t cellsCount = _numberOfCellsInTableView(this);
+        this->_updateCellPositions(cellsCount);
+        this->_updateContentSize(cellsCount);
+        if (cellsCount > 0)
         {
-            _scrollViewDidScroll();
+            _scrollViewDidScroll(cellsCount);
             this->scrollingEvent();
+        }
+
+        if (_scrollBarEventCallback)
+        {
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_LENGTH);
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_OFFSET);
         }
     }
 
@@ -358,8 +326,8 @@ namespace cw {
         this->_setIndexForCell(idx, cell);
         this->_addCellIfNecessary(cell);
 
-        this->_updateCellPositions();
-        this->_updateContentSize();
+        this->_updateCellPositions(countOfItems);
+        this->_updateContentSize(countOfItems);
     }
 
     void TableView::removeCellAtIndex(ssize_t idx)
@@ -369,8 +337,8 @@ namespace cw {
             return;
         }
 
-        long uCountOfItems = _numberOfCellsInTableView(this);
-        if (0 == uCountOfItems || idx > uCountOfItems - 1)
+        ssize_t uCountOfItems = _numberOfCellsInTableView(this);
+        if (0 == uCountOfItems || idx + 1 > uCountOfItems)
         {
             return;
         }
@@ -387,21 +355,24 @@ namespace cw {
         this->_moveCellOutOfSight(cell);
 
         _indices->erase(idx);
-        this->_updateCellPositions();
+        this->_updateCellPositions(uCountOfItems);
 
-        for (ssize_t i = _cellsUsed.size()-1; i > newIdx; --i)
+        for (ssize_t i = _cellsUsed.size() - 1; i > newIdx; --i)
         {
             cell = _cellsUsed.at(i);
-            this->_setIndexForCell(cell->getIdx()-1, cell);
+            this->_setIndexForCell(cell->getIdx() - 1, cell);
         }
     }
 
     TableViewCell *TableView::dequeueCell()
     {
         TableViewCell *cell;
-        if (_cellsFreed.empty()) {
+        if (_cellsFreed.empty())
+        {
             cell = nullptr;
-        } else {
+        }
+        else
+        {
             cell = _cellsFreed.at(0);
             cell->retain();
             _cellsFreed.erase(0);
@@ -421,11 +392,9 @@ namespace cw {
         _isUsedCellsDirty = true;
     }
 
-    void TableView::_updateContentSize()
+    void TableView::_updateContentSize(ssize_t cellsCount)
     {
         Size size = Size::ZERO;
-        ssize_t cellsCount = _numberOfCellsInTableView(this);
-
         if (cellsCount > 0)
         {
             float maxPosition = _cellsPositions[cellsCount];
@@ -448,7 +417,6 @@ namespace cw {
             }
             _oldDirection = _direction;
         }
-
     }
 
     Vec2 TableView::_offsetFromIndex(ssize_t index)
@@ -470,16 +438,16 @@ namespace cw {
         return offset;
     }
 
-    long TableView::_indexFromOffset(Vec2 offset)
+    long TableView::_indexFromOffset(Vec2 offset, ssize_t cellsCount)
     {
         long index = 0;
-        const long maxIdx = _numberOfCellsInTableView(this) - 1;
+        const long maxIdx = cellsCount - 1;
 
         if (_vordering == VerticalFillOrder::TOP_DOWN)
         {
             offset.y = _innerContainer->getContentSize().height - offset.y;
         }
-        index = this->__indexFromOffset(offset);
+        index = this->__indexFromOffset(offset, cellsCount);
         if (index != -1)
         {
             index = MAX(0, index);
@@ -492,10 +460,10 @@ namespace cw {
         return index;
     }
 
-    long TableView::__indexFromOffset(const Vec2 &offset)
+    long TableView::__indexFromOffset(const Vec2 &offset, ssize_t cellsCount)
     {
         long low = 0;
-        long high = _numberOfCellsInTableView(this) - 1;
+        long high = cellsCount - 1;
         const float search = (_direction == Direction::HORIZONTAL ? offset.x : offset.y);
 
         // binary search
@@ -523,7 +491,8 @@ namespace cw {
 
     void TableView::_moveCellOutOfSight(TableViewCell *cell)
     {
-        if (_tableViewCellCallback) {
+        if (_tableViewCellCallback)
+        {
             _tableViewCellCallback(this, cell, CellEventType::WILL_RECYCLE);
         }
 
@@ -547,10 +516,9 @@ namespace cw {
         cell->setIdx(index);
     }
 
-    void TableView::_updateCellPositions()
+    void TableView::_updateCellPositions(ssize_t cellsCount)
     {
-        ssize_t cellsCount = _numberOfCellsInTableView(this);
-        _cellsPositions.resize(cellsCount + 1, 0.0);
+        _cellsPositions.resize(cellsCount + 1, 0.0f);
 
         if (cellsCount > 0)
         {
@@ -579,10 +547,9 @@ namespace cw {
                     viewSize.height - contentSize.height * _innerContainer->getScaleY());
     }
 
-    void TableView::_scrollViewDidScroll()
+    void TableView::_scrollViewDidScroll(ssize_t cellsCount)
     {
-        long countOfItems = _numberOfCellsInTableView(this);
-        if (0 == countOfItems)
+        if (0 == cellsCount)
         {
             return;
         }
@@ -599,23 +566,23 @@ namespace cw {
         Vec2 offset = _innerContainer->getPosition();
         Vec2 maxOffset = maxContainerOffset();
         Vec2 minOffset = minContainerOffset();
-        offset.x = MIN(maxOffset.x, offset.x);
-        offset.x = MAX(minOffset.x, offset.x);
-        offset.y = MIN(maxOffset.y, offset.y);
-        offset.y = MAX(minOffset.y, offset.y);
+        offset.x = std::min(maxOffset.x, offset.x);
+        offset.x = std::max(minOffset.x, offset.x);
+        offset.y = std::min(maxOffset.y, offset.y);
+        offset.y = std::max(minOffset.y, offset.y);
 
         offset.x = -offset.x;
         offset.y = -offset.y;
-        maxIdx = MAX(countOfItems - 1, 0);
+        maxIdx = std::max((long)cellsCount - 1, 0L);
 
         if (_vordering == VerticalFillOrder::TOP_DOWN)
         {
             offset.y = offset.y + _contentSize.height / _innerContainer->getScaleY();
         }
-        startIdx = this->_indexFromOffset(offset);
+        startIdx = this->_indexFromOffset(offset, cellsCount);
         if (startIdx == CC_INVALID_INDEX)
         {
-            startIdx = countOfItems - 1;
+            startIdx = cellsCount - 1;
         }
 
         if (_vordering == VerticalFillOrder::TOP_DOWN)
@@ -628,10 +595,10 @@ namespace cw {
         }
         offset.x += _contentSize.width / _innerContainer->getScaleX();
 
-        endIdx = this->_indexFromOffset(offset);
+        endIdx = this->_indexFromOffset(offset, cellsCount);
         if (endIdx == CC_INVALID_INDEX)
         {
-            endIdx = countOfItems - 1;
+            endIdx = cellsCount - 1;
         }
 
 #if 0 // For Testing.
@@ -721,12 +688,9 @@ namespace cw {
 
         bool touchResult = ScrollView::onTouchBegan(pTouch, pEvent);
 
-        long index;
-        Vec2 point;
-
-        point = this->_innerContainer->convertTouchToNodeSpace(pTouch);
-
-        index = this->_indexFromOffset(point);
+        Vec2 point = this->_innerContainer->convertTouchToNodeSpace(pTouch);
+        ssize_t cellsCount = _numberOfCellsInTableView(this);
+        long index = this->_indexFromOffset(point, cellsCount);
         _touchedCell = (index == CC_INVALID_INDEX ? nullptr :  this->cellAtIndex(index));
 
         if (_touchedCell != nullptr)
@@ -773,7 +737,12 @@ namespace cw {
     bool TableView::scrollChildren(float touchOffsetX, float touchOffsetY)
     {
         bool ret = ScrollView::scrollChildren(touchOffsetX, touchOffsetY);
-        _scrollViewDidScroll();
+        ssize_t cellsCount = _numberOfCellsInTableView(this);
+        _scrollViewDidScroll(cellsCount);
+        if (_scrollBarEventCallback)
+        {
+            _scrollBarEventCallback(this, ScrollBarEvent::REFRESH_OFFSET);
+        }
         return ret;
     }
 }
