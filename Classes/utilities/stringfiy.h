@@ -2,32 +2,35 @@
 #define _STRINGFIY_H_
 
 #include <string>
-#include <ostream>
 #include <sstream>
 
-namespace __stringify_impl__ {
-    template <class _OSTREAM, class _T0, class ..._ARGS> struct Writer {
-        static inline _OSTREAM &invoke(_OSTREAM &os, const _T0 &t0, const _ARGS &...args) {
-            os << t0;
-            return Writer<_OSTREAM, _ARGS...>::invoke(os, args...);
-        }
-    };
+namespace cw {
 
-    template <class _OSTREAM, class _T0> struct Writer<_OSTREAM, _T0> {
-        static inline _OSTREAM &invoke(_OSTREAM &os, const _T0 &t0) {
-            os << t0;
-            return os;
-        }
-    };
-}
+    namespace __stringify_impl {
+        template <class _OSTREAM, class _T0, class ..._ARGS> struct __Writer {
+            static inline _OSTREAM &invoke(_OSTREAM &os, const _T0 &t0, const _ARGS &...args) {
+                os << t0;
+                return __Writer<_OSTREAM, _ARGS...>::invoke(os, args...);
+            }
+        };
 
-template <class ..._ARGS> std::string stringify(const _ARGS &...args) {
-    std::ostringstream ss;
-    return __stringify_impl__::Writer<std::ostringstream, _ARGS...>::invoke(ss, args...).str();
-}
+        template <class _OSTREAM, class _T0> struct __Writer<_OSTREAM, _T0> {
+            static inline _OSTREAM &invoke(_OSTREAM &os, const _T0 &t0) {
+                os << t0;
+                return os;
+            }
+        };
+    }
 
-static std::string stringify() {
-    return "";
+    template <class ..._ARGS> std::string stringify(const _ARGS &...args) {
+        std::ostringstream ss;
+        return __stringify_impl::__Writer<std::ostringstream, _ARGS...>::invoke(ss, args...).str();
+    }
+
+    static std::string stringify() {
+        return "";
+    }
+
 }
 
 #endif
