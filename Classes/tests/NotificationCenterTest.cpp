@@ -1,5 +1,5 @@
 ﻿#include "NotificationCenterTest.h"
-#include "wheels/cocos2dx-wheels.h"
+#include "../wheels/cocos2dx-wheels.h"
 
 USING_NS_CC;
 

@@ -1,5 +1,5 @@
 #include "RippleTest.h"
-#include "wheels/nodes/CWRippleSprite.h"
+#include "../wheels/nodes/CWRippleSprite.h"
 
 USING_NS_CC;
 
