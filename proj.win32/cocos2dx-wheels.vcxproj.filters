@@ -60,9 +60,6 @@
     <ClCompile Include="..\Classes\tests\CoordinateSystemTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\tests\NetworkTest.cpp">
-      <Filter>tests</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\tests\RippleTest.cpp">
       <Filter>tests</Filter>
     </ClCompile>
@@ -129,9 +126,6 @@
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\CoordinateSystemTest.h">
-      <Filter>tests</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\tests\NetworkTest.h">
       <Filter>tests</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\tests\RippleTest.h">

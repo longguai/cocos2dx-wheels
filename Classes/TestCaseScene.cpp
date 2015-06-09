@@ -8,7 +8,7 @@
 #include "tests/TableViewTest.h"
 #include "tests/FoldableTest.h"
 #include "tests/CoordinateSystemTest.h"
-#include "tests/NetworkTest.h"
+//#include "tests/NetworkTest.h"
 #include "tests/RippleTest.h"
 #include "tests/NotificationCenterTest.h"
 
@@ -24,7 +24,7 @@ static struct {
     { "InConvexPolygon Test", &InConvexPolygonTestLayer::create },
     { "Foldable Test", &FoldableTestLayer::create },
     { "CoordinateSystem Test", &CoordinateSystemLayer::create },
-    { "Network Test", &NetworkTestLayer::create },
+    //{ "Network Test", &NetworkTestLayer::create },
     { "Ripple Test", &RippleTestLayer::create },
     { "NotificationCenter Test", &NotificationCenterTestLayer::create }
 };

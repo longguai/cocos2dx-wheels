@@ -142,7 +142,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\tests\ArrangeTest.cpp" />
     <ClCompile Include="..\Classes\tests\CoordinateSystemTest.cpp" />
     <ClCompile Include="..\Classes\tests\InConvexPolygonTest.cpp" />
-    <ClCompile Include="..\Classes\tests\NetworkTest.cpp" />
     <ClCompile Include="..\Classes\tests\NotificationCenterTest.cpp" />
     <ClCompile Include="..\Classes\tests\RichTextExTest.cpp" />
     <ClCompile Include="..\Classes\tests\RippleTest.cpp" />
@@ -166,7 +165,6 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\tests\ArrangeTest.h" />
     <ClInclude Include="..\Classes\tests\CoordinateSystemTest.h" />
     <ClInclude Include="..\Classes\tests\InConvexPolygonTest.h" />
-    <ClInclude Include="..\Classes\tests\NetworkTest.h" />
     <ClInclude Include="..\Classes\tests\NotificationCenterTest.h" />
     <ClInclude Include="..\Classes\tests\RichTextExTest.h" />
     <ClInclude Include="..\Classes\tests\RippleTest.h" />
