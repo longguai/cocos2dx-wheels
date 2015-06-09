@@ -55,9 +55,17 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
+		A75B33A11B2673C700690720 /* CWNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B337F1B2673C700690720 /* CWNotificationCenter.cpp */; };
+		A75B33A21B2673C700690720 /* ClientConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33831B2673C700690720 /* ClientConnection.cpp */; };
+		A75B33A31B2673C700690720 /* CWSocketManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33851B2673C700690720 /* CWSocketManager.cpp */; };
+		A75B33A41B2673C700690720 /* CWCoordinateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33881B2673C700690720 /* CWCoordinateSystem.cpp */; };
+		A75B33A51B2673C700690720 /* CWRippleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B338A1B2673C700690720 /* CWRippleSprite.cpp */; };
+		A75B33A61B2673C700690720 /* CWScrollBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B338C1B2673C700690720 /* CWScrollBar.cpp */; };
+		A75B33A71B2673C700690720 /* CWGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33901B2673C700690720 /* CWGeometry.cpp */; };
+		A75B33A81B2673C700690720 /* CWUIUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33961B2673C700690720 /* CWUIUtility.cpp */; };
+		A75B33AA1B2673C700690720 /* CWRichTextEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B339D1B2673C700690720 /* CWRichTextEx.cpp */; };
+		A75B33AB1B2673C700690720 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B339F1B2673C700690720 /* CWTableView.cpp */; };
 		A7BBB83B1B2577DA009433A8 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */; };
-		A7BBB83C1B2577DA009433A8 /* ClientConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8061B2577DA009433A8 /* ClientConnection.cpp */; };
-		A7BBB83D1B2577DA009433A8 /* CWSocketManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8081B2577DA009433A8 /* CWSocketManager.cpp */; };
 		A7BBB83E1B2577DA009433A8 /* TestCaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */; };
 		A7BBB83F1B2577DA009433A8 /* ArrangeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80D1B2577DA009433A8 /* ArrangeTest.cpp */; };
 		A7BBB8401B2577DA009433A8 /* CoordinateSystemTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80F1B2577DA009433A8 /* CoordinateSystemTest.cpp */; };
@@ -68,14 +76,6 @@
 		A7BBB8451B2577DA009433A8 /* RichTextExTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8191B2577DA009433A8 /* RichTextExTest.cpp */; };
 		A7BBB8461B2577DA009433A8 /* RippleTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB81B1B2577DA009433A8 /* RippleTest.cpp */; };
 		A7BBB8471B2577DA009433A8 /* TableViewTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB81D1B2577DA009433A8 /* TableViewTest.cpp */; };
-		A7BBB8491B2577DA009433A8 /* cocos2dx-wheels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8241B2577DA009433A8 /* cocos2dx-wheels.cpp */; };
-		A7BBB84A1B2577DA009433A8 /* CWCoordinateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8271B2577DA009433A8 /* CWCoordinateSystem.cpp */; };
-		A7BBB84B1B2577DA009433A8 /* CWGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB82A1B2577DA009433A8 /* CWGeometry.cpp */; };
-		A7BBB84C1B2577DA009433A8 /* CWNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB82E1B2577DA009433A8 /* CWNotificationCenter.cpp */; };
-		A7BBB84D1B2577DA009433A8 /* CWRichTextEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8321B2577DA009433A8 /* CWRichTextEx.cpp */; };
-		A7BBB84E1B2577DA009433A8 /* CWRippleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8341B2577DA009433A8 /* CWRippleSprite.cpp */; };
-		A7BBB84F1B2577DA009433A8 /* CWScrollBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8361B2577DA009433A8 /* CWScrollBar.cpp */; };
-		A7BBB8501B2577DA009433A8 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8381B2577DA009433A8 /* CWTableView.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -162,13 +162,38 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		A75B337C1B2673C700690720 /* cocos2dx-wheels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "cocos2dx-wheels.h"; sourceTree = "<group>"; };
+		A75B337E1B2673C700690720 /* CWCallFuncDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCallFuncDelegate.h; sourceTree = "<group>"; };
+		A75B337F1B2673C700690720 /* CWNotificationCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWNotificationCenter.cpp; sourceTree = "<group>"; };
+		A75B33801B2673C700690720 /* CWNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotificationCenter.h; sourceTree = "<group>"; };
+		A75B33821B2673C700690720 /* CircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularIOBuffer.h; sourceTree = "<group>"; };
+		A75B33831B2673C700690720 /* ClientConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientConnection.cpp; sourceTree = "<group>"; };
+		A75B33841B2673C700690720 /* ClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientConnection.h; sourceTree = "<group>"; };
+		A75B33851B2673C700690720 /* CWSocketManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWSocketManager.cpp; sourceTree = "<group>"; };
+		A75B33861B2673C700690720 /* CWSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSocketManager.h; sourceTree = "<group>"; };
+		A75B33881B2673C700690720 /* CWCoordinateSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWCoordinateSystem.cpp; sourceTree = "<group>"; };
+		A75B33891B2673C700690720 /* CWCoordinateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCoordinateSystem.h; sourceTree = "<group>"; };
+		A75B338A1B2673C700690720 /* CWRippleSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRippleSprite.cpp; sourceTree = "<group>"; };
+		A75B338B1B2673C700690720 /* CWRippleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRippleSprite.h; sourceTree = "<group>"; };
+		A75B338C1B2673C700690720 /* CWScrollBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWScrollBar.cpp; sourceTree = "<group>"; };
+		A75B338D1B2673C700690720 /* CWScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWScrollBar.h; sourceTree = "<group>"; };
+		A75B338F1B2673C700690720 /* CWDebugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDebugHelper.h; sourceTree = "<group>"; };
+		A75B33901B2673C700690720 /* CWGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWGeometry.cpp; sourceTree = "<group>"; };
+		A75B33911B2673C700690720 /* CWGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGeometry.h; sourceTree = "<group>"; };
+		A75B33921B2673C700690720 /* CWLayoutFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLayoutFunctions.h; sourceTree = "<group>"; };
+		A75B33931B2673C700690720 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMacros.h; sourceTree = "<group>"; };
+		A75B33941B2673C700690720 /* CWRefConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRefConverter.h; sourceTree = "<group>"; };
+		A75B33951B2673C700690720 /* CWRefWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRefWrap.h; sourceTree = "<group>"; };
+		A75B33961B2673C700690720 /* CWUIUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWUIUtility.cpp; sourceTree = "<group>"; };
+		A75B33971B2673C700690720 /* CWUIUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWUIUtility.h; sourceTree = "<group>"; };
+		A75B33981B2673C700690720 /* CWVariableArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWVariableArgumentList.h; sourceTree = "<group>"; };
+		A75B339B1B2673C700690720 /* stringfiy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringfiy.h; sourceTree = "<group>"; };
+		A75B339D1B2673C700690720 /* CWRichTextEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRichTextEx.cpp; sourceTree = "<group>"; };
+		A75B339E1B2673C700690720 /* CWRichTextEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRichTextEx.h; sourceTree = "<group>"; };
+		A75B339F1B2673C700690720 /* CWTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWTableView.cpp; sourceTree = "<group>"; };
+		A75B33A01B2673C700690720 /* CWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableView.h; sourceTree = "<group>"; };
 		A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		A7BBB8031B2577DA009433A8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A7BBB8051B2577DA009433A8 /* CircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularIOBuffer.h; sourceTree = "<group>"; };
-		A7BBB8061B2577DA009433A8 /* ClientConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientConnection.cpp; sourceTree = "<group>"; };
-		A7BBB8071B2577DA009433A8 /* ClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientConnection.h; sourceTree = "<group>"; };
-		A7BBB8081B2577DA009433A8 /* CWSocketManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWSocketManager.cpp; sourceTree = "<group>"; };
-		A7BBB8091B2577DA009433A8 /* CWSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSocketManager.h; sourceTree = "<group>"; };
 		A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCaseScene.cpp; sourceTree = "<group>"; };
 		A7BBB80B1B2577DA009433A8 /* TestCaseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseScene.h; sourceTree = "<group>"; };
 		A7BBB80D1B2577DA009433A8 /* ArrangeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArrangeTest.cpp; sourceTree = "<group>"; };
@@ -189,30 +214,6 @@
 		A7BBB81C1B2577DA009433A8 /* RippleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleTest.h; sourceTree = "<group>"; };
 		A7BBB81D1B2577DA009433A8 /* TableViewTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableViewTest.cpp; sourceTree = "<group>"; };
 		A7BBB81E1B2577DA009433A8 /* TableViewTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewTest.h; sourceTree = "<group>"; };
-		A7BBB8221B2577DA009433A8 /* stringfiy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringfiy.h; sourceTree = "<group>"; };
-		A7BBB8241B2577DA009433A8 /* cocos2dx-wheels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "cocos2dx-wheels.cpp"; sourceTree = "<group>"; };
-		A7BBB8251B2577DA009433A8 /* cocos2dx-wheels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "cocos2dx-wheels.h"; sourceTree = "<group>"; };
-		A7BBB8261B2577DA009433A8 /* CWCallFuncDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCallFuncDelegate.h; sourceTree = "<group>"; };
-		A7BBB8271B2577DA009433A8 /* CWCoordinateSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWCoordinateSystem.cpp; sourceTree = "<group>"; };
-		A7BBB8281B2577DA009433A8 /* CWCoordinateSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCoordinateSystem.h; sourceTree = "<group>"; };
-		A7BBB8291B2577DA009433A8 /* CWDebugHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWDebugHelper.h; sourceTree = "<group>"; };
-		A7BBB82A1B2577DA009433A8 /* CWGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWGeometry.cpp; sourceTree = "<group>"; };
-		A7BBB82B1B2577DA009433A8 /* CWGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWGeometry.h; sourceTree = "<group>"; };
-		A7BBB82C1B2577DA009433A8 /* CWLayoutFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWLayoutFunctions.h; sourceTree = "<group>"; };
-		A7BBB82D1B2577DA009433A8 /* CWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWMacros.h; sourceTree = "<group>"; };
-		A7BBB82E1B2577DA009433A8 /* CWNotificationCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWNotificationCenter.cpp; sourceTree = "<group>"; };
-		A7BBB82F1B2577DA009433A8 /* CWNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotificationCenter.h; sourceTree = "<group>"; };
-		A7BBB8301B2577DA009433A8 /* CWRefConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRefConverter.h; sourceTree = "<group>"; };
-		A7BBB8311B2577DA009433A8 /* CWRefWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRefWrap.h; sourceTree = "<group>"; };
-		A7BBB8321B2577DA009433A8 /* CWRichTextEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRichTextEx.cpp; sourceTree = "<group>"; };
-		A7BBB8331B2577DA009433A8 /* CWRichTextEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRichTextEx.h; sourceTree = "<group>"; };
-		A7BBB8341B2577DA009433A8 /* CWRippleSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWRippleSprite.cpp; sourceTree = "<group>"; };
-		A7BBB8351B2577DA009433A8 /* CWRippleSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRippleSprite.h; sourceTree = "<group>"; };
-		A7BBB8361B2577DA009433A8 /* CWScrollBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWScrollBar.cpp; sourceTree = "<group>"; };
-		A7BBB8371B2577DA009433A8 /* CWScrollBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWScrollBar.h; sourceTree = "<group>"; };
-		A7BBB8381B2577DA009433A8 /* CWTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWTableView.cpp; sourceTree = "<group>"; };
-		A7BBB8391B2577DA009433A8 /* CWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableView.h; sourceTree = "<group>"; };
-		A7BBB83A1B2577DA009433A8 /* CWVariableArgumentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWVariableArgumentList.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -391,32 +392,95 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		A75B337B1B2673C700690720 /* wheels */ = {
+			isa = PBXGroup;
+			children = (
+				A75B337C1B2673C700690720 /* cocos2dx-wheels.h */,
+				A75B337D1B2673C700690720 /* compatible */,
+				A75B33811B2673C700690720 /* network */,
+				A75B33871B2673C700690720 /* nodes */,
+				A75B338E1B2673C700690720 /* utilities */,
+				A75B339C1B2673C700690720 /* widgets */,
+			);
+			path = wheels;
+			sourceTree = "<group>";
+		};
+		A75B337D1B2673C700690720 /* compatible */ = {
+			isa = PBXGroup;
+			children = (
+				A75B337E1B2673C700690720 /* CWCallFuncDelegate.h */,
+				A75B337F1B2673C700690720 /* CWNotificationCenter.cpp */,
+				A75B33801B2673C700690720 /* CWNotificationCenter.h */,
+			);
+			path = compatible;
+			sourceTree = "<group>";
+		};
+		A75B33811B2673C700690720 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				A75B33821B2673C700690720 /* CircularIOBuffer.h */,
+				A75B33831B2673C700690720 /* ClientConnection.cpp */,
+				A75B33841B2673C700690720 /* ClientConnection.h */,
+				A75B33851B2673C700690720 /* CWSocketManager.cpp */,
+				A75B33861B2673C700690720 /* CWSocketManager.h */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		A75B33871B2673C700690720 /* nodes */ = {
+			isa = PBXGroup;
+			children = (
+				A75B33881B2673C700690720 /* CWCoordinateSystem.cpp */,
+				A75B33891B2673C700690720 /* CWCoordinateSystem.h */,
+				A75B338A1B2673C700690720 /* CWRippleSprite.cpp */,
+				A75B338B1B2673C700690720 /* CWRippleSprite.h */,
+				A75B338C1B2673C700690720 /* CWScrollBar.cpp */,
+				A75B338D1B2673C700690720 /* CWScrollBar.h */,
+			);
+			path = nodes;
+			sourceTree = "<group>";
+		};
+		A75B338E1B2673C700690720 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A75B338F1B2673C700690720 /* CWDebugHelper.h */,
+				A75B33901B2673C700690720 /* CWGeometry.cpp */,
+				A75B33911B2673C700690720 /* CWGeometry.h */,
+				A75B33921B2673C700690720 /* CWLayoutFunctions.h */,
+				A75B33931B2673C700690720 /* CWMacros.h */,
+				A75B33941B2673C700690720 /* CWRefConverter.h */,
+				A75B33951B2673C700690720 /* CWRefWrap.h */,
+				A75B33961B2673C700690720 /* CWUIUtility.cpp */,
+				A75B33971B2673C700690720 /* CWUIUtility.h */,
+				A75B33981B2673C700690720 /* CWVariableArgumentList.h */,
+				A75B339B1B2673C700690720 /* stringfiy.h */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		A75B339C1B2673C700690720 /* widgets */ = {
+			isa = PBXGroup;
+			children = (
+				A75B339D1B2673C700690720 /* CWRichTextEx.cpp */,
+				A75B339E1B2673C700690720 /* CWRichTextEx.h */,
+				A75B339F1B2673C700690720 /* CWTableView.cpp */,
+				A75B33A01B2673C700690720 /* CWTableView.h */,
+			);
+			path = widgets;
+			sourceTree = "<group>";
+		};
 		A7BBB8011B2577DA009433A8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */,
 				A7BBB8031B2577DA009433A8 /* AppDelegate.h */,
-				A7BBB8041B2577DA009433A8 /* network */,
 				A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */,
 				A7BBB80B1B2577DA009433A8 /* TestCaseScene.h */,
 				A7BBB80C1B2577DA009433A8 /* tests */,
-				A7BBB81F1B2577DA009433A8 /* utilities */,
-				A7BBB8231B2577DA009433A8 /* wheels */,
+				A75B337B1B2673C700690720 /* wheels */,
 			);
 			name = Classes;
 			path = ../Classes;
-			sourceTree = "<group>";
-		};
-		A7BBB8041B2577DA009433A8 /* network */ = {
-			isa = PBXGroup;
-			children = (
-				A7BBB8051B2577DA009433A8 /* CircularIOBuffer.h */,
-				A7BBB8061B2577DA009433A8 /* ClientConnection.cpp */,
-				A7BBB8071B2577DA009433A8 /* ClientConnection.h */,
-				A7BBB8081B2577DA009433A8 /* CWSocketManager.cpp */,
-				A7BBB8091B2577DA009433A8 /* CWSocketManager.h */,
-			);
-			path = network;
 			sourceTree = "<group>";
 		};
 		A7BBB80C1B2577DA009433A8 /* tests */ = {
@@ -442,44 +506,6 @@
 				A7BBB81E1B2577DA009433A8 /* TableViewTest.h */,
 			);
 			path = tests;
-			sourceTree = "<group>";
-		};
-		A7BBB81F1B2577DA009433A8 /* utilities */ = {
-			isa = PBXGroup;
-			children = (
-				A7BBB8221B2577DA009433A8 /* stringfiy.h */,
-			);
-			path = utilities;
-			sourceTree = "<group>";
-		};
-		A7BBB8231B2577DA009433A8 /* wheels */ = {
-			isa = PBXGroup;
-			children = (
-				A7BBB8241B2577DA009433A8 /* cocos2dx-wheels.cpp */,
-				A7BBB8251B2577DA009433A8 /* cocos2dx-wheels.h */,
-				A7BBB8261B2577DA009433A8 /* CWCallFuncDelegate.h */,
-				A7BBB8271B2577DA009433A8 /* CWCoordinateSystem.cpp */,
-				A7BBB8281B2577DA009433A8 /* CWCoordinateSystem.h */,
-				A7BBB8291B2577DA009433A8 /* CWDebugHelper.h */,
-				A7BBB82A1B2577DA009433A8 /* CWGeometry.cpp */,
-				A7BBB82B1B2577DA009433A8 /* CWGeometry.h */,
-				A7BBB82C1B2577DA009433A8 /* CWLayoutFunctions.h */,
-				A7BBB82D1B2577DA009433A8 /* CWMacros.h */,
-				A7BBB82E1B2577DA009433A8 /* CWNotificationCenter.cpp */,
-				A7BBB82F1B2577DA009433A8 /* CWNotificationCenter.h */,
-				A7BBB8301B2577DA009433A8 /* CWRefConverter.h */,
-				A7BBB8311B2577DA009433A8 /* CWRefWrap.h */,
-				A7BBB8321B2577DA009433A8 /* CWRichTextEx.cpp */,
-				A7BBB8331B2577DA009433A8 /* CWRichTextEx.h */,
-				A7BBB8341B2577DA009433A8 /* CWRippleSprite.cpp */,
-				A7BBB8351B2577DA009433A8 /* CWRippleSprite.h */,
-				A7BBB8361B2577DA009433A8 /* CWScrollBar.cpp */,
-				A7BBB8371B2577DA009433A8 /* CWScrollBar.h */,
-				A7BBB8381B2577DA009433A8 /* CWTableView.cpp */,
-				A7BBB8391B2577DA009433A8 /* CWTableView.h */,
-				A7BBB83A1B2577DA009433A8 /* CWVariableArgumentList.h */,
-			);
-			path = wheels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,26 +655,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7BBB8441B2577DA009433A8 /* NotificationCenterTest.cpp in Sources */,
-				A7BBB84B1B2577DA009433A8 /* CWGeometry.cpp in Sources */,
+				A75B33A71B2673C700690720 /* CWGeometry.cpp in Sources */,
 				A7BBB8451B2577DA009433A8 /* RichTextExTest.cpp in Sources */,
+				A75B33A61B2673C700690720 /* CWScrollBar.cpp in Sources */,
 				A7BBB83F1B2577DA009433A8 /* ArrangeTest.cpp in Sources */,
-				A7BBB84A1B2577DA009433A8 /* CWCoordinateSystem.cpp in Sources */,
-				A7BBB8501B2577DA009433A8 /* CWTableView.cpp in Sources */,
 				A7BBB83B1B2577DA009433A8 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				A7BBB8471B2577DA009433A8 /* TableViewTest.cpp in Sources */,
-				A7BBB84D1B2577DA009433A8 /* CWRichTextEx.cpp in Sources */,
 				A7BBB8421B2577DA009433A8 /* InConvexPolygonTest.cpp in Sources */,
-				A7BBB8491B2577DA009433A8 /* cocos2dx-wheels.cpp in Sources */,
-				A7BBB84E1B2577DA009433A8 /* CWRippleSprite.cpp in Sources */,
-				A7BBB83D1B2577DA009433A8 /* CWSocketManager.cpp in Sources */,
-				A7BBB84F1B2577DA009433A8 /* CWScrollBar.cpp in Sources */,
+				A75B33A11B2673C700690720 /* CWNotificationCenter.cpp in Sources */,
+				A75B33AB1B2673C700690720 /* CWTableView.cpp in Sources */,
 				A7BBB8401B2577DA009433A8 /* CoordinateSystemTest.cpp in Sources */,
-				A7BBB83C1B2577DA009433A8 /* ClientConnection.cpp in Sources */,
+				A75B33A81B2673C700690720 /* CWUIUtility.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				A7BBB84C1B2577DA009433A8 /* CWNotificationCenter.cpp in Sources */,
+				A75B33A31B2673C700690720 /* CWSocketManager.cpp in Sources */,
+				A75B33AA1B2673C700690720 /* CWRichTextEx.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				A75B33A41B2673C700690720 /* CWCoordinateSystem.cpp in Sources */,
+				A75B33A51B2673C700690720 /* CWRippleSprite.cpp in Sources */,
 				A7BBB8461B2577DA009433A8 /* RippleTest.cpp in Sources */,
+				A75B33A21B2673C700690720 /* ClientConnection.cpp in Sources */,
 				A7BBB8411B2577DA009433A8 /* FoldableTest.cpp in Sources */,
 				A7BBB8431B2577DA009433A8 /* NetworkTest.cpp in Sources */,
 				A7BBB83E1B2577DA009433A8 /* TestCaseScene.cpp in Sources */,
