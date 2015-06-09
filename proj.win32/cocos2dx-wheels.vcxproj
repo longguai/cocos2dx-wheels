@@ -148,7 +148,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\tests\TableViewTest.cpp" />
     <ClCompile Include="..\Classes\tests\FoldableTest.cpp" />
     <ClCompile Include="..\Classes\wheels\compatible\CWNotificationCenter.cpp" />
-    <ClCompile Include="..\Classes\wheels\network\ClientConnection.cpp" />
+    <ClCompile Include="..\Classes\wheels\network\CWClientConnection.cpp" />
     <ClCompile Include="..\Classes\wheels\network\CWSocketManager.cpp" />
     <ClCompile Include="..\Classes\wheels\nodes\CWCoordinateSystem.cpp" />
     <ClCompile Include="..\Classes\wheels\nodes\CWRippleSprite.cpp" />
@@ -173,9 +173,11 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\wheels\cocos2dx-wheels.h" />
     <ClInclude Include="..\Classes\wheels\compatible\CWCallFuncDelegate.h" />
     <ClInclude Include="..\Classes\wheels\compatible\CWNotificationCenter.h" />
-    <ClInclude Include="..\Classes\wheels\network\CircularIOBuffer.h" />
-    <ClInclude Include="..\Classes\wheels\network\ClientConnection.h" />
+    <ClInclude Include="..\Classes\wheels\network\CWCircularIOBuffer.h" />
+    <ClInclude Include="..\Classes\wheels\network\CWClientConnection.h" />
     <ClInclude Include="..\Classes\wheels\network\CWSocketManager.h" />
+    <ClInclude Include="..\Classes\wheels\network\CWSocketRecvBuffer.h" />
+    <ClInclude Include="..\Classes\wheels\network\CWSocketSendBuffer.h" />
     <ClInclude Include="..\Classes\wheels\nodes\CWCoordinateSystem.h" />
     <ClInclude Include="..\Classes\wheels\nodes\CWRippleSprite.h" />
     <ClInclude Include="..\Classes\wheels\nodes\CWScrollBar.h" />

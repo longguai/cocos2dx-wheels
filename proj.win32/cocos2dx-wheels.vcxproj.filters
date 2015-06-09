@@ -69,9 +69,6 @@
     <ClCompile Include="..\Classes\wheels\compatible\CWNotificationCenter.cpp">
       <Filter>wheels\compatible</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\wheels\network\ClientConnection.cpp">
-      <Filter>wheels\network</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\wheels\network\CWSocketManager.cpp">
       <Filter>wheels\network</Filter>
     </ClCompile>
@@ -95,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\wheels\widgets\CWTableView.cpp">
       <Filter>wheels\widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\wheels\network\CWClientConnection.cpp">
+      <Filter>wheels\network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,12 +140,6 @@
     <ClInclude Include="..\Classes\wheels\compatible\CWCallFuncDelegate.h">
       <Filter>wheels\compatible</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\wheels\network\CircularIOBuffer.h">
-      <Filter>wheels\network</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\wheels\network\ClientConnection.h">
-      <Filter>wheels\network</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\wheels\network\CWSocketManager.h">
       <Filter>wheels\network</Filter>
     </ClInclude>
@@ -190,6 +184,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\wheels\widgets\CWTableView.h">
       <Filter>wheels\widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\network\CWClientConnection.h">
+      <Filter>wheels\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\network\CWCircularIOBuffer.h">
+      <Filter>wheels\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\network\CWSocketRecvBuffer.h">
+      <Filter>wheels\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\wheels\network\CWSocketSendBuffer.h">
+      <Filter>wheels\network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
