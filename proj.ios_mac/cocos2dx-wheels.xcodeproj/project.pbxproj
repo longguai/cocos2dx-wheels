@@ -56,7 +56,6 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		A75B33A11B2673C700690720 /* CWNotificationCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B337F1B2673C700690720 /* CWNotificationCenter.cpp */; };
-		A75B33A21B2673C700690720 /* ClientConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33831B2673C700690720 /* ClientConnection.cpp */; };
 		A75B33A31B2673C700690720 /* CWSocketManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33851B2673C700690720 /* CWSocketManager.cpp */; };
 		A75B33A41B2673C700690720 /* CWCoordinateSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33881B2673C700690720 /* CWCoordinateSystem.cpp */; };
 		A75B33A51B2673C700690720 /* CWRippleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B338A1B2673C700690720 /* CWRippleSprite.cpp */; };
@@ -65,13 +64,13 @@
 		A75B33A81B2673C700690720 /* CWUIUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B33961B2673C700690720 /* CWUIUtility.cpp */; };
 		A75B33AA1B2673C700690720 /* CWRichTextEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B339D1B2673C700690720 /* CWRichTextEx.cpp */; };
 		A75B33AB1B2673C700690720 /* CWTableView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A75B339F1B2673C700690720 /* CWTableView.cpp */; };
+		A762C9E31B27DA3B001A8571 /* CWClientConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A762C9DF1B27DA3B001A8571 /* CWClientConnection.cpp */; };
 		A7BBB83B1B2577DA009433A8 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */; };
 		A7BBB83E1B2577DA009433A8 /* TestCaseScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */; };
 		A7BBB83F1B2577DA009433A8 /* ArrangeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80D1B2577DA009433A8 /* ArrangeTest.cpp */; };
 		A7BBB8401B2577DA009433A8 /* CoordinateSystemTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB80F1B2577DA009433A8 /* CoordinateSystemTest.cpp */; };
 		A7BBB8411B2577DA009433A8 /* FoldableTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8111B2577DA009433A8 /* FoldableTest.cpp */; };
 		A7BBB8421B2577DA009433A8 /* InConvexPolygonTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8131B2577DA009433A8 /* InConvexPolygonTest.cpp */; };
-		A7BBB8431B2577DA009433A8 /* NetworkTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8151B2577DA009433A8 /* NetworkTest.cpp */; };
 		A7BBB8441B2577DA009433A8 /* NotificationCenterTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8171B2577DA009433A8 /* NotificationCenterTest.cpp */; };
 		A7BBB8451B2577DA009433A8 /* RichTextExTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB8191B2577DA009433A8 /* RichTextExTest.cpp */; };
 		A7BBB8461B2577DA009433A8 /* RippleTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7BBB81B1B2577DA009433A8 /* RippleTest.cpp */; };
@@ -166,9 +165,6 @@
 		A75B337E1B2673C700690720 /* CWCallFuncDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCallFuncDelegate.h; sourceTree = "<group>"; };
 		A75B337F1B2673C700690720 /* CWNotificationCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWNotificationCenter.cpp; sourceTree = "<group>"; };
 		A75B33801B2673C700690720 /* CWNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWNotificationCenter.h; sourceTree = "<group>"; };
-		A75B33821B2673C700690720 /* CircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularIOBuffer.h; sourceTree = "<group>"; };
-		A75B33831B2673C700690720 /* ClientConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClientConnection.cpp; sourceTree = "<group>"; };
-		A75B33841B2673C700690720 /* ClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientConnection.h; sourceTree = "<group>"; };
 		A75B33851B2673C700690720 /* CWSocketManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWSocketManager.cpp; sourceTree = "<group>"; };
 		A75B33861B2673C700690720 /* CWSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSocketManager.h; sourceTree = "<group>"; };
 		A75B33881B2673C700690720 /* CWCoordinateSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWCoordinateSystem.cpp; sourceTree = "<group>"; };
@@ -192,6 +188,11 @@
 		A75B339E1B2673C700690720 /* CWRichTextEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWRichTextEx.h; sourceTree = "<group>"; };
 		A75B339F1B2673C700690720 /* CWTableView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWTableView.cpp; sourceTree = "<group>"; };
 		A75B33A01B2673C700690720 /* CWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWTableView.h; sourceTree = "<group>"; };
+		A762C9DE1B27DA3B001A8571 /* CWCircularIOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWCircularIOBuffer.h; sourceTree = "<group>"; };
+		A762C9DF1B27DA3B001A8571 /* CWClientConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWClientConnection.cpp; sourceTree = "<group>"; };
+		A762C9E01B27DA3B001A8571 /* CWClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWClientConnection.h; sourceTree = "<group>"; };
+		A762C9E11B27DA3B001A8571 /* CWSocketRecvBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSocketRecvBuffer.h; sourceTree = "<group>"; };
+		A762C9E21B27DA3B001A8571 /* CWSocketSendBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSocketSendBuffer.h; sourceTree = "<group>"; };
 		A7BBB8021B2577DA009433A8 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		A7BBB8031B2577DA009433A8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A7BBB80A1B2577DA009433A8 /* TestCaseScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestCaseScene.cpp; sourceTree = "<group>"; };
@@ -204,8 +205,6 @@
 		A7BBB8121B2577DA009433A8 /* FoldableTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldableTest.h; sourceTree = "<group>"; };
 		A7BBB8131B2577DA009433A8 /* InConvexPolygonTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InConvexPolygonTest.cpp; sourceTree = "<group>"; };
 		A7BBB8141B2577DA009433A8 /* InConvexPolygonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InConvexPolygonTest.h; sourceTree = "<group>"; };
-		A7BBB8151B2577DA009433A8 /* NetworkTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetworkTest.cpp; sourceTree = "<group>"; };
-		A7BBB8161B2577DA009433A8 /* NetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTest.h; sourceTree = "<group>"; };
 		A7BBB8171B2577DA009433A8 /* NotificationCenterTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NotificationCenterTest.cpp; sourceTree = "<group>"; };
 		A7BBB8181B2577DA009433A8 /* NotificationCenterTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenterTest.h; sourceTree = "<group>"; };
 		A7BBB8191B2577DA009433A8 /* RichTextExTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RichTextExTest.cpp; sourceTree = "<group>"; };
@@ -418,9 +417,11 @@
 		A75B33811B2673C700690720 /* network */ = {
 			isa = PBXGroup;
 			children = (
-				A75B33821B2673C700690720 /* CircularIOBuffer.h */,
-				A75B33831B2673C700690720 /* ClientConnection.cpp */,
-				A75B33841B2673C700690720 /* ClientConnection.h */,
+				A762C9DE1B27DA3B001A8571 /* CWCircularIOBuffer.h */,
+				A762C9DF1B27DA3B001A8571 /* CWClientConnection.cpp */,
+				A762C9E01B27DA3B001A8571 /* CWClientConnection.h */,
+				A762C9E11B27DA3B001A8571 /* CWSocketRecvBuffer.h */,
+				A762C9E21B27DA3B001A8571 /* CWSocketSendBuffer.h */,
 				A75B33851B2673C700690720 /* CWSocketManager.cpp */,
 				A75B33861B2673C700690720 /* CWSocketManager.h */,
 			);
@@ -494,8 +495,6 @@
 				A7BBB8121B2577DA009433A8 /* FoldableTest.h */,
 				A7BBB8131B2577DA009433A8 /* InConvexPolygonTest.cpp */,
 				A7BBB8141B2577DA009433A8 /* InConvexPolygonTest.h */,
-				A7BBB8151B2577DA009433A8 /* NetworkTest.cpp */,
-				A7BBB8161B2577DA009433A8 /* NetworkTest.h */,
 				A7BBB8171B2577DA009433A8 /* NotificationCenterTest.cpp */,
 				A7BBB8181B2577DA009433A8 /* NotificationCenterTest.h */,
 				A7BBB8191B2577DA009433A8 /* RichTextExTest.cpp */,
@@ -654,6 +653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A762C9E31B27DA3B001A8571 /* CWClientConnection.cpp in Sources */,
 				A7BBB8441B2577DA009433A8 /* NotificationCenterTest.cpp in Sources */,
 				A75B33A71B2673C700690720 /* CWGeometry.cpp in Sources */,
 				A7BBB8451B2577DA009433A8 /* RichTextExTest.cpp in Sources */,
@@ -674,9 +674,7 @@
 				A75B33A41B2673C700690720 /* CWCoordinateSystem.cpp in Sources */,
 				A75B33A51B2673C700690720 /* CWRippleSprite.cpp in Sources */,
 				A7BBB8461B2577DA009433A8 /* RippleTest.cpp in Sources */,
-				A75B33A21B2673C700690720 /* ClientConnection.cpp in Sources */,
 				A7BBB8411B2577DA009433A8 /* FoldableTest.cpp in Sources */,
-				A7BBB8431B2577DA009433A8 /* NetworkTest.cpp in Sources */,
 				A7BBB83E1B2577DA009433A8 /* TestCaseScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
