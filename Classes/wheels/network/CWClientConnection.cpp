@@ -38,8 +38,12 @@ namespace cw {
     }
 
     void ClientConnection::connentToServer(const char *ip, unsigned short port) {
-        if (_isConnectSuccess || _connectThread != nullptr) {
+        if (_isConnectSuccess) {
             return;
+        }
+        if (_connectThread != nullptr) {
+            _connectThread->join();
+            delete _connectThread;
         }
 
         _socket = ::socket(AF_INET, SOCK_STREAM, 0);
