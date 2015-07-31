@@ -70,9 +70,14 @@ namespace cw {
                     }
                     return len;
                 } else {
-                    memcpy(data, _buf + _head, s1);
-                    _head += s1;
-                    return s1 + read(data + s1, len - s1);
+                    if (s1 > 0) {
+                        memcpy(data, _buf + _head, s1);
+                        _head += s1;
+                        return s1 + read(data + s1, len - s1);
+                    } else {
+                        _head = 0;
+                        return read(data, len);
+                    }
                 }
             }
         }
@@ -88,14 +93,16 @@ namespace cw {
                     memcpy(_buf + _tail, data, len);
                     _tail += len;
                     return len;
-                } else if (s > 0) {
-                    memcpy(_buf + _tail, data, s);
-                    _tail += s;
-                    return s + write(data + s, len - s);
                 } else {
-                    _buf[_tail] = *data;
-                    _tail = 0;
-                    return 1 + write(data + 1, len - 1);
+                    if (s > 0) {
+                        memcpy(_buf + _tail, data, s);
+                        _tail += s;
+                        return s + write(data + s, len - s);
+                    } else {
+                        _buf[_tail] = *data;
+                        _tail = 0;
+                        return 1 + write(data + 1, len - 1);
+                    }
                 }
             } else {
                 int s = _head - _tail - 1;
@@ -116,9 +123,6 @@ namespace cw {
             return read(data, _C);
         }
     };
-
-
-
 }
 
 #endif
