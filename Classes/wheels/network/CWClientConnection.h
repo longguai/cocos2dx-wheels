@@ -36,12 +36,14 @@ namespace cw {
         bool isConnectSuccess() const { return _isConnectSuccess; }
         int writeBuf(const char *inBuf, int len);
         int readBuf(char *outBuf, int maxLen);
+        int peekBuf(char *outBuf, int maxLen);
+        int skip(int len);
 
     private:
         ClientConnection(const ClientConnection &);
         ClientConnection(ClientConnection &&);
-        ClientConnection &operator=(const ClientConnection &);
-        ClientConnection &operator=(ClientConnection &&);
+        ClientConnection &operator=(const ClientConnection &) = delete;
+        ClientConnection &operator=(ClientConnection &&) = delete;
 
         SOCKET                          _socket = INVALID_SOCKET;
         std::thread                     *_connectThread = nullptr;

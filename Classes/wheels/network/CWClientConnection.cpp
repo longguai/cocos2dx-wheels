@@ -100,6 +100,14 @@ namespace cw {
         return _recvBuf.read(outBuf, maxLen);
     }
 
+    int ClientConnection::peekBuf(char *outBuf, int maxLen) {
+        return _recvBuf.peek(outBuf, maxLen);
+    }
+
+    int ClientConnection::skip(int len) {
+        return _recvBuf.skip(len);
+    }
+
     void ClientConnection::_connectToServer(const char *ip, unsigned short port) {
         struct sockaddr_in serverAddr = { 0 };
         serverAddr.sin_family = AF_INET;
