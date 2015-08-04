@@ -82,6 +82,74 @@ namespace cw {
             }
         }
 
+        int _peek(int head, char *data, int len) const {
+            if (head == _tail) {
+                return 0;
+            }
+
+            if (_tail > head) {
+                int s = _tail - head;
+                if (s >= len) {
+                    memcpy(data, _buf + head, len);
+                    return len;
+                } else {
+                    memcpy(data, _buf + head, s);
+                    return s;
+                }
+            } else {
+                int s1 = _N - head;
+                if (s1 >= len) {
+                    memcpy(data, _buf + head, len);
+                    return len;
+                } else {
+                    if (s1 > 0) {
+                        memcpy(data, _buf + head, s1);
+                        return s1 + _peek(head + s1, data + s1, len - s1);
+                    } else {
+                        return _peek(0, data, len);
+                    }
+                }
+            }
+        }
+
+        inline int peek(char *data, int len) const {
+            return _peek(_head, data, len);
+        }
+
+        int skip(int len) {
+            if (isEmpty()) {
+                return 0;
+            }
+
+            if (_tail > _head) {
+                int s = _tail - _head;
+                if (s >= len) {
+                    _head += len;
+                    return len;
+                } else {
+                    _head += s;
+                    return s;
+                }
+            } else {
+                int s1 = _N - _head;
+                if (s1 >= len) {
+                    _head += len;
+                    if (_head == _N) {
+                        _head = 0;
+                    }
+                    return len;
+                } else {
+                    if (s1 > 0) {
+                        _head += s1;
+                        return s1 + skip(len - s1);
+                    } else {
+                        _head = 0;
+                        return skip(len);
+                    }
+                }
+            }
+        }
+
         int write(const char *data, int len) {
             if (isFull()) {
                 return 0;

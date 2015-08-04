@@ -20,6 +20,8 @@ namespace cw {
         using CircularIOBuffer<_N>::size;
         using CircularIOBuffer<_N>::freeSize;
         using CircularIOBuffer<_N>::read;
+        using CircularIOBuffer<_N>::peek;
+        using CircularIOBuffer<_N>::skip;
 
         template <class _RECV> int doRecv(_RECV &&func) {
             if (isFull()) {
@@ -52,70 +54,6 @@ namespace cw {
                     _tail += ret;
                 }
                 return ret;
-            }
-        }
-
-        bool skip(int len) {
-            assert(len != 0);
-
-            if (_head <= _tail) {
-                if (_tail - _head < len) {
-                    return false;
-                }
-                _head += len;
-                return true;
-            } else {
-                int s = _N - _head;
-                if (s >= len) {
-                    _head += len;
-                    if (_head == _N) {
-                        _head = 0;
-                    }
-                    return true;
-                } else {
-                    if (s + _tail >= len) {
-                        _head = len - s;
-                        return true;
-                    }
-                    return false;
-                }
-            }
-        }
-
-        bool peek(char *buf, int len, bool skip) {
-            assert(len != 0);
-
-            if (_head <= _tail) {
-                if (_tail - _head < len) {
-                    return false;
-                }
-                memcpy(buf, _buf + _head, len);
-                if (skip) {
-                    _head += len;
-                }
-                return true;
-            } else {
-                int s = _N - _head;
-                if (s >= len) {
-                    memcpy(buf, _buf + _head, len);
-                    if (skip) {
-                        _head += len;
-                        if (_head == _N) {
-                            _head = 0;
-                        }
-                    }
-                    return true;
-                } else {
-                    if (s + _tail >= len) {
-                        memcpy(buf, _buf + _head, s);
-                        memcpy(buf + s, _buf, len - s);
-                        if (skip) {
-                            _head = len - s;
-                        }
-                        return true;
-                    }
-                    return false;
-                }
             }
         }
     };
