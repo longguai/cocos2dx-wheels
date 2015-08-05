@@ -18,7 +18,6 @@ typedef int SOCKET;
 
 #include <thread>
 #include <vector>
-#include "CWSocketRecvBuffer.h"
 #include "CWSocketSendBuffer.h"
 
 namespace cw {
@@ -36,8 +35,6 @@ namespace cw {
         bool isConnectSuccess() const { return _isConnectSuccess; }
         int writeBuf(const char *inBuf, int len);
         int readBuf(char *outBuf, int maxLen);
-        int peekBuf(char *outBuf, int maxLen);
-        int skip(int len);
 
     private:
         ClientConnection(const ClientConnection &);
@@ -53,10 +50,6 @@ namespace cw {
         std::thread                     *_sendThread = nullptr;
         volatile bool                   _sendNeedQuit = false;
         SocketSendBuffer<1024>          _sendBuf;
-
-        std::thread                     *_recvThread = nullptr;
-        volatile bool                   _recvNeedQuit = false;
-        SocketRecvBuffer<1024>          _recvBuf;
 
         void _connectToServer(const char *ip, unsigned short port);
     };

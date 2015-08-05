@@ -78,12 +78,6 @@ namespace cw {
             _sendThread = nullptr;
         }
 
-        if (_recvThread != nullptr) {
-            _recvNeedQuit = true;
-            _recvThread->join();
-            delete _recvThread;
-            _recvThread = nullptr;
-        }
         _isConnectSuccess = false;
     }
 
@@ -97,15 +91,7 @@ namespace cw {
     }
 
     int ClientConnection::readBuf(char *outBuf, int maxLen) {
-        return _recvBuf.read(outBuf, maxLen);
-    }
-
-    int ClientConnection::peekBuf(char *outBuf, int maxLen) {
-        return _recvBuf.peek(outBuf, maxLen);
-    }
-
-    int ClientConnection::skip(int len) {
-        return _recvBuf.skip(len);
+        return ::recv(_socket, outBuf, maxLen, 0);
     }
 
     void ClientConnection::_connectToServer(const char *ip, unsigned short port) {
@@ -129,15 +115,6 @@ namespace cw {
         _sendThread = new (std::nothrow) std::thread([this]() {
             while (!_sendNeedQuit) {
                 int ret = _sendBuf.doSend(std::bind(&::send, _socket, std::placeholders::_1, std::placeholders::_2, 0));
-                if (ret == SOCKET_ERROR) {
-                    break;
-                }
-            }
-        });
-
-        _recvThread = new (std::nothrow) std::thread([this]() {
-            while (!_recvNeedQuit) {
-                int ret = _recvBuf.doRecv(std::bind(&::recv, _socket, std::placeholders::_1, std::placeholders::_2, 0));
                 if (ret == SOCKET_ERROR) {
                     break;
                 }
