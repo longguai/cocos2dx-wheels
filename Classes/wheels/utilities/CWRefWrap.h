@@ -6,6 +6,10 @@
 #include <functional>
 #include <ostream>
 
+#if (defined _MSC_VER) && (_MSC_VER <= 1800)  // VS2013 or earlier
+#define noexcept throw ()
+#endif
+
 namespace cw {
 
     template <class _Ref> class RefWrap final {
