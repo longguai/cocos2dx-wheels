@@ -5,21 +5,21 @@
 
 namespace cw {
 
-    template <int _N> class SocketSendBuffer final : protected CircularIOBuffer<_N> {
+    template <int _Size> class SocketSendBuffer final : protected CircularIOBuffer<_Size> {
 
     protected:
         // xcode needs these
-        using CircularIOBuffer<_N>::_buf;
-        using CircularIOBuffer<_N>::_head;
-        using CircularIOBuffer<_N>::_tail;
+        using CircularIOBuffer<_Size>::_buf;
+        using CircularIOBuffer<_Size>::_head;
+        using CircularIOBuffer<_Size>::_tail;
 
     public:
-        using CircularIOBuffer<_N>::capacity;
-        using CircularIOBuffer<_N>::isFull;
-        using CircularIOBuffer<_N>::isEmpty;
-        using CircularIOBuffer<_N>::size;
-        using CircularIOBuffer<_N>::freeSize;
-        using CircularIOBuffer<_N>::write;
+        using CircularIOBuffer<_Size>::capacity;
+        using CircularIOBuffer<_Size>::isFull;
+        using CircularIOBuffer<_Size>::isEmpty;
+        using CircularIOBuffer<_Size>::size;
+        using CircularIOBuffer<_Size>::freeSize;
+        using CircularIOBuffer<_Size>::write;
 
         template <class _SEND> int doSend(_SEND &&func) {
             if (_head == _tail) {
@@ -34,12 +34,12 @@ namespace cw {
                 }
                 return ret;
             } else {
-                int s = _N - _head;
+                int s = _Size - _head;
                 int ret = func(_buf + _head, s);
                 if (ret > 0) {
                     _head += ret;
-                    if (_head >= _N) {
-                        _head -= _N;
+                    if (_head >= _Size) {
+                        _head -= _Size;
                     }
                 }
                 return ret;

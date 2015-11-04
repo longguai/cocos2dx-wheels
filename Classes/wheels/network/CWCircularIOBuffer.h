@@ -6,22 +6,22 @@
 
 namespace cw {
 
-    template <int _N> class CircularIOBuffer {
+    template <int _Size> class CircularIOBuffer {
 
     protected:
-        char _buf[_N];
+        char _buf[_Size];
         int _head;
         int _tail;
 
     public:
-        static const int capacity = _N - 1;
+        static const int capacity = _Size - 1;
 
-        CircularIOBuffer<_N>() : _head(0), _tail(0) {
-            static_assert(_N > 1, "_N must greater than 1");
+        CircularIOBuffer<_Size>() : _head(0), _tail(0) {
+            static_assert(_Size > 1, "_Size must greater than 1");
         }
 
         inline bool isFull() const {
-            return (_tail + 1 == _head || _tail + 1 - _N == _head);
+            return (_tail + 1 == _head || _tail + 1 - _Size == _head);
         }
 
         inline bool isEmpty() const {
@@ -32,13 +32,13 @@ namespace cw {
             if (_head <= _tail) {
                 return _tail - _head;
             } else {
-                return _N - _head + _tail;
+                return _Size - _head + _tail;
             }
         }
 
         inline int freeSize() {
             if (_head <= _tail) {
-                return _N - 1 - _tail + _head;
+                return _Size - 1 - _tail + _head;
             } else {
                 return _head - _tail - 1;
             }
@@ -61,11 +61,11 @@ namespace cw {
                     return s;
                 }
             } else {
-                int s1 = _N - _head;
+                int s1 = _Size - _head;
                 if (s1 >= len) {
                     memcpy(data, _buf + _head, len);
                     _head += len;
-                    if (_head == _N) {
+                    if (_head == _Size) {
                         _head = 0;
                     }
                     return len;
@@ -97,7 +97,7 @@ namespace cw {
                     return s;
                 }
             } else {
-                int s1 = _N - head;
+                int s1 = _Size - head;
                 if (s1 >= len) {
                     memcpy(data, _buf + head, len);
                     return len;
@@ -131,10 +131,10 @@ namespace cw {
                     return s;
                 }
             } else {
-                int s1 = _N - _head;
+                int s1 = _Size - _head;
                 if (s1 >= len) {
                     _head += len;
-                    if (_head == _N) {
+                    if (_head == _Size) {
                         _head = 0;
                     }
                     return len;
@@ -156,7 +156,7 @@ namespace cw {
             }
 
             if (_tail >= _head) {
-                int s = _N - _tail - 1;
+                int s = _Size - _tail - 1;
                 if (s >= len) {
                     memcpy(_buf + _tail, data, len);
                     _tail += len;
@@ -183,12 +183,12 @@ namespace cw {
             }
         }
 
-        template <size_t _C> int write(const char (&data)[_C]) {
-            return write(data, _C);
+        template <size_t _Size1> int write(const char (&data)[_Size1]) {
+            return write(data, _Size1);
         }
 
-        template <size_t _C> int read(char (&data)[_C]) {
-            return read(data, _C);
+        template <size_t _Size1> int read(char (&data)[_Size1]) {
+            return read(data, _Size1);
         }
     };
 }

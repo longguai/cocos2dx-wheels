@@ -10,9 +10,9 @@ namespace cw {
         // 判断点在凸多边形内
         bool inConvexPolygon(const cocos2d::Vec2 vertices[], size_t n, const cocos2d::Vec2 &point);
 
-        template <size_t _N>
-        inline bool inConvexPolygon(const cocos2d::Vec2 (&vertices)[_N], const cocos2d::Vec2 &point) {
-            return inConvexPolygon(vertices, _N, point);
+        template <size_t _Size>
+        inline bool inConvexPolygon(const cocos2d::Vec2 (&vertices)[_Size], const cocos2d::Vec2 &point) {
+            return inConvexPolygon(vertices, _Size, point);
         }
 
         template <template <class> class _ALLOC>
